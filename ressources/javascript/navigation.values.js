@@ -2,7 +2,8 @@
 
 Dashboard.value('config_routes', 
 	{
+    "_not_found"            : {file : "/_commons/not_found.html"	, handler : "empty" , login : false},
 	"/account/login/" 	: {file : "/account/login.html" 	, handler : "contenair" , login : true},
-	"/vps/" 			: {file : "/vps/index.html"		, handler : "contenair"	, login : false},
+	"/vps/" 			        : {file : "/vps/index.html"		, handler : "contenair"	, login : false},
 	}
 );

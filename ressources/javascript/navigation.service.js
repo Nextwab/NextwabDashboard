@@ -17,10 +17,10 @@ Dashboard.service("Navigation", function($location , User){
 		var URL = $location.$$absUrl;
 		var RelativeURL = URL.replace(vm_Navigation.dashboard.config.applicationURL, "");
 
-		var PageViewConfig = vm_Navigation.dashboard.config_routes[RelativeURL];
+		var PageViewConfig = vm_Navigation.ParseViewConfig(RelativeURL);
 		
 		// If user is not loggued
-		if( !User.Logged && PageViewConfig.login) {
+		if( !User.Logged && PageViewConfig && PageViewConfig.login) {
 			return vm_Navigation.dashboard.config_routes['/account/login/'];
 		}
 		
@@ -29,7 +29,24 @@ Dashboard.service("Navigation", function($location , User){
 			return PageViewConfig;
 		}
 
-		return "/_commons/not_found.html";
+		return vm_Navigation.ParseViewConfig("_not_found");
 	};
+    
+    
+    vm_Navigation.ParseViewConfig   = function(RelativeURL) {
+        
+        var route_config = vm_Navigation.dashboard.config_routes[RelativeURL];
+        
+        if(typeof route_config === "undefined") {
+            return false;
+        }
+           
+        return route_config;
+        
+        
+    }
+    
+    
+    
 		
 });
