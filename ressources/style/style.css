@@ -1,0 +1,379 @@
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:300;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58m-wi40.woff2) format("woff2");
+	unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:300;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58i-wi40.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:300;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58a-wg.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:400;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58m-wi40.woff2) format("woff2");
+	unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:400;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58i-wi40.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:400;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58a-wg.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:600;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58m-wi40.woff2) format("woff2");
+	unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:600;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58i-wi40.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:600;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-wg.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:700;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58m-wi40.woff2) format("woff2");
+	unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:700;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58i-wi40.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Quicksand';
+	font-style:normal;
+	font-weight:700;
+	src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58a-wg.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:300;
+	src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uW8-oBOL.woff2) format("woff2");
+	unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:300;
+	src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uXo-oBOL.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:300;
+	src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uXQ-oA.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:400;
+	src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQInVrEsf.woff2) format("woff2");
+	unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:400;
+	src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQJzVrEsf.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:400;
+	src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQJLVrA.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:600;
+	src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuW8-oBOL.woff2) format("woff2");
+	unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:600;
+	src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuXo-oBOL.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:600;
+	src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuXQ-oA.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:700;
+	src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuW8-oBOL.woff2) format("woff2");
+	unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:700;
+	src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuXo-oBOL.woff2) format("woff2");
+	unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
+}
+
+@font-face
+{
+	font-family:'Hind Vadodara';
+	font-style:normal;
+	font-weight:700;
+	src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuXQ-oA.woff2) format("woff2");
+	unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+}
+
+*
+{
+	margin:0;
+	padding:0
+}
+
+body
+{
+	background:url(/ressources/images/background-1.jpg);
+	font-family:'Quicksand';
+	font-size:14px
+}
+
+a
+{
+	text-decoration:none;
+	color:#FFF
+}
+
+input[type=password],input[type=text]
+{
+	font-family:Hind Vadodara;
+	margin-top:5px;
+	font-size:12px;
+	color:#656565;
+	background:#FFF;
+	width:300px;
+	padding:4px 7px;
+	border:1px solid #eee;
+	border-bottom:2px solid #e3e3e3!important;
+	border-radius:5px;
+	-webkit-transition:all .5s;
+	transition:all .5s
+}
+
+input[type=password]:focus,input[type=password]:hover,input[type=text]:focus,input[type=text]:hover,select:focus,select:hover,textarea:focus,textarea:hover
+{
+	border:1px solid #DDD;
+	border-bottom:2px solid #C1C3C4
+}
+
+input[disabled=disabled],textarea[disabled=disabled]
+{
+	background:#eee;
+	border:1px solid #ccc
+}
+
+input[disabled=disabled]:hover,textarea[disabled=disabled]:hover
+{
+	background:#eee!important;
+	border:1px solid #ccc!important;
+	cursor:not-allowed
+}
+
+.contenair
+{
+	background:#eee;
+	height:90vh;
+	margin-top:5vh;
+	width:80vw;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	border-radius:5px;
+	box-shadow:0 0 10px #000
+}
+
+.contenair .menu
+{
+	background:#6b6b6b;
+	background:-moz-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
+	background:-webkit-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
+	background:linear-gradient(135deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);
+	height:100%;
+	width:55px;
+	position:absolute;
+	top:0;
+	left:0;
+	overflow:hidden;
+	transition:all .3s;
+	border-radius:5px 0 0 5px
+}
+
+.contenair .menu:hover
+{
+	width:240px
+}
+
+.contenair .menu nav
+{
+	margin-top:40px
+}
+
+.contenair .menu a
+{
+	display:block;
+	height:45px;
+	position:relative
+}
+
+.contenair .menu span
+{
+	position:absolute;
+	left:90px;
+	top:10px;
+	transition:all .3s;
+	min-width:200px
+}
+
+.contenair .menu:hover span
+{
+	left:45px
+}
+
+.contenair .menu i
+{
+	position:absolute;
+	top:12px;
+	left:20px
+}
+
+.Popup_Login
+{
+	background:#eee;
+	text-align:center;
+	width:400px;
+	margin:0 auto;
+	margin-top:0;
+	margin-top:20vh;
+	padding:10px;
+	padding-bottom:40px;
+	box-shadow:0 0 10px #000;
+	position:relative
+}
+
+.Popup_Login:after
+{
+	content:"";
+	background:url(/ressources/images/div-footer-blue.png) center bottom;
+	position:absolute;
+	width:100%;
+	height:40px;
+	bottom:0;
+	left:0
+}
+
+.Popup_Login input
+{
+	width:215px
+}
+
+.Popup_Login b
+{
+	display:block;
+	font-weight:600
+}
+
+.Popup_Login .block
+{
+	margin-top:20px;
+	margin-bottom:40px
+}

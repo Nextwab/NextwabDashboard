@@ -1,9 +1,8 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.value('routes', 
+Dashboard.value('config_routes', 
 	{
-	"/account/" : "/account/index.html",
-	"/vps/" : "/vps/index.html",
-	
+	"/account/login/" 	: {file : "/account/login.html" 	, handler : "contenair" , login : true},
+	"/vps/" 			: {file : "/vps/index.html"		, handler : "contenair"	, login : false},
 	}
 );

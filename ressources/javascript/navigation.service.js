@@ -1,27 +1,35 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("Navigation", function($location){
+Dashboard.service("Navigation", function($location , User){
     
-	this.dashboard = null; 
-
-	this.setDashboard = function(dashboard){
-		this.dashboard = dashboard;
+	var vm_Navigation = this;
+	vm_Navigation.dashboard = null; 
+	
+	// Init dashboard
+	vm_Navigation.setDashboard = function(dashboard){
+		vm_Navigation.dashboard = dashboard;
 	};
     
-    
-	this.getPageViewFile = function(){
+	// Return page to view
+	vm_Navigation.getPageViewConfig = function(){
 	    
-	    
-	var URL = $location.$$absUrl;
-	var RelativeURL = URL.replace(this.dashboard.config.applicationURL, "");
+		// Get URL     
+		var URL = $location.$$absUrl;
+		var RelativeURL = URL.replace(vm_Navigation.dashboard.config.applicationURL, "");
 
-	if(this.dashboard.routes[RelativeURL]) {
-		return this.dashboard.routes[RelativeURL];
-	}
+		var PageViewConfig = vm_Navigation.dashboard.config_routes[RelativeURL];
+		
+		// If user is not loggued
+		if( !User.Logged && PageViewConfig.login) {
+			return vm_Navigation.dashboard.config_routes['/account/login/'];
+		}
+		
+		// If route exists in values
+		if(PageViewConfig) {
+			return PageViewConfig;
+		}
 
-	return "/_commons/not_found.html";
+		return "/_commons/not_found.html";
 	};
-    
-
-    
+		
 });

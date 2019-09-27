@@ -18,18 +18,23 @@
 			
 			<script src="/config/config.js"></script>
 			<script src="/ressources/javascript/dashboard.controller.js"></script>
+			
 			<script src="/ressources/javascript/navigation.values.js"></script>			
 			<script src="/ressources/javascript/navigation.service.js"></script>
-
 			
-			<link rel="stylesheet"  href="ressources/style/style.css" type="text/css" media="all" />
+			<script src="/ressources/javascript/api.values.js"></script>			
+			<script src="/ressources/javascript/api.service.js"></script>
+			
+			<script src="/ressources/javascript/user.service.js"></script>
+			
+			
+			<link rel="stylesheet"  href="/ressources/style/style.css" type="text/css" media="all" />
 			
 		</head>
 		
 	<body>
 	
 	<body>
-	{{Dashboard.pageRequested}}
-		<div ng-controller="DashboardController as Dashboard" ng-init="Dashboard.Init()" ng-include="Dashboard.pageRequested"></div>
+		<div ng-controller="DashboardController as Dashboard" ng-init="Dashboard.Init()" ng-include="Dashboard.pageHandler"></div>
 	</body>
 </html>
