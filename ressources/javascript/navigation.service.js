@@ -20,7 +20,7 @@ Dashboard.service("Navigation", function($location , User){
 		var PageViewConfig = vm_Navigation.ParseViewConfig(RelativeURL);
 		
 		// If user is not loggued
-		if( !User.Logged && PageViewConfig && PageViewConfig.login) {
+		if(!User.Logged && PageViewConfig && PageViewConfig.login) {
 			return vm_Navigation.dashboard.config_routes['/account/login/'];
 		}
 		

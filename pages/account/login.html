@@ -1,21 +1,20 @@
-<div class="Popup_Login">
-
-	<form ng-submit="User.Logging()">
-	
-		<div class="block">
-			<b>Utilisateur : </b>
-			<input type="text" ng-model="User.Login_Mail" />
-		</div>
+<div class="Popup Popup_Login">
+	<div class="Popup_Content">
+		<form ng-submit="User.Logging()">
 		
-		<div class="block">
-			<b>Mot de passe : </b>
-			<input type="text" ng-model="User.Login_Password" />
-		</div>
-		
-		<input type="submit" value="Se connecter" />
-		
-	</form>
-	
-	<br />
-	
+			<div class="block">
+				<b>Utilisateur : </b>
+				<input type="text" ng-model="User.Login_Mail" />
+			</div>
+			
+			<div class="block">
+				<b>Mot de passe : </b>
+				<input type="text" ng-model="User.Login_Password" />
+			</div>
+			
+			<div class="Buttons_Contenair">
+				<input type="submit" value="Se connecter" />
+			</div>
+		</form>
+	</div>	
 </div>

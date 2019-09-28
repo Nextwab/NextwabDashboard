@@ -1,16 +1,17 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("Api", function($q , $http, config_api){
-    
-	this.dashboard 		= null; 
+Dashboard.service("API", function($rootScope, $q , $http, config_api){
 	
-	this.setDashboard = function(dashboard){
-		this.dashboard = dashboard;
+	var vm_API = this
+	vm_API.dashboard 		= null; 
+	
+	vm_API.setDashboard = function(dashboard){
+		vm_API.dashboard = dashboard;
 	};
     
     
 	// Make POST Request 
-	this.post = function(endpoint , data)	{
+	vm_API.post = function(Endpoint, Action , data)	{
 		var deferred = $q.defer();
 		
 		var form_data = new FormData();
@@ -19,9 +20,17 @@ Dashboard.service("Api", function($q , $http, config_api){
 		    form_data.append(key, data[key]);
 		}
 		
+		var vm_User = vm_API.dashboard.ServiceUser;
+		
+		if(vm_User.Logged) {
+			form_data.append('LOGIN_Mail' , vm_User.Login_Mail );
+			form_data.append('LOGIN_Key_Hash' , vm_User.Login_HashKey);
+		}
+		
+
 		$http({
 			method: 'POST',
-			url: config_api.api_server + config_api.endpoints[endpoint]   ,
+			url: config_api.api_server + config_api.endpoints[Endpoint][Action]  ,
 			headers: {'Content-Type': undefined},
 			data : form_data
 		}

@@ -1,6 +1,14 @@
 RewriteEngine On
 
+# Redirect folder without slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteCond %{REQUEST_URI} !/(.*)\.(.*)
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
 
+
+# Redirect all non-hosted file to index
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.html [L]
+
