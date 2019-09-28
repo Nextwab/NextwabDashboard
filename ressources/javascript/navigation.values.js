@@ -7,5 +7,22 @@ Dashboard.value('config_routes',
 	
 	"/domains/" 			: {file : "/domains/index.html"		, handler : "contenair"	, login : true},
 	"/vps/"				: {file : "/vps/index.html"			, handler : "contenair"	, login : true},
+	"/vps/popup/add.html"	: {file : "/vps/popup/add.html"		, handler : "contenair"	, login : true},
+	"/vps/popup/edit.html"	: {file : "/vps/popup/edit.html"		, handler : "contenair"	, login : true},
+	
+	
+	// Internal Endpoints
+	Endpoints 				: {
+		'VPS' : {
+			'Add'			: "/vps/popup/add.html",
+			'Edit'			: "/vps/popup/edit.html"
+		}
+		
+	}
+	
+	
+	
+	
+	
 	}
 );

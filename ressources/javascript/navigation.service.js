@@ -1,27 +1,27 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("Navigation", function($location , User){
+Dashboard.service("NavigationService", function($location , User){
     
-	var vm_Navigation = this;
-	vm_Navigation.dashboard = null; 
+	var vm_NavigationService = this;
+	vm_NavigationService.dashboard = null; 
 	
 	// Init dashboard
-	vm_Navigation.setDashboard = function(dashboard){
-		vm_Navigation.dashboard = dashboard;
+	vm_NavigationService.setDashboard = function(dashboard){
+		vm_NavigationService.dashboard = dashboard;
 	};
     
 	// Return page to view
-	vm_Navigation.getPageViewConfig = function(){
+	vm_NavigationService.getPageViewConfig = function(){
 	    
 		// Get URL     
 		var URL = $location.$$absUrl;
-		var RelativeURL = URL.replace(vm_Navigation.dashboard.config.applicationURL, "");
+		var RelativeURL = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "");
 
-		var PageViewConfig = vm_Navigation.ParseViewConfig(RelativeURL);
+		var PageViewConfig = vm_NavigationService.getViewConfig(RelativeURL);
 		
 		// If user is not loggued
 		if(!User.Logged && PageViewConfig && PageViewConfig.login) {
-			return vm_Navigation.dashboard.config_routes['/account/login/'];
+			return vm_NavigationService.dashboard.config_routes['/account/login/'];
 		}
 		
 		// If route exists in values
@@ -29,24 +29,31 @@ Dashboard.service("Navigation", function($location , User){
 			return PageViewConfig;
 		}
 
-		return vm_Navigation.ParseViewConfig("_not_found");
+		return vm_NavigationService.getViewConfig("_not_found");
 	};
     
     
-    vm_Navigation.ParseViewConfig   = function(RelativeURL) {
-        
-        var route_config = vm_Navigation.dashboard.config_routes[RelativeURL];
-        
-        if(typeof route_config === "undefined") {
-            return false;
-        }
-           
-        return route_config;
-        
-        
-    }
+	vm_NavigationService.getViewConfig   = function(RelativeURL) {
+
+		var route_config = vm_NavigationService.dashboard.config_routes[RelativeURL];
+
+		if(typeof route_config === "undefined") {
+			return false;
+			}
+
+		return route_config;
+		}
     
-    
+	vm_NavigationService.getEndpointURL   = function(Endpoint , Action) {
+
+		var endpointURL = vm_NavigationService.dashboard.config_routes.Endpoints[Endpoint][Action];
+
+		if(typeof endpointURL === "undefined") {
+			return false;
+			}
+
+		return endpointURL;
+		}
     
 		
 });

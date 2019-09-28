@@ -1,5 +1,3 @@
-// Manage URL handling and provide navigation tools
-
 Dashboard.service("Cookies", function( $cookies ){
 	
 	var vm_Cookies = this;

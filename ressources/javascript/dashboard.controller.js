@@ -1,6 +1,6 @@
 // Application Dashboard
 
-Dashboard.controller('DashboardController', function($scope, User , Navigation , API,  Cookies, ListManager, config, config_routes, config_api) {
+Dashboard.controller('DashboardController', function($scope, User , NavigationService , API,  Cookies, ListManager, Popup, config, config_routes, config_api) {
         
 	$scope.User = User;
 	
@@ -11,7 +11,7 @@ Dashboard.controller('DashboardController', function($scope, User , Navigation ,
 	dashboard.config_routes 	= config_routes;
 	dashboard.config_api		= config_api;
 	dashboard.user			= null;
-
+	dashboard.scope		= $scope;
 	
 	//Default view settings 
 	dashboard.pageViewBase	= "pages";
@@ -23,22 +23,28 @@ Dashboard.controller('DashboardController', function($scope, User , Navigation ,
 	
 	// User Service
 	User.setDashboard(dashboard);
-	dashboard.ServiceUser	= User;
+	dashboard.ServiceUser		= User;
 	
 	
 	// Navigation Service
-	Navigation.setDashboard(dashboard);
-
+	NavigationService.setDashboard(dashboard);
+	dashboard.ServiceNavigation		= NavigationService;
+	
 	// API Service
 	API.setDashboard(dashboard);
-	dashboard.ServiceAPI		= API;
+	dashboard.ServiceAPI			= API;
+	
+	
+	// Popup Service
+	Popup.setDashboard(dashboard);
+	dashboard.ServicePopup	= Popup;
 	
 	dashboard.Init = function() {
 		dashboard.UpdateInterface();
         };
 	
 	dashboard.UpdateInterface = function() {
-		var PageViewConfig		= Navigation.getPageViewConfig();
+		var PageViewConfig		= NavigationService.getPageViewConfig();
 		dashboard.pageHandler 	= '/'+dashboard.pageViewBase+'/_commons/_'+PageViewConfig.handler+'.html';
 		dashboard.pageRequested 	= '/'+dashboard.pageViewBase+PageViewConfig.file;	
 	}

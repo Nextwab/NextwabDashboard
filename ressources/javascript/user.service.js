@@ -1,5 +1,3 @@
-// Manage URL handling and provide navigation tools
-
 Dashboard.service("User", function($rootScope , $location, API, Cookies ){
     
 	var vm_User = this;
