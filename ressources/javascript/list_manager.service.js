@@ -14,10 +14,10 @@ Dashboard.service("ListManager", function( ApiService ){
 		*/
 		
 		
-		return ApiService.post( config.endpoint , 'List' , {})
+		return ApiService.post( config.endpoint , (config.action ||  'List') , {})
 			.then(function(response) { 
 				if(response.data.State == 1) {
-					return response.data[config.return_list];
+					return response.data[ (config.return_list ||  'Data') ];
 				}
 			});
 

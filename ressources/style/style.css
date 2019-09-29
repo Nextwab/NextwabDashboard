@@ -1,624 +1,97 @@
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:300;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58m-wi40.woff2) format("woff2");
-unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:300;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58i-wi40.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:300;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58a-wg.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:400;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58m-wi40.woff2) format("woff2");
-unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:400;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58i-wi40.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:400;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58a-wg.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:600;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58m-wi40.woff2) format("woff2");
-unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:600;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58i-wi40.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:600;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-wg.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:700;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58m-wi40.woff2) format("woff2");
-unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:700;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58i-wi40.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Quicksand';
-font-style:normal;
-font-weight:700;
-src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58a-wg.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:300;
-src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uW8-oBOL.woff2) format("woff2");
-unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:300;
-src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uXo-oBOL.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:300;
-src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uXQ-oA.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:400;
-src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQInVrEsf.woff2) format("woff2");
-unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:400;
-src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQJzVrEsf.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:400;
-src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQJLVrA.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:600;
-src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuW8-oBOL.woff2) format("woff2");
-unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:600;
-src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuXo-oBOL.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:600;
-src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuXQ-oA.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:700;
-src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuW8-oBOL.woff2) format("woff2");
-unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:700;
-src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuXo-oBOL.woff2) format("woff2");
-unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF
-}
-
-@font-face {
-font-family:'Hind Vadodara';
-font-style:normal;
-font-weight:700;
-src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuXQ-oA.woff2) format("woff2");
-unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
-}
-
-* {
-margin:0;
-padding:0
-}
-
-body {
-background:url(/ressources/images/background-1.jpg);
-font-family:'Quicksand';
-font-size:14px;
-color:#535353;
-height:100%
-}
-
-a {
-text-decoration:none;
-color:#FFF
-}
-
-input[type=password],input[type=text] {
-font-family:Hind Vadodara;
-margin-top:5px;
-font-size:12px;
-color:#656565;
-background:#FFF;
-width:300px;
-padding:4px 7px;
-border:1px solid #eee;
-border-bottom:2px solid #e3e3e3!important;
-border-radius:5px;
--webkit-transition:all .5s;
-transition:all .5s
-}
-
-input[type=password]:focus,input[type=password]:hover,input[type=text]:focus,input[type=text]:hover,select:focus,select:hover,textarea:focus,textarea:hover {
-border:1px solid #DDD;
-border-bottom:2px solid #C1C3C4
-}
-
-input[disabled=disabled],textarea[disabled=disabled] {
-background:#eee;
-border:1px solid #ccc
-}
-
-input[disabled=disabled]:hover,textarea[disabled=disabled]:hover {
-background:#eee!important;
-border:1px solid #ccc!important;
-cursor:not-allowed
-}
-
-input[type=submit],.button {
-background:#3a6c88;
-border-radius:3px;
-border:0;
-padding:8px 15px 6px;
-width:auto;
-font-family:Quicksand;
-font-weight:800;
-color:#FFF;
-border-bottom:3px solid #294d62;
-font-size:12px;
-z-index:2;
-position:relative;
-cursor:pointer;
-}
-
-h1 {
-font-weight:200
-}
-
-.legend {
-font-size:12px
-}
-
-.width-full {
-width:100%
-}
-
-.bull {
-height:10px;
-width:10px;
-display:inline-block;
-border-radius:19px;
-vertical-align:-1px;
-margin-right:6px
-}
-
-.bull.green {
-background:#499112
-}
-
-.contenair {
-background:#eee;
-height:90vh;
-margin-top:5vh;
-width:80vw;
-margin-left:auto;
-margin-right:auto;
-position:relative;
-border-radius:5px;
-box-shadow:0 0 10px #000
-}
-
-.contenair .menu {
-background:#6b6b6b;
-background:-moz-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
-background:-webkit-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
-background:linear-gradient(135deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);
-height:100%;
-width:55px;
-position:absolute;
-top:0;
-left:0;
-overflow:hidden;
-transition:all .3s;
-border-radius:5px 0 0 5px
-}
-
-.contenair .menu:hover {
-width:240px
-}
-
-.contenair .menu nav {
-margin-top:40px
-}
-
-.contenair .menu a {
-display:block;
-height:45px;
-position:relative
-}
-
-.contenair .menu span {
-position:absolute;
-left:90px;
-top:10px;
-transition:all .3s;
-min-width:200px
-}
-
-.contenair .menu:hover span {
-left:45px
-}
-
-.contenair .menu i {
-position:absolute;
-top:12px;
-left:20px
-}
-
-.Frame {
-margin-left:55px;
-padding:20px;
-overflow:hidden;
-display:flex;
-flex-flow:column;
-height:85vh
-}
-
-.Frame .Frame_Header {
-flex:0 1 auto;
-width:100%
-}
-
-.Frame .Frame_Header .button {
-position:absolute;
-right:37px;
-top:21px
-}
-
-.Frame .List_Contenair {
-width:100%;
-flex:1 1 auto;
-overflow-x:auto;
-padding-right:20px
-}
-
-.Frame .List_Contenair .button_action {
-background:#eee;
-padding:5px 7px;
-border-radius:5px;
-margin-left:4px;
-cursor:pointer;
-}
-
-popup
-{
-position: absolute;
-top: 10vh;
-background:rgba(0,0,0,0) url(https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png) repeat scroll 0 0;
-width: 800px;
-left: 0;
-right: 0;
-margin-left: auto;
-margin-right: auto;
-box-shadow: 0 0 50px #b3b3b3;
-border-radius: 4px;	
-overflow:hidden;
-}
-
-
-.Popup {
-background:rgba(0,0,0,0) url(https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png) repeat scroll 0 0;
-text-align:center;
-width:400px;
-margin:0 auto;
-margin-top:0;
-margin-top:20vh;
-padding:10px;
-box-shadow: 0 0 50px #b3b3b3;
-position:relative;
-border-radius:2px;
-border-bottom:3px solid #828282;
-padding-bottom:25px;
-
-}
-
-.Popup:after {
-content:"";
-background:#6b6b6b;
-background:-moz-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
-background:-webkit-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
-background:linear-gradient(135deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);
-opacity:.6;
-position:absolute;
-width:100%;
-height:40px;
-bottom:0;
-left:0
-}
-
-.Popup input[type=text],.Popup input[type=password] {
-width:215px
-}
-
-.Popup b {
-display:block;
-font-weight:600
-}
-
-.Popup .block {
-margin-top:20px;
-margin-bottom:40px
-}
-
-.Popup .Buttons_Contenair {
-text-align:right;
-padding:0 20px
-}
-
-.Popup_Header {
-font-weight: bold;
-background: rgb(203,96,179);
-background: -moz-linear-gradient(135deg, rgb(96, 195, 203) 0%,rgb(70, 131, 193) 50%,rgb(54, 183, 219) 100%);
-background: -webkit-linear-gradient(135deg, rgb(96, 195, 203) 0%,rgb(70, 131, 193) 50%,rgb(54, 183, 219) 100%);
-background: linear-gradient(135deg, rgb(96, 195, 203) 0%,rgb(70, 131, 193) 50%,rgb(54, 183, 219) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#db36a4',GradientType=1 );
-
-padding: 15px;
-color: #FFF;
-text-transform: uppercase;
-font-size: 12px; 
-position:relative;
-}
-
-.Popup_Header i{
-position: absolute;
-
-right: 15px;
-
-top: 14px;
-
-font-size: 19px;
-}
-
-.Popup_Content{
-padding:20px;
-}
-
-.List_Item {
-background:#FFF;
-margin-bottom:15px;
-padding:10px;
-border-radius:5px;
-border-bottom:3px solid #ddd;
-margin-top:15px
-}
-
-.Line_Item {
-margin-bottom:40px;    
-}
-.Line_Item_Unit {
-
-    font-size: 19px;
-    color: #19A6C4;
-
-}
-
-.range_contenair
-{
-    margin-top:10px;
-display:table;    
-width: 100%;
-border-collapse:separate;
-border-spacing:1px;
-}
-
-.range_contenair_row
-{
-display:table-row;    
-}
-
-.range_contenair_row div
-{
-display: table-cell;
-cursor: pointer;
-position: relative;
-height:25px;
-}
-
-.range_contenair_row .bar
-{
-background: #ddd;
-height: 5px;
-margin-top: 6px;
-transition: all 0.3s;
-position:absolute;
-bottom:0px;
-width:100%;
-left:0px;
-}
-.range_contenair_row b{
-transition: all 0.3s;    
-}
-.range_contenair_row div.enabled_tmp .bar
-{
-    background:#98C8D2;
-}
-.range_contenair_row div.enabled_tmp b
-{
-    color:#519EAE;
-}
-.range_contenair_row div.enabled .bar
-{
-    background:#19A6C4;
-}
-.range_contenair_row div.enabled b
-{
-    color:#19A6C4;
-}
-.range_contenair_row div i
-{
-font-size:10px;
-vertical-align: 1px;
-}
-
-.range_contenair_row div b
-{
-font-size: 12px;
-position: absolute;
-top: 3px;
-right: -1px;
-width: 80px;
-text-align: right;
-border-right: 1px solid #0000;
-padding-right: 4px;
-height: 11px;
-}
-
-.range_contenair_row:hover b
-{
-border-right: 1px solid #d9d9d9;
-}
-
-.range_contenair_row div:first-child .bar
-{
-border-radius:4px 0 0 4px;
-}
-
-.range_contenair_row div:last-child .bar
-{
-border-radius:0px 4px 4px 0px;
-}
-
-.range_contenair_row div:after
-{
-content: "";
-background: #19A6C4;
-width: 0px;
-height: 0px;
-position: absolute;
-right: -1px;
-border-radius: 13px;
-transition: all 0.3s;
-bottom: -1px;
-}
-
-
-
-.range_contenair_row .selected_tmp:after
-{
-width: 14px;
-
-height: 14px;
-
-bottom: -5px;
-background: #98C8D2;
-}
-
-.range_contenair_row .selected:after
-{
-width: 20px;
-height: 20px;
-bottom: -7px;
-background: #19A6C4;
-}
-
-.range_contenair_row .selected b
-{
-top: -7px;
-
-right: -1px;
-border:0px;
-}
-
-
-.range_contenair.selected b
-{
-   color:#ccc;
-}
-
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58m-wi40.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58i-wi40.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58a-wg.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58m-wi40.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58i-wi40.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58a-wg.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58m-wi40.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58i-wi40.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-wg.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58m-wi40.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58i-wi40.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Quicksand';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/quicksand/v14/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv58a-wg.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:300;src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uW8-oBOL.woff2) format("woff2");unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:300;src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uXo-oBOL.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:300;src:local('Hind Vadodara Light'),local(HindVadodara-Light),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSDn3uXQ-oA.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:400;src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQInVrEsf.woff2) format("woff2");unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:400;src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQJzVrEsf.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:400;src:local('Hind Vadodara Regular'),local(HindVadodara-Regular),url(https://fonts.gstatic.com/s/hindvadodara/v6/neINzCKvrIcn5pbuuuriV9tTQJLVrA.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:600;src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuW8-oBOL.woff2) format("woff2");unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:600;src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuXo-oBOL.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:600;src:local('Hind Vadodara SemiBold'),local(HindVadodara-SemiBold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSE3xuXQ-oA.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:700;src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuW8-oBOL.woff2) format("woff2");unicode-range:U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:700;src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuXo-oBOL.woff2) format("woff2");unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Hind Vadodara';font-style:normal;font-weight:700;src:local('Hind Vadodara Bold'),local(HindVadodara-Bold),url(https://fonts.gstatic.com/s/hindvadodara/v6/neIQzCKvrIcn5pbuuuriV9tTSCnwuXQ-oA.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+*{margin:0;padding:0}
+body{background:url(/ressources/images/background-1.jpg);font-family:'Quicksand';font-size:14px;color:#535353;height:100%}
+a{text-decoration:none;color:#FFF}
+input[type=password],input[type=text]{font-family:Hind Vadodara;margin-top:5px;font-size:12px;color:#656565;background:#FFF;width:300px;padding:4px 7px;border:1px solid #eee;border-bottom:2px solid #e3e3e3!important;border-radius:5px;-webkit-transition:all .5s;transition:all .5s}
+input[type=password]:focus,input[type=password]:hover,input[type=text]:focus,input[type=text]:hover,select:focus,select:hover,textarea:focus,textarea:hover{border:1px solid #DDD;border-bottom:2px solid #C1C3C4}
+input[disabled=disabled],textarea[disabled=disabled]{background:#eee;border:1px solid #ccc}
+input[disabled=disabled]:hover,textarea[disabled=disabled]:hover{background:#eee!important;border:1px solid #ccc!important;cursor:not-allowed}
+input[type=submit],.button{background:#3a6c88;border-radius:3px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
+h1{font-weight:200}
+.legend{font-size:12px}
+.width-full{width:100%}
+.bull{height:10px;width:10px;display:inline-block;border-radius:19px;vertical-align:-1px;margin-right:6px}
+.bull.green{background:#499112}
+.contenair{background:#eee;height:90vh;margin-top:5vh;width:80vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
+.contenair .menu{background:#6b6b6b;background:-moz-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);background:-webkit-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);background:linear-gradient(135deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);height:100%;width:55px;position:absolute;top:0;left:0;overflow:hidden;transition:all .3s;border-radius:5px 0 0 5px}
+.contenair .menu:hover{width:240px}
+.contenair .menu nav{margin-top:40px}
+.contenair .menu a{display:block;height:45px;position:relative}
+.contenair .menu span{position:absolute;left:90px;top:10px;transition:all .3s;min-width:200px}
+.contenair .menu:hover span{left:45px}
+.contenair .menu i{position:absolute;top:12px;left:20px}
+.Frame{margin-left:55px;padding:20px;overflow:hidden;display:flex;flex-flow:column;height:85vh}
+.Frame .Frame_Header{flex:0 1 auto;width:100%}
+.Frame .Frame_Header .button{position:absolute;right:37px;top:21px}
+.Frame .List_Contenair{width:100%;flex:1 1 auto;overflow-x:auto;padding-right:20px}
+.Frame .List_Contenair .button_action{background:#eee;padding:5px 7px;border-radius:5px;margin-left:4px;cursor:pointer}
+
+/* POPUP */
+popup{position:fixed;top:10vh;background:rgba(0,0,0,0) url(https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png) repeat scroll 0 0;width:800px;left:0;right:0;margin-left:auto;margin-right:auto;box-shadow:0 0 50px #b3b3b3;border-radius:4px;overflow:hidden}
+.Popup{background:rgba(0,0,0,0) url(https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png) repeat scroll 0 0;text-align:center;width:400px;margin:0 auto;margin-top:0;margin-top:20vh;padding:10px;box-shadow:0 0 50px #b3b3b3;position:relative;border-radius:2px;border-bottom:3px solid #828282;padding-bottom:25px}
+.Popup:after{content:"";background:#6b6b6b;background:-moz-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);background:-webkit-linear-gradient(-45deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);background:linear-gradient(135deg,rgba(107,107,107,1) 0%,rgba(56,56,56,1) 50%,rgba(33,33,33,1) 50%,rgba(0,0,0,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);opacity:.6;position:absolute;width:100%;height:40px;bottom:0;left:0}
+.Popup input[type=text],.Popup input[type=password]{width:215px}
+.Popup b{display:block;font-weight:600}
+.Popup .block{margin-top:20px;margin-bottom:40px}
+.Popup .Buttons_Contenair{text-align:right;padding:0 20px}
+.Popup_Header{cursor:move;font-weight:700;background:#cb60b3;background:-moz-linear-gradient(135deg,#60c3cb 0%,#4683c1 50%,#36b7db 100%);background:-webkit-linear-gradient(135deg,#60c3cb 0%,#4683c1 50%,#36b7db 100%);background:linear-gradient(135deg,#60c3cb 0%,#4683c1 50%,#36b7db 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cb60b3',endColorstr='#db36a4',GradientType=1);padding:15px;color:#FFF;text-transform:uppercase;font-size:12px;position:relative}
+.Popup_Header i{position:absolute;right:15px;top:14px;font-size:19px}
+.Popup_Content{padding:20px;height: 73vh;
+
+overflow-y: scroll;}
+/* END ----------- POPUP */
+
+
+
+.List_Item{background:#FFF;margin-bottom:15px;padding:10px;border-radius:5px;border-bottom:3px solid #ddd;margin-top:15px}
+.Line_Item{margin-bottom:40px}
+.Line_Item_Unit{font-size:19px;color:#19A6C4}
+
+
+/* Component : Selector  */
+.range_contenair{margin-top:10px;display:table;width:100%;border-collapse:separate;border-spacing:1px}
+.range_contenair_row{display:table-row}
+.range_contenair_row div{display:table-cell;cursor:pointer;position:relative;height:25px}
+.range_contenair_row .bar{background:#ddd;height:5px;margin-top:6px;transition:all .3s;position:absolute;bottom:0;width:100%;left:0}
+.range_contenair_row b{transition:all .3s}
+.range_contenair_row div.enabled_tmp .bar{background:#98C8D2}
+.range_contenair_row div.enabled_tmp b{color:#519EAE}
+.range_contenair_row div.enabled .bar{background:#19A6C4}
+.range_contenair_row div.enabled b{color:#19A6C4}
+.range_contenair_row div i{font-size:10px;vertical-align:1px}
+.range_contenair_row div b{font-size:12px;position:absolute;top:3px;right:-1px;width:80px;text-align:right;border-right:1px solid #0000;padding-right:4px;height:11px}
+.range_contenair_row:hover b{border-right:1px solid #d9d9d9}
+.range_contenair_row div:first-child .bar{border-radius:4px 0 0 4px}
+.range_contenair_row div:last-child .bar{border-radius:0 4px 4px 0}
+.range_contenair_row div:after{content:"";background:#19A6C4;width:0;height:0;position:absolute;right:-1px;border-radius:13px;transition:all .3s;bottom:-1px}
+.range_contenair_row .selected_tmp:after{width:14px;height:14px;bottom:-5px;background:#98C8D2}
+.range_contenair_row .selected:after{width:20px;height:20px;bottom:-7px;background:#19A6C4}
+.range_contenair_row .selected b{top:-7px;right:-1px;border:0}
+.range_contenair.selected b{color:#ccc}
+.range_contenair .option{display:inline-block;border:2px solid #d2d2d2;border-radius:3px;margin-right:10px;padding:6px 13px;font-weight:600;transition:all .2s;cursor:pointer;color:#828282;margin-bottom:10px}
+.range_contenair .option:hover{border:2px solid #9CD0DB;color:#6AA8B5}
+.range_contenair .option.selected{color:#fff;border:2px solid #19A6C4;background:#19A6C4}
+/* END ----------- Component : Selector  */

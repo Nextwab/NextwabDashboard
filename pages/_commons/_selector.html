@@ -1,11 +1,29 @@
-<div class="range_contenair {{SelectorController.value ? 'selected' : ''}}">
-    <div class="range_contenair_row">
-        <div ng-repeat="selector in SelectorController.Selectors track by $index" 
-            ng-click="SelectorController.select(selector)" ng-mouseover="SelectorController.over(selector)" ng-mouseleave="SelectorController.leave(selector)"
-            class="{{SelectorController.value_over >= selector.value ? 'enabled_tmp' : '' }}  {{SelectorController.value >= selector.value ? 'enabled' : '' }} {{SelectorController.value == selector.value ? 'selected' : '' }} {{SelectorController.value_over == selector.value ? 'selected_tmp' : '' }} "
-            >
-            <div class="bar"></div>
-            <b ng-if="( (selector.display_value && !SelectorController.display_only_selected ) || SelectorController.value == selector.value ||  (SelectorController.value_over == selector.value && SelectorController.display_only_selected) )"><i class="{{SelectorController.icon}}" ng-if="SelectorController.icon" ></i> {{selector.value}} {{SelectorController.unit}}</b>
+<div class="selector-component">
+    
+    <!-- Range Selector -->
+    <div class="range_contenair {{SelectorController.value ? 'selected' : ''}}" ng-if="SelectorController.type == 'range'">
+        <div class="range_contenair_row">
+            <div ng-repeat="selector in SelectorController.Selectors track by $index" 
+                ng-click="SelectorController.select(selector)" ng-mouseover="SelectorController.over(selector)" ng-mouseleave="SelectorController.leave(selector)"
+                class="{{SelectorController.value_over >= selector.value ? 'enabled_tmp' : '' }}  {{SelectorController.value >= selector.value ? 'enabled' : '' }} {{SelectorController.value == selector.value ? 'selected' : '' }} {{SelectorController.value_over == selector.value ? 'selected_tmp' : '' }} "
+                >
+                <div class="bar"></div>
+                <b ng-if="( (selector.display_value && !SelectorController.display_only_selected ) || SelectorController.value == selector.value ||  (SelectorController.value_over == selector.value && SelectorController.display_only_selected) )"><i class="{{SelectorController.icon}}" ng-if="SelectorController.icon" ></i> {{selector.value}} {{SelectorController.unit}}</b>
+            </div>
         </div>
     </div>
+    
+    
+    <!-- Option Selector -->
+    <div class="range_contenair {{SelectorController.value ? 'selected' : ''}}" ng-if="SelectorController.type == 'option'">
+        <div ng-repeat="selector in SelectorController.Selectors track by $index" 
+                ng-click="SelectorController.select(selector)"
+                class="option {{SelectorController.value == selector.value ? 'selected' : '' }}"
+                >
+                <i class="{{selector.icon}}"/> {{selector.title}}
+         </div>
+    </div>
+    
+   
+    
 </div>

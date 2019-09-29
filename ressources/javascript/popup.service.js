@@ -40,12 +40,13 @@ Dashboard.directive("popup", function(NavigationService){
     
     
 // Popup Controller injected in directive 
-var PopupController = function($scope, $element, NavigationService){
+var PopupController = function($scope, $element, $window, $document, NavigationService){
 			
 	var vm_Popup                            = this;
 	
     vm_Popup.POPUP_Endpoint_URL             = "_not_found";
     vm_Popup.POPUP_Title                    = "";
+    vm_Popup.Drag                           = false;
     
 	if(typeof $element[0].attributes.config.nodeValue !== "undefined")
 		{
@@ -61,10 +62,34 @@ var PopupController = function($scope, $element, NavigationService){
     
     
     vm_Popup.Close  = function(Popup) {
-        $($element).fadeOut()
-        
+        $($element).fadeOut().remove(); 
     }
     
+    
+    // Drag popup - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    $element.find('.Popup_Header').bind("mousedown", function(e) {
+        vm_Popup.Drag                       = {origin_x : e.pageX , origin_y : e.pageY, X:  angular.element($element).prop('offsetLeft'), Y:  angular.element($element).prop('offsetTop') };
+        return false;
+    });
+    
+    $element.find('.Popup_Header').bind("mouseup", function(e) {
+        vm_Popup.Drag                       = false;
+        return false;
+    });
+
+    $document.mousemove(function(e) {
+
+        if(vm_Popup.Drag){
+            var left = (vm_Popup.Drag.X - (vm_Popup.Drag.origin_x - e.pageX) );
+            var top = (vm_Popup.Drag.Y - (vm_Popup.Drag.origin_y - e.pageY) );
+           
+            $($element).css('left' , left +'px');
+            $($element).css('top' , top +'px');
+            $($element).css('right' , 'auto');
+        }
+
+    });
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     
 };
 
