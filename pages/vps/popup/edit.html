@@ -1,1 +1,8 @@
-<div>Edit VPS</div>
+<div ng-controller="VPS_Controller as VPS_Editor">
+    <div class="Line_Item" ng-repeat="VPS_Setting in VPS_Editor.Settings">
+        <b>{{VPS_Setting.title}} :</b> <span class="Line_Item_Unit">{{VPS_Setting.value}} {{VPS_Setting.unit}}</span>
+
+        <!-- Test -->
+        <selector type="range" driver="VPS_Setting"></selector>
+    </div>
+</div>

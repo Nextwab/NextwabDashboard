@@ -379,15 +379,15 @@ popup
 {
 position: absolute;
 top: 10vh;
-background: #eee;
+background:rgba(0,0,0,0) url(https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png) repeat scroll 0 0;
 width: 800px;
 left: 0;
 right: 0;
 margin-left: auto;
 margin-right: auto;
-box-shadow: 0 0 5px #111;
-padding: 20px;
+box-shadow: 0 0 50px #b3b3b3;
 border-radius: 4px;	
+overflow:hidden;
 }
 
 
@@ -399,11 +399,12 @@ margin:0 auto;
 margin-top:0;
 margin-top:20vh;
 padding:10px;
-box-shadow:0 0 10px #000;
+box-shadow: 0 0 50px #b3b3b3;
 position:relative;
 border-radius:2px;
 border-bottom:3px solid #828282;
-padding-bottom:25px
+padding-bottom:25px;
+
 }
 
 .Popup:after {
@@ -440,6 +441,35 @@ text-align:right;
 padding:0 20px
 }
 
+.Popup_Header {
+font-weight: bold;
+background: rgb(203,96,179);
+background: -moz-linear-gradient(135deg, rgb(96, 195, 203) 0%,rgb(70, 131, 193) 50%,rgb(54, 183, 219) 100%);
+background: -webkit-linear-gradient(135deg, rgb(96, 195, 203) 0%,rgb(70, 131, 193) 50%,rgb(54, 183, 219) 100%);
+background: linear-gradient(135deg, rgb(96, 195, 203) 0%,rgb(70, 131, 193) 50%,rgb(54, 183, 219) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#db36a4',GradientType=1 );
+
+padding: 15px;
+color: #FFF;
+text-transform: uppercase;
+font-size: 12px; 
+position:relative;
+}
+
+.Popup_Header i{
+position: absolute;
+
+right: 15px;
+
+top: 14px;
+
+font-size: 19px;
+}
+
+.Popup_Content{
+padding:20px;
+}
+
 .List_Item {
 background:#FFF;
 margin-bottom:15px;
@@ -448,3 +478,147 @@ border-radius:5px;
 border-bottom:3px solid #ddd;
 margin-top:15px
 }
+
+.Line_Item {
+margin-bottom:40px;    
+}
+.Line_Item_Unit {
+
+    font-size: 19px;
+    color: #19A6C4;
+
+}
+
+.range_contenair
+{
+    margin-top:10px;
+display:table;    
+width: 100%;
+border-collapse:separate;
+border-spacing:1px;
+}
+
+.range_contenair_row
+{
+display:table-row;    
+}
+
+.range_contenair_row div
+{
+display: table-cell;
+cursor: pointer;
+position: relative;
+height:25px;
+}
+
+.range_contenair_row .bar
+{
+background: #ddd;
+height: 5px;
+margin-top: 6px;
+transition: all 0.3s;
+position:absolute;
+bottom:0px;
+width:100%;
+left:0px;
+}
+.range_contenair_row b{
+transition: all 0.3s;    
+}
+.range_contenair_row div.enabled_tmp .bar
+{
+    background:#98C8D2;
+}
+.range_contenair_row div.enabled_tmp b
+{
+    color:#519EAE;
+}
+.range_contenair_row div.enabled .bar
+{
+    background:#19A6C4;
+}
+.range_contenair_row div.enabled b
+{
+    color:#19A6C4;
+}
+.range_contenair_row div i
+{
+font-size:10px;
+vertical-align: 1px;
+}
+
+.range_contenair_row div b
+{
+font-size: 12px;
+position: absolute;
+top: 3px;
+right: -1px;
+width: 80px;
+text-align: right;
+border-right: 1px solid #0000;
+padding-right: 4px;
+height: 11px;
+}
+
+.range_contenair_row:hover b
+{
+border-right: 1px solid #d9d9d9;
+}
+
+.range_contenair_row div:first-child .bar
+{
+border-radius:4px 0 0 4px;
+}
+
+.range_contenair_row div:last-child .bar
+{
+border-radius:0px 4px 4px 0px;
+}
+
+.range_contenair_row div:after
+{
+content: "";
+background: #19A6C4;
+width: 0px;
+height: 0px;
+position: absolute;
+right: -1px;
+border-radius: 13px;
+transition: all 0.3s;
+bottom: -1px;
+}
+
+
+
+.range_contenair_row .selected_tmp:after
+{
+width: 14px;
+
+height: 14px;
+
+bottom: -5px;
+background: #98C8D2;
+}
+
+.range_contenair_row .selected:after
+{
+width: 20px;
+height: 20px;
+bottom: -7px;
+background: #19A6C4;
+}
+
+.range_contenair_row .selected b
+{
+top: -7px;
+
+right: -1px;
+border:0px;
+}
+
+
+.range_contenair.selected b
+{
+   color:#ccc;
+}
+

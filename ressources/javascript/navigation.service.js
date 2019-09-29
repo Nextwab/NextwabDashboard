@@ -1,6 +1,6 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("NavigationService", function($location , User){
+Dashboard.service("NavigationService", function($location , UserService){
     
 	var vm_NavigationService = this;
 	vm_NavigationService.dashboard = null; 
@@ -20,7 +20,7 @@ Dashboard.service("NavigationService", function($location , User){
 		var PageViewConfig = vm_NavigationService.getViewConfig(RelativeURL);
 		
 		// If user is not loggued
-		if(!User.Logged && PageViewConfig && PageViewConfig.login) {
+		if(!UserService.Logged && PageViewConfig && PageViewConfig.login) {
 			return vm_NavigationService.dashboard.config_routes['/account/login/'];
 		}
 		

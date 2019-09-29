@@ -22,15 +22,15 @@ Dashboard.service("Popup", function($compile , $location){
 Dashboard.directive("popup", function(NavigationService){
 	
 	var PopupConfig = {
-		restrict: 'EA',
-		replace: false,
-		transclude: true,
-		require: '^?',
-		scope : {},
-		controllerAs : 'Popup',
-		controller: PopupController,
-		templateUrl: '/pages/_commons/_popup.html',
-		link: function(scope, element, attrs){
+		restrict        : 'EA',
+		replace         : false,
+		transclude      : true,
+		require         : '^?',
+		scope           : {},
+		controllerAs    : "Popup",
+		controller      : PopupController,
+		templateUrl     : '/pages/_commons/_popup.html',
+		link            : function(scope, element, attrs){
 		}
 	};
 	
@@ -42,14 +42,31 @@ Dashboard.directive("popup", function(NavigationService){
 // Popup Controller injected in directive 
 var PopupController = function($scope, $element, NavigationService){
 			
-	var vm_Popup = this;
-	vm_Popup.POPUP_Endpoint_URL = "_not_found";
-
+	var vm_Popup                            = this;
+	
+    vm_Popup.POPUP_Endpoint_URL             = "_not_found";
+    vm_Popup.POPUP_Title                    = "";
+    
 	if(typeof $element[0].attributes.config.nodeValue !== "undefined")
 		{
-		var Config = JSON.parse($element[0].attributes.config.nodeValue);
-		vm_Popup.POPUP_Endpoint_URL = NavigationService.getEndpointURL(Config.Endpoint, Config.Action );
+		var config                          = JSON.parse($element[0].attributes.config.nodeValue);
+		
+        vm_Popup.POPUP_Endpoint_URL         = NavigationService.getEndpointURL(config.Endpoint, config.Action );
+        vm_Popup.POPUP_Title                = config.Title;
+        
 		}
-
-	vm_Popup.POPUP_PageToInclude  =  '/pages'+NavigationService.getViewConfig(vm_Popup.POPUP_Endpoint_URL).file;
+    
+    
+	vm_Popup.POPUP_PageToInclude            =  '/pages'+NavigationService.getViewConfig(vm_Popup.POPUP_Endpoint_URL).file;
+    
+    
+    vm_Popup.Close  = function(Popup) {
+        $($element).fadeOut()
+        
+    }
+    
+    
 };
+
+
+

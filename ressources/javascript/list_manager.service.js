@@ -1,12 +1,12 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("ListManager", function(  API ){
+Dashboard.service("ListManager", function( ApiService ){
 	
-	var vm_ListManager = this;
+	var vm_ListManager      = this;
 	
 	
 	
-	vm_ListManager.init = function( config ) {
+	vm_ListManager.init     = function( config ) {
 		
 		/*
 			- config.endpoint = Name of config_api "Section" 
@@ -14,7 +14,7 @@ Dashboard.service("ListManager", function(  API ){
 		*/
 		
 		
-		return API.post( config.endpoint , 'List' , {})
+		return ApiService.post( config.endpoint , 'List' , {})
 			.then(function(response) { 
 				if(response.data.State == 1) {
 					return response.data[config.return_list];
