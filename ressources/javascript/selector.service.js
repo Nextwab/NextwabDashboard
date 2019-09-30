@@ -70,8 +70,6 @@ var SelectorController = function( $scope, $element){
                 
                 vm_Selector.Selectors[config.value] = config;
             }
-            
-            console.log(vm_Selector.Selectors);
         };
         
         vm_Selector.generateOptions();

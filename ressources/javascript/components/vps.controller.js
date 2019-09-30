@@ -1,16 +1,16 @@
 Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager) {
 	
-	var VPS                 = this;
-	var Dashboard           = null; 
-    
+    var VPS                 = this;
+    var Dashboard           = null; 
+
     VPS.OS_List             = null;
     VPS.Price               = null;
     VPS.Calculated_Price    = 0;
     VPS.Calculated_Days     = 31;
-    
-    
+
+
     // VPS Creation & Edition settings
-	VPS.Settings    = {
+    VPS.Settings    = {
         vCores          : {title: "vCores"          , name : "vCores"       , type:"range"  , icon: "fas fa-microchip"          , range_start   : 1 , range_end : 8   , value : 1     , unit: "CPU"   },
         Ram             : {title: "RAM"             , name : "Ram"          , type:"range"  , icon: "fas fa-memory"             , range_start   : 1 , range_end : 14  , value : 1     , unit: "GB"    , display_step:2},
         Disk            : {title: "Stockage"        , name : "Disk"         , type:"range"  , icon: "fas fa-hdd"                , range_start   : 1 , range_end : 300 , value : 50    , unit: "GB"    ,range_step: 10 , display_step:50},
