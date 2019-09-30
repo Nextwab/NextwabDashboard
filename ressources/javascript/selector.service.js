@@ -44,35 +44,53 @@ var SelectorController = function( $scope, $element){
         vm_Selector.drag                    = false;
         vm_Selector.value_over              = null;
         vm_Selector.show_max_values         = 15;
-      
         
-        _default_config                     = {
-            enabled         : false,
-            enabled_tmp     : false,
-            display_value   : false
-        }
         
-        var last_step_displayed = 0;
-        
-        for (var i=vm_Selector.range_start ; i <= (vm_Selector.range_end / vm_Selector.range_step) ; i++) {
-            var config              = angular.copy(_default_config);
+        vm_Selector.generateOptions     = function() {
+            vm_Selector.Selectors       = {};     // Flush old list
+            var last_step_displayed = 0;
             
-            config.value            = i*vm_Selector.range_step;
-            
-            if( (last_step_displayed + vm_Selector.display_step) == config.value ) 
-                {
-                config.display_value    = true;    
-                last_step_displayed     = config.value;
-                }
-            
-            vm_Selector.Selectors[config.value] = config;
-        }
+            _default_config                     = {
+                enabled         : false,
+                enabled_tmp     : false,
+                display_value   : false
+            };
         
+            
+            for (var i=vm_Selector.range_start ; i <= (vm_Selector.range_end / vm_Selector.range_step) ; i++) {
+                var config              = angular.copy(_default_config);
+                
+                config.value            = i*vm_Selector.range_step;
+                
+                if( (last_step_displayed + vm_Selector.display_step) == config.value ) 
+                    {
+                    config.display_value    = true;    
+                    last_step_displayed     = config.value;
+                    }
+                
+                vm_Selector.Selectors[config.value] = config;
+            }
+            
+            console.log(vm_Selector.Selectors);
+        };
         
+        vm_Selector.generateOptions();
+        
+        // Handle Clic selection action
         vm_Selector.select = function(selector){
             vm_Selector.value                     = selector.value;
             Selector_Settings.value               = selector.value;
             Selector_Settings.value_displayed     = selector.value;
+            
+            // If onchange handler is defined, we must have a rootdriver defined in attributs
+            if(vm_Selector.on_change) {
+                
+                var rootDriver      = getElementAttribute($element , 'rootdriver');     // Fetch rootDriver name in attribut of component
+                var rootController  = $scope.$parent[rootDriver];                       // Get controller of root manager scope
+                   
+                // Call handler callback function
+                rootController[vm_Selector.on_change](selector.value);
+            }
         }
 
         vm_Selector.over = function(selector){
@@ -97,17 +115,17 @@ var SelectorController = function( $scope, $element){
             vm_Selector.drag = false;
             return false;
         });
-        }
+    }
     
     
     // Option Selector
     if(Selector_Settings.type == "option") {
         
-        vm_Selector.options     = Selector_Settings.options    ;
+        vm_Selector.options             = Selector_Settings.options    ;
         
         // Generate new selector list
-        vm_Selector.generateOptions = function() {
-            vm_Selector.Selectors = {};     // Flush old list
+        vm_Selector.generateOptions     = function() {
+            vm_Selector.Selectors       = {};     // Flush old list
             
             angular.forEach(vm_Selector.options, function(value, key) {
                 vm_Selector.Selectors[value.value] = value;
@@ -116,10 +134,7 @@ var SelectorController = function( $scope, $element){
         };
         
         vm_Selector.generateOptions();
-        
-        
-        
-        
+
         // Handling click action
         vm_Selector.select = function(selector){
             vm_Selector.value                   = selector.value;
@@ -129,25 +144,27 @@ var SelectorController = function( $scope, $element){
             // If onchange handler is defined, we must have a rootdriver defined in attributs
             if(vm_Selector.on_change) {
                 
-                
                 var rootDriver      = getElementAttribute($element , 'rootdriver');     // Fetch rootDriver name in attribut of component
                 var rootController  = $scope.$parent[rootDriver];                       // Get controller of root manager scope
                    
                 // Call handler callback function
                 rootController[vm_Selector.on_change](selector.value);
             }
-        }
-        
-        // if options are changed, we must generate selectors
-        $scope.$watch('Selector_Settings.options', function(newValue, oldValue, scope){
-            vm_Selector.options = newValue;
-            vm_Selector.generateOptions();
-        }, true);
-        
-
-        
-        
-        
+        }  
     }
+    
+    // if options are changed, we must generate selectors
+    $scope.$watch('Selector_Settings.options', function(newValue, oldValue, scope){
+        vm_Selector.options = newValue;
+        vm_Selector.generateOptions();
+    }, true);
+    
+    
+    // if range_end are changed, we must generate selectors
+    $scope.$watch('Selector_Settings.range_end', function(newValue, oldValue, scope){
+        vm_Selector.range_end = newValue;
+        vm_Selector.generateOptions();
+    }, true);
+    
     
 };

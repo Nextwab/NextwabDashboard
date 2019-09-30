@@ -14,6 +14,7 @@ Dashboard.service("Popup", function($compile , $location){
 	// Return page to view
 	vm_Popup.openNew = function( Config ){
 		angular.element(document.body).append($compile('<popup config=\''+JSON.stringify(Config)+'\'></popup>')(vm_Popup.dashboard.scope));
+        $('.background_overlay').fadeIn();
 	};
     
 		
@@ -63,6 +64,7 @@ var PopupController = function($scope, $element, $window, $document, NavigationS
     
     vm_Popup.Close  = function(Popup) {
         $($element).fadeOut().remove(); 
+        $('.background_overlay').fadeOut();
     }
     
     

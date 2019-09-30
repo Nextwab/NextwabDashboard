@@ -24,5 +24,18 @@ Dashboard.service("ListManager", function( ApiService ){
 	};
 	
 
-	
+    // Return form scheme data of component object
+	vm_ListManager.getValuesOf     = function( config ) {
+        
+        var toReturn    = {};
+        
+        angular.forEach(config.Settings, function(item, key) {
+                toReturn[item.name] = item.value;
+            });
+        
+        return toReturn;
+    }
+    
+    
+    
 });

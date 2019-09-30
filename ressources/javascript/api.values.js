@@ -13,6 +13,7 @@ Dashboard.value('config_api',
             List_OS         :   '/vps/get_list_os.php',
 			Delete          :   '/vps/delete.php',
 			Update          :   '/vps/update.php',
+            Pricing         :   '/vps/get_pricing.php',
 			}
 		,
 		
