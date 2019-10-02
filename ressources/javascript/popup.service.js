@@ -1,6 +1,6 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("Popup", function($compile , $location){
+Dashboard.service("PopupService", function($compile , $location){
     
 	var vm_Popup = this;
 	vm_Popup.dashboard = null; 
@@ -11,11 +11,17 @@ Dashboard.service("Popup", function($compile , $location){
 		vm_Popup.dashboard = dashboard;
 	};
     
-	// Return page to view
+	// Open new modal windows
 	vm_Popup.openNew = function( Config ){
-		angular.element(document.body).append($compile('<popup config=\''+JSON.stringify(Config)+'\'></popup>')(vm_Popup.dashboard.scope));
+		angular.element(document.body).append($compile('<popup ng-style=\''+JSON.stringify(Config.Styles)+'\' config=\''+JSON.stringify(Config)+'\'></popup>')(vm_Popup.dashboard.scope));
         $('.background_overlay').fadeIn();
 	};
+    
+    // Close
+	vm_Popup.close = function(Popup) {
+        $('popup').fadeOut().remove(); 
+        $('.background_overlay').fadeOut();
+    }
     
 		
 });
@@ -48,11 +54,13 @@ var PopupController = function($scope, $element, $window, $document, NavigationS
     vm_Popup.POPUP_Endpoint_URL             = "_not_found";
     vm_Popup.POPUP_Title                    = "";
     vm_Popup.Drag                           = false;
+    vm_Popup.Styles                         = {};
     
 	if(typeof $element[0].attributes.config.nodeValue !== "undefined")
 		{
 		var config                          = JSON.parse($element[0].attributes.config.nodeValue);
 		
+        vm_Popup.Styles                     = config.Styles;
         vm_Popup.POPUP_Endpoint_URL         = NavigationService.getEndpointURL(config.Endpoint, config.Action );
         vm_Popup.POPUP_Title                = config.Title;
         

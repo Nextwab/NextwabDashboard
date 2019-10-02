@@ -20,8 +20,8 @@ Dashboard.service("NavigationService", function($location , UserService){
 		var PageViewConfig = vm_NavigationService.getViewConfig(RelativeURL);
 		
 		// If user is not loggued
-		if(!UserService.Logged && PageViewConfig && PageViewConfig.login) {
-			return vm_NavigationService.dashboard.config_routes['/account/login/'];
+		if(!UserService.Logged && PageViewConfig && PageViewConfig.login && PageViewConfig.specific != "LoginAction") {
+            UserService.LoginForm();
 		}
 		
 		// If route exists in values
@@ -53,7 +53,5 @@ Dashboard.service("NavigationService", function($location , UserService){
 			}
 
 		return endpointURL;
-		}
-    
-		
+	}
 });

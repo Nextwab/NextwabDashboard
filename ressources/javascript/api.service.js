@@ -1,6 +1,6 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("ApiService", function($rootScope, $q , $http, config_api){
+Dashboard.service("ApiService", function($rootScope, $q , $http, config_api, ExchangeService){
 	
 	var vm_ApiService               = this
 	vm_ApiService.dashboard         = null; 
@@ -23,8 +23,8 @@ Dashboard.service("ApiService", function($rootScope, $q , $http, config_api){
 		var vm_User                 = vm_ApiService.dashboard.ServiceUser;
 		
 		if(vm_User.Logged) {
-			form_data.append('LOGIN_Mail' , vm_User.Login_Mail );
-			form_data.append('LOGIN_Key_Hash' , vm_User.Login_HashKey);
+			form_data.append('LOGIN_Mail'       , vm_User.Login_Mail );
+			form_data.append('LOGIN_Key_Hash'   , vm_User.Login_HashKey);
 		}
 		
 
@@ -35,7 +35,13 @@ Dashboard.service("ApiService", function($rootScope, $q , $http, config_api){
 			data        : form_data
 		}
 		).then(function(response) {
-			deferred.resolve(response);
+            var Reply = ExchangeService.create(response.data);
+            
+            if(typeof response.data.State !== "undefined" && (response.data.State != 1 ) ) {
+                Reply.error(response.data.Message);
+            }
+
+			deferred.resolve(Reply);
 		},
 		function(err){
 			deferred.reject(err);

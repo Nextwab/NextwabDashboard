@@ -1,6 +1,6 @@
 // Application Dashboard
 
-Dashboard.controller('DashboardController', function($scope, UserService , NavigationService , ApiService,  Cookies, ListManager, Popup, config, config_routes, config_api) {
+Dashboard.controller('DashboardController', function($rootScope , $scope, UserService , NavigationService , ApiService, ExchangeService,  Cookies, ListManager, PopupService, config, config_routes, config_api) {
         
 	$scope.User                 = UserService;
 	
@@ -17,14 +17,16 @@ Dashboard.controller('DashboardController', function($scope, UserService , Navig
 	dashboard.pageViewBase      = "pages";
 	dashboard.pageViewHandler   = "_contenair.html";
 	dashboard.pageViewFile      = "_commons/loading.html";
+    
 	// Build page to be requested
 	dashboard.pageHandler       = '/'+dashboard.pageViewBase+'/_commons/'+dashboard.pageViewHandler;
 	dashboard.pageRequested     = '/'+dashboard.pageViewBase+'/'+dashboard.pageViewFile;
-	
+	dashboard.pageViewConfig    = null;
+    
+    
 	// User Service
 	UserService.setDashboard(dashboard);
 	dashboard.ServiceUser       = UserService;
-	
 	
 	// Navigation Service
 	NavigationService.setDashboard(dashboard);
@@ -34,10 +36,13 @@ Dashboard.controller('DashboardController', function($scope, UserService , Navig
 	ApiService.setDashboard(dashboard);
 	dashboard.ServiceAPI        = ApiService;
 	
-	
 	// Popup Service
-	Popup.setDashboard(dashboard);
-	dashboard.ServicePopup      = Popup;
+	PopupService.setDashboard(dashboard);
+	dashboard.ServicePopup      = PopupService;
+    
+    // Exchange Service
+	ExchangeService.setDashboard(dashboard);
+	dashboard.ServiceExchange   = ExchangeService;
 	
     
 	dashboard.Init              = function() {
@@ -45,9 +50,10 @@ Dashboard.controller('DashboardController', function($scope, UserService , Navig
         };
 	
 	dashboard.UpdateInterface = function() {
-		var PageViewConfig          = NavigationService.getPageViewConfig();
-		dashboard.pageHandler       = '/'+dashboard.pageViewBase+'/_commons/_'+PageViewConfig.handler+'.html';
-		dashboard.pageRequested     = '/'+dashboard.pageViewBase+PageViewConfig.file;	
+		var pageViewConfig          = NavigationService.getPageViewConfig();
+        dashboard.pageViewConfig    = pageViewConfig ; 
+		dashboard.pageHandler       = '/'+dashboard.pageViewBase+'/_commons/_'+pageViewConfig.handler+'.html';
+		dashboard.pageRequested     = '/'+dashboard.pageViewBase+pageViewConfig.file;
         }
 	});
 

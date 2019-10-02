@@ -3,7 +3,7 @@ Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager)
     var VPS                 = this;
     var Dashboard           = null; 
 
-    VPS.OS_List             = null;
+    VPS.OS_List             = [];
     VPS.Price               = null;
     VPS.Calculated_Price    = 0;
     VPS.Calculated_Days     = 31;
@@ -38,7 +38,7 @@ Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager)
 	ListManager.init( { endpoint : "VPS"  } ).then(function(response) { VPS.Listing = response  });
     
     // Chargement de la liste des OS disponibles
-    ListManager.init( { endpoint : "VPS" , action : "List_OS"  } ).then(function(response) { VPS.OS_List = response; VPS.setOS_List(1); });
+    ListManager.init( { endpoint : "VPS" , action : "List_OS"  } ).then(function(response) { if(typeof response !=="undefined" && response.State == 1){ VPS.OS_List = response; VPS.setOS_List(1);} });
     
 	
 	VPS.init = function(Dashboard) {
