@@ -62,13 +62,18 @@
 *{margin:0;padding:0}
 body{background:url(/ressources/images/background-1.jpg);font-family:'Quicksand';font-size:14px;color:#535353;height:100%;position:relative}
 a{text-decoration:none;color:#FFF}
-input[type=password],input[type=text]{font-family:Hind Vadodara;margin-top:5px;font-size:12px;color:#656565;background:#FFF;width:300px;padding:4px 7px;border:1px solid #eee;border-bottom:2px solid #e3e3e3!important;border-radius:5px;-webkit-transition:all .5s;transition:all .5s}
+input[type=password],input[type=text]{font-family:Hind Vadodara;margin-top:5px;font-size:14px;color:#656565;background:#FFF;width:300px;padding:4px 7px;border:1px solid #eee;border-bottom:2px solid #e3e3e3!important;border-radius:5px;-webkit-transition:all .5s;transition:all .5s}
 input[type=password]:focus,input[type=password]:hover,input[type=text]:focus,input[type=text]:hover,select:focus,select:hover,textarea:focus,textarea:hover{border:1px solid #DDD;border-bottom:2px solid #C1C3C4}
 input[disabled=disabled],textarea[disabled=disabled]{background:#eee;border:1px solid #ccc}
 input[disabled=disabled]:hover,textarea[disabled=disabled]:hover{background:#eee!important;border:1px solid #ccc!important;cursor:not-allowed}
 input[type=submit],.button{display:inline-block;background:#3a6c88;border-radius:3px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
 h1{font-weight:200}
 h5{font-size:40px;font-family:Dosis}
+
+div.input{position:relative}
+div.input i{position:absolute;top:14px;left:7px;color:#6f6f6f}
+div.input input{padding-left:25px;display:inline-block}
+
 
 .color-red{color:#ae2222}
 .legend{font-size:12px}
@@ -77,7 +82,7 @@ h5{font-size:40px;font-family:Dosis}
 .bull.green{background:#499112}
 
 .contenair{background:#eee;height:90vh;margin-top:5vh;width:80vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
-.contenair .menu{background:#6b6b6b;background:-moz-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:-webkit-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:linear-gradient(135deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);height:100%;width:55px;position:absolute;top:0;left:0;overflow:hidden;transition:all .3s;border-radius:5px 0 0 5px}
+.contenair .menu{background:#6b6b6b;z-index: 1;background:-moz-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:-webkit-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:linear-gradient(135deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);height:100%;width:55px;position:absolute;top:0;left:0;overflow:hidden;transition:all .3s;border-radius:5px 0 0 5px}
 .contenair .menu:hover{width:240px}
 .contenair .menu nav{margin-top:40px}
 .contenair .menu a{z-index:2;display:block;height:45px;position:relative;transition:all .2s}
@@ -97,7 +102,7 @@ h5{font-size:40px;font-family:Dosis}
 
 
 /* POPUP */
-popup{z-index:9999;position:fixed;top:10vh;background:rgba(0,0,0,0) url(https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png) repeat scroll 0 0;width:800px;left:0;right:0;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
+popup{z-index:9999;position:fixed;top:10vh;background:#eee;width:800px;left:0;right:0;border-bottom: 4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
 popup:after{content:""}
 popup input[type=text], popup input[type=password]{width:215px}
 
@@ -105,9 +110,9 @@ popup input[type=text], popup input[type=password]{width:215px}
 .Popup_Login b{display:block;font-weight:600}
 .Popup_Login .block{margin-top:20px;margin-bottom:40px}
 .Popup_Login .Buttons_Contenair{padding:0 20px}
-.Popup_Header{cursor:move;font-family:Roboto;font-weight:500;background:#52747b12;padding:15px;color:gray;text-transform:uppercase;font-size:13px;position:relative}
+.Popup_Header{cursor:move;font-family:Roboto;font-weight:500;background: #ddd;padding:15px;color:#8E8E8E;text-transform:uppercase;font-size:13px;position:relative}
 .Popup_Header i{position:absolute;right:15px;top:14px;font-size:19px}
-.Popup_Content{padding:20px;max-height:73vh;overflow-y:auto;padding-bottom: 40px;}
+.Popup_Content{padding:20px;max-height:73vh;overflow-y:auto;padding-bottom: 30px;}
 .background_overlay{display:none;position:fixed;background:#213235B8;width:100%;height:100%;left:0;top:0;z-index:1000}
 .popup_clear{height:40px}
 /* END ----------- POPUP */
@@ -125,9 +130,12 @@ popup input[type=text], popup input[type=password]{width:215px}
 .VPS_Calculator .range_contenair_row .selected b{color:#559f02!important}
 .VPS .div_bulle:after{top:100%;left:30px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(17,17,17,0);border-top-color:#111;border-width:11px;border-width:16px;margin-left:-15px}
 .List_Item{background:#FFF;margin-bottom:15px;padding:10px;border-radius:5px;border-bottom:3px solid #ddd;margin-top:15px}
+
 .Line_Item{margin-bottom:40px}
 .Line_Item_Unit{font-size:19px;color:#457597}
 
+
+.m-b-20 {margin-bottom:20px}
 
 
 /* Component : Selector  */
@@ -164,3 +172,7 @@ popup input[type=text], popup input[type=password]{width:215px}
 .Frame.error-not-logged{text-align:center;padding-top:35vh;color:#9f9f9f}
 .Frame.error-not-logged i{font-size:55px}
 .Frame.error-not-logged h1{font-size:33px}
+
+.td-icon i{font-size:30px}
+.td-icon span{position:absolute;top:20px;left:20px;border:3px solid #fff}
+.td-icon{width:45px;position:relative}

@@ -8,6 +8,8 @@ Dashboard.value('config_routes', {
     "/account/popup/login.html" : {file : "/account/popup/login.html"   , handler : "empty"         , login : false,    specific : 'LoginAction'},
 
     "/domains/"                 : {file : "/domains/index.html"         , handler : "contenair"     , login : true},
+    "/domains/popup/add.html"   : {file : "/domains/popup/add.html"     , handler : "contenair"     , login : true},
+    
     "/vps/"                     : {file : "/vps/index.html"             , handler : "contenair"     , login : true},
     "/vps/popup/add.html"       : {file : "/vps/popup/add.html"         , handler : "contenair"     , login : true},
     "/vps/popup/edit.html"      : {file : "/vps/popup/edit.html"        , handler : "contenair"     , login : true},
@@ -18,6 +20,12 @@ Dashboard.value('config_routes', {
         'Account'   : {
             'Login'             : "/account/popup/login.html",
         },
+        
+        'Domain'       : {
+            'Add'               : "/domains/popup/add.html",
+            'Edit'              : "/domains/popup/edit.html"
+        },
+        
         'VPS'       : {
             'Add'               : "/vps/popup/add.html",
             'Edit'              : "/vps/popup/edit.html"

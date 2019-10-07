@@ -16,7 +16,14 @@ Dashboard.value('config_api',
             Pricing         :   '/vps/get_pricing.php',
 			}
 		,
-		
+        
+		// Section VPS
+		Domain : 
+			{
+			Add             :   '/domains/add.php' ,
+			List            :   '/domains/get_list.php',
+			}
+		,
 		// Section User
 		User : 
 			{

@@ -1,1 +1,30 @@
-<h1>Mes Domaines</h1>
+<div class="Frame flex" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
+	
+	<div class="Frame_Header">
+		<h1>Mes domaines</h1>
+		<span class="button" ng-click="Domain.Dashboard.ServicePopup.openNew(  {Endpoint : 'Domain', Action:'Add', Title:'Ajouter un domaine'}    )"><i class="fas fa-plus-circle"></i> Ajouter</span>
+	</div>
+	
+	<div class="List_Contenair">
+		<div ng-repeat="Domain_Data in Domain.Listing" class="List_Item">
+			
+			<table class="width-full">
+				<tr>
+					<td class="td-icon"><i class="fas fa-globe-americas"></i><span class="bull {{Domain_Data.Enabled ? 'green' : '' }}"></span></td>
+					<td>
+						<b>{{Domain_Data.Domain}}</b><br />
+						<span class="legend">{{Domain_Data.Folder}}</span>
+					</td>
+					
+                    
+					<td style="width:90px;text-align:right">
+						<span class="button_action"><i class="fas fa-cog"></i></span>
+                        <span class="button_action"><i class="fas fa-trash"></i></span>
+					</td>
+					
+				</tr>
+			</table>
+	
+		</div>
+	</div>
+</div>
