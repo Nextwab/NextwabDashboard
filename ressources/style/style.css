@@ -66,10 +66,40 @@ input[type=password],input[type=text]{font-family:Hind Vadodara;margin-top:5px;f
 input[type=password]:focus,input[type=password]:hover,input[type=text]:focus,input[type=text]:hover,select:focus,select:hover,textarea:focus,textarea:hover{border:1px solid #DDD;border-bottom:2px solid #C1C3C4}
 input[disabled=disabled],textarea[disabled=disabled]{background:#eee;border:1px solid #ccc}
 input[disabled=disabled]:hover,textarea[disabled=disabled]:hover{background:#eee!important;border:1px solid #ccc!important;cursor:not-allowed}
-input[type=submit],.button{display:inline-block;background:#3a6c88;border-radius:3px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
+input[type=submit],.button{transition:all 0.3s;display:inline-block;background:#3a6c88;border-radius:3px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
 h1{font-weight:200}
 h5{font-size:40px;font-family:Dosis}
 
+
+.button.form_valid
+    {
+    background: #509f30;
+    border-bottom: 3px solid #46752E;    
+    }
+    
+.button.form_loading
+    {
+background: #808080;
+border-bottom: 3px solid #626262; 
+    }
+    
+.button.form_error
+    {
+background: #AE2F2F;
+border-bottom: 3px solid #621111;
+    }        
+
+.button_cancel    
+    {
+    background: #D04040;
+border-bottom: 3px solid #8a1313;    
+    }
+    
+.button_mini {
+font-size: 11px;
+}    
+    
+    
 div.input{position:relative}
 div.input i{position:absolute;top:14px;left:7px;color:#6f6f6f}
 div.input input{padding-left:25px;display:inline-block}
@@ -100,6 +130,9 @@ div.input input{padding-left:25px;display:inline-block}
 .Frame .List_Contenair .button_action{background:#eee;padding:5px 7px;border-radius:5px;margin-left:4px;cursor:pointer}
 .flex{display:flex}
 
+.AjaxReply{color:#666;margin-bottom:20px;background:#ffffffbf;border-radius:5px;padding:5px 10px;border-bottom:3px solid #939393;display:inline-block;position:relative}
+.AjaxReply:after{top:100%;left:25px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(136,183,213,0);border-top-color:#939393;border-width:15px;margin-left:-15px}
+
 
 /* POPUP */
 popup{z-index:9999;position:fixed;top:10vh;background:#eee;width:800px;left:0;right:0;border-bottom: 4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
@@ -110,31 +143,73 @@ popup input[type=text], popup input[type=password]{width:215px}
 .Popup_Login b{display:block;font-weight:600}
 .Popup_Login .block{margin-top:20px;margin-bottom:40px}
 .Popup_Login .Buttons_Contenair{padding:0 20px}
-.Popup_Header{cursor:move;font-family:Roboto;font-weight:500;background: #ddd;padding:15px;color:#8E8E8E;text-transform:uppercase;font-size:13px;position:relative}
+.Popup_Header{cursor:move;font-family:Quicksand;font-weight:600;background:#2b2b2b;padding:15px;color:#D0D0D0;text-transform:uppercase;font-size:12px;position:relative;letter-spacing:.3px}
 .Popup_Header i{position:absolute;right:15px;top:14px;font-size:19px}
-.Popup_Content{padding:20px;max-height:73vh;overflow-y:auto;padding-bottom: 30px;}
+.Popup_Content{padding:20px;max-height:73vh;overflow-y:auto;padding-bottom:30px}
+.Popup_Footer{padding:20px;background:#b3bcc4;transition:all .3s;margin:15px -20px -30px}
+    
 .background_overlay{display:none;position:fixed;background:#213235B8;width:100%;height:100%;left:0;top:0;z-index:1000}
 .popup_clear{height:40px}
+
+
+.form_error .Popup_Footer{background:#c49c9c}
+.form_error .AjaxReply{color:#AE2F2F;border-bottom:3px solid #a64b4b}
+.form_error .AjaxReply:after{border-top-color:#AE2F2F}
+.form_valid .AjaxReply{color:#6A6A6A;border-bottom:3px solid #4ba660}
+.form_valid .AjaxReply:after{border-top-color:#4ba660}
+.form_valid .Popup_Footer{background:#9cc49e}
+
 /* END ----------- POPUP */
 
 
 
-.VPS .div_bulle{position:relative;background:#19293e;padding:10px;border-bottom:4px solid #111;margin-bottom:20px;border-radius:6px;color:#eee}
-.VPS .div_bulle h5{font-size:21px;font-family:Dosis;font-weight:600;color:#FFF}
-.VPS .div_bulle h5 b{font-size:32px;font-weight:600}
+.div_bulle{position:relative;background:#19293e;padding:10px;border-bottom:4px solid #111;margin-bottom:20px;border-radius:6px;color:#eee}
+.div_bulle h5{font-size:21px;font-family:Dosis;font-weight:600;color:#FFF}
+..div_bulle h5 b{font-size:32px;font-weight:600}
 .VPS_Calculator{margin-top:10px;border-top:2px dashed #ffffff2b;padding-top:12px}
 .VPS_Calculator .range_contenair_row .bar{background:#a42525}
 .VPS_Calculator .range_contenair.selected b{color:#3a5362}
 .VPS_Calculator .range_contenair_row div.enabled_tmp .bar,.VPS_Calculator .range_contenair_row div.enabled_tmp::after{background:#7b9571}
 .VPS_Calculator .range_contenair_row div.enabled .bar,.VPS_Calculator .range_contenair_row .selected::after{background:#559f02!important}
 .VPS_Calculator .range_contenair_row .selected b{color:#559f02!important}
-.VPS .div_bulle:after{top:100%;left:30px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(17,17,17,0);border-top-color:#111;border-width:11px;border-width:16px;margin-left:-15px}
+.div_bulle:after{top:100%;left:30px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(17,17,17,0);border-top-color:#111;border-width:11px;border-width:16px;margin-left:-15px}
 .List_Item{background:#FFF;margin-bottom:15px;padding:10px;border-radius:5px;border-bottom:3px solid #ddd;margin-top:15px}
+
+
+.div-bulle.d-v-green
+{
+background: #dadfd2;
+border-bottom: 4px solid #7e9166;
+color: #353535;
+}
+
+.div-bulle.d-v-green:after
+{
+border-top-color: #7e9166;
+}
 
 .Line_Item{margin-bottom:40px}
 .Line_Item_Unit{font-size:19px;color:#457597}
 
+.Item_Case {
+display: inline-block;
+text-align: center;
+padding: 10px;
+background: #eaeaea78;
+border-radius: 5px;
+width: 130px;
+border-bottom: 3px solid #cecece;
+font-size: 12px;cursor:pointer;
+}
+.Item_Case i {
+display: block;
 
+font-size: 26px;
+
+margin-bottom: 6px;
+
+margin-top: 3px;
+}
 .m-b-20 {margin-bottom:20px}
 
 
@@ -176,3 +251,5 @@ popup input[type=text], popup input[type=password]{width:215px}
 .td-icon i{font-size:30px}
 .td-icon span{position:absolute;top:20px;left:20px;border:3px solid #fff}
 .td-icon{width:45px;position:relative}
+
+.clear {clear:both;}

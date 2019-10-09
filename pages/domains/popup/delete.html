@@ -1,0 +1,15 @@
+<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="Domain.Domain = Popup.Config.Domain;">
+    
+    <form ng-handler="Domain" ng-handler-action="Delete" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <b>Supprimer le domaine : {{Domain.Domain}} ?</b>
+        </div>
+        
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+        
+    </form>
+    
+</div>

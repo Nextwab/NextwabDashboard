@@ -55,11 +55,13 @@ var PopupController = function($scope, $element, $window, $document, NavigationS
     vm_Popup.POPUP_Title                    = "";
     vm_Popup.Drag                           = false;
     vm_Popup.Styles                         = {};
+    vm_Popup.Config                         = {};
     
 	if(typeof $element[0].attributes.config.nodeValue !== "undefined")
 		{
 		var config                          = JSON.parse($element[0].attributes.config.nodeValue);
 		
+        vm_Popup.Config                     = config;
         vm_Popup.Styles                     = config.Styles;
         vm_Popup.POPUP_Endpoint_URL         = NavigationService.getEndpointURL(config.Endpoint, config.Action );
         vm_Popup.POPUP_Title                = config.Title;

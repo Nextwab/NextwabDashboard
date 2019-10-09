@@ -1,20 +1,26 @@
 // Routes configuration
 
 Dashboard.value('config_routes', {
-    "_not_found"                : {file : "/_commons/not_found.html"    , handler : "empty"         , login : false},
-    "_not_logged"               : {file : "/_commons/not_logged.html"   , handler : "empty"         , login : false},
-    "/"                         : {file : "/index.html"                 , handler : "contenair"     , login : false},
+    "_not_found"                        : {file : "/_commons/not_found.html"    , handler : "empty"         , login : false},
+    "_not_logged"                       : {file : "/_commons/not_logged.html"   , handler : "empty"         , login : false},
+    "/"                                 : {file : "/index.html"                 , handler : "contenair"     , login : false},
     
-    "/account/popup/login.html" : {file : "/account/popup/login.html"   , handler : "empty"         , login : false,    specific : 'LoginAction'},
+    "/account/popup/login.html"         : {file : "/account/popup/login.html"   , handler : "empty"         , login : false,    specific : 'LoginAction'},
 
-    "/domains/"                 : {file : "/domains/index.html"         , handler : "contenair"     , login : true},
-    "/domains/popup/add.html"   : {file : "/domains/popup/add.html"     , handler : "contenair"     , login : true},
+    "/domains/"                         : {file : "/domains/index.html"         , handler : "contenair"     , login : true},
+    "/domains/popup/add.html"           : {file : "/domains/popup/add.html"     , handler : "contenair"     , login : true},
+    "/domains/popup/delete.html"        : {file : "/domains/popup/delete.html"  , handler : "contenair"     , login : true},
+    "/domains/popup/menu.html"          : {file : "/domains/popup/menu.html"    , handler : "contenair"     , login : true},
+    "/domains/popup/set_server.html"    : {file : "/domains/popup/set_server.html"    , handler : "contenair"     , login : true},
     
-    "/vps/"                     : {file : "/vps/index.html"             , handler : "contenair"     , login : true},
-    "/vps/popup/add.html"       : {file : "/vps/popup/add.html"         , handler : "contenair"     , login : true},
-    "/vps/popup/edit.html"      : {file : "/vps/popup/edit.html"        , handler : "contenair"     , login : true},
+    
+    "/vps/"                             : {file : "/vps/index.html"             , handler : "contenair"     , login : true},
+    "/vps/popup/add.html"               : {file : "/vps/popup/add.html"         , handler : "contenair"     , login : true},
+    "/vps/popup/edit.html"              : {file : "/vps/popup/edit.html"        , handler : "contenair"     , login : true},
+    
 
 
+    
     // Internal Endpoints
     Endpoints       : {
         'Account'   : {
@@ -23,7 +29,11 @@ Dashboard.value('config_routes', {
         
         'Domain'       : {
             'Add'               : "/domains/popup/add.html",
-            'Edit'              : "/domains/popup/edit.html"
+            'Delete'            : "/domains/popup/delete.html",
+            'Edit'              : "/domains/popup/edit.html",
+            'Menu'              : "/domains/popup/menu.html",
+            'setServer'         : "/domains/popup/set_server.html",
+            
         },
         
         'VPS'       : {

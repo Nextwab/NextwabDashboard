@@ -12,7 +12,7 @@ Dashboard.directive("ngInput", function(){
             ngicon      : '@',
             placeholder : '@',
         },
-        template        : '<div class="input"><i class="{{ngicon}}"></i><input type="{{type}}" ng-model="ngmodel" placeholder="{{placeholder}}"  /></div>',
+        template        : '<div class="input"><i class="{{ngicon}}"></i><input type="{{type}}" ng-model="ngmodel" placeholder="{{placeholder}}" /></div>',
 		link            : function(scope, element, attrs){
 		}
 	};
@@ -22,29 +22,39 @@ Dashboard.directive("ngInput", function(){
     
     
 // Formulaires 
-Dashboard.directive("form", function(){
+Dashboard.directive("form", function($sanitize){
 	
 	var Form = {
-		restrict        : 'E',
-		link            : function(scope, element, attrs){
+        restrict        : 'E',
+        link            : function(scope, element, attrs){
             scope.Form              = element;
             scope.FormState         = "";
             scope.FormButtonIcon    = "";
+            scope.FormError         = "";
             
             // Submit
             scope.Form.send = function() {
                 scope.Form.loading();
-                scope[attrs.ngHandler].Submit(scope.Form);
+                scope[attrs.ngHandler][attrs.ngHandlerAction+'Submit'](scope.Form);
             };
             
             // On loading
             scope.Form.loading = function() {
-                 scope.FormState = 'form_loading';
+                scope.FormState = 'form_loading';
+                scope.FormError         = "";
             };
             
             // Process handler
             scope.Form.process = function(reply) {
-                scope.FormState = 'form_valid';
+                
+                if(reply.valid) {
+                    scope.FormState = 'form_valid';
+                }
+                else {
+                    scope.FormState     = 'form_error';
+                    scope.FormError     = '<i class="fas fa-exclamation-circle"></i> '+reply.errorMessage;
+                }
+                
             }
             
 		}
@@ -56,15 +66,15 @@ Dashboard.directive("form", function(){
     
     
 // Submits 
-Dashboard.directive("buttonSubmit", function(){
+Dashboard.directive("buttonSubmit", function($timeout){
 	
-	var Submit = {
+	let Submit = {
 		restrict        : 'C',
         transclude      : true,
         template        : '<p><i class="{{FormButtonIcon}}"></i> <b>Valider</b></p>',
 		link            : function(scope, element, attrs){
             
-            var FontAwesomeIcons = {form_loading : 'fas fa-spinner fa-spin', form_valid : 'fas fa-check' };
+            var FontAwesomeIcons = {form_loading : 'fas fa-spinner fa-spin', form_valid : 'fas fa-check', form_error : 'fas fa-exclamation-circle' };
         
             // Submit handler
             element.on('click',  function() {
@@ -79,9 +89,15 @@ Dashboard.directive("buttonSubmit", function(){
 
             
             function changeClass(className)  {
-                $(element).removeClass('form_loading form_valid form_error');
+                ResetButton();
                 $(element).addClass(className);
                 scope.FormButtonIcon = FontAwesomeIcons[className];
+                $timeout(function() { ResetButton() } , 4000);
+            }
+            
+            function ResetButton() {
+                $(element).removeClass('form_loading form_valid form_error');
+                scope.FormButtonIcon = "";
             }
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             
@@ -89,4 +105,26 @@ Dashboard.directive("buttonSubmit", function(){
 	};
 	
 	return Submit;
+    });    
+    
+// Submits 
+Dashboard.directive("buttonCancel", function($rootScope, $timeout , PopupService){
+	
+	let Cancel = {
+		restrict        : 'C',
+        transclude      : true,
+        template        : '<p><b>Annuler</b></p>',
+		link            : function(scope, element, attrs){
+            
+            // Submit handler
+            element.on('click',  function() {
+                scope.FormState     = 'form_error';
+                scope.$apply();
+                $timeout(function() { PopupService.close() } , 1000);
+            });
+            
+		}
+	};
+	
+	return Cancel;
     });

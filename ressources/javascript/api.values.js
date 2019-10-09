@@ -22,6 +22,8 @@ Dashboard.value('config_api',
 			{
 			Add             :   '/domains/add.php' ,
 			List            :   '/domains/get_list.php',
+			Delete          :   '/domains/delete.php',
+			SetCloudServer  :   '/domains/set_cloud_device.php',
 			}
 		,
 		// Section User
