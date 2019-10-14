@@ -2,8 +2,15 @@
     
     <form ng-handler="Domain" ng-handler-action="Add" class="{{FormState}}">  
         <div class="Line_Item m-b-20">
-            <b>Ajouter un domaine : </b>
-            <input type="text" ngmodel="Domain.Domain" ngicon="fas fa-globe-americas" placeholder="domaine-exemple.fr" ng-input />
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-plus-circle"></i></td>
+                    <td>
+                        <h1>Domaine</h1>
+                        <input type="text" ng-model="Domain.Domain" ngicon="fas fa-globe-americas" placeholder="domaine-exemple.fr" ng-input />
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <div class="Popup_Footer" >

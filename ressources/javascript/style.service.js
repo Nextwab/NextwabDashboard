@@ -1,25 +1,39 @@
 
 // Inputs 
-Dashboard.directive("ngInput", function(){
+Dashboard.directive("ngInput", function($rootScope , $timeout){
 	
 	var Input = {
 		restrict        : 'AE',
-        transclude      : true,
-        replace         : true,
+        require         : "^ngModel",
         scope: {
             type        : '@',
-            ngmodel     : '=',
+            ngModel     : '=',
+            ngBlur      : '@?',
+            ngChange    : '@?',
             ngicon      : '@',
-            placeholder : '@',
+            placeholder : '@?',
         },
-        template        : '<div class="input"><i class="{{ngicon}}"></i><input type="{{type}}" ng-model="ngmodel" placeholder="{{placeholder}}" /></div>',
+        template        : '<div class="input"><i class="{{ngicon}}"></i><input type="{{type}}" ng-change="ngChange" ng-model="ngModel" placeholder="{{placeholder}}" /></div>',
 		link            : function(scope, element, attrs){
+            $timeout(scope.ngChange, 0); 
 		}
 	};
 	
 	return Input;
     });
     
+// Inputs 
+Dashboard.directive("select", function(){
+	
+	var Input = {
+		restrict        : 'AE',
+		link            : function(scope, element, attrs){      
+            $(element).select2();
+		}
+	};
+	
+	return Input;
+    });    
     
 // Formulaires 
 Dashboard.directive("form", function($sanitize){

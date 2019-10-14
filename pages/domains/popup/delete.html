@@ -2,7 +2,15 @@
     
     <form ng-handler="Domain" ng-handler-action="Delete" class="{{FormState}}">  
         <div class="Line_Item m-b-20">
-            <b>Supprimer le domaine : {{Domain.Domain}} ?</b>
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                    <td>
+                        <h1>Attention</h1>
+                        <b>Supprimer le domaine : {{Domain.Domain}} ?</b>
+                    </td>
+                </tr>
+            </table>
         </div>
         
         <div class="Popup_Footer" >

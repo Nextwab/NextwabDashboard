@@ -1,0 +1,49 @@
+<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="Domain.Domain = Popup.Config.Domain; Domain.getDNS_Config_List(Domain.Domain)">
+    
+    <form ng-handler="Domain" ng-handler-action="setConfigDNS_" class="{{FormState}}">  
+       <div style="overflow;overflow: hidden;border-radius: 5px;">
+                
+                <table class="width-full table-domain-config">
+                    <tr class="table-header">
+                        <td>ID</td>
+                        <td>Préfixe</td>
+                        <td>Type</td>
+                        <td>Suffixe</td>
+                        <td></td>
+                    </tr>
+                
+                    <tr ng-repeat="DNS_Config in Domain.DNS_Config" class="{{ DNS_Config.Action=='Delete' ? 'to_delete' : '' }} {{ DNS_Config.Action=='Add' ? 'to_add' : '' }} {{ DNS_Config.Action=='Edit' ? 'to_edit' : '' }} ">
+                        <td class="index_col">
+                            {{$index}}
+                        </td>
+                        
+                        <td style="width: 160px;">
+                            <input type="text" ng-model="DNS_Config.Prefixe" ngicon="fas fa-cog"  ng-input  ng-change="Domain.DNS_Configurator.Edit( $index )" />
+                        </td>
+                        
+                        <td style="width: 110px;">
+                            <select ngicon="fas fa-globe-americas" ng-model="DNS_Config.Type" ng-change="Domain.DNS_Configurator.Edit( $index )" >
+                                <option ng-repeat="Config_Type in Domain.DNS_Config_Types" value="{{Config_Type}}">{{Config_Type}}</option>
+                            </select>
+                        </td>
+                        
+                        <td style="width: 150px;">
+                            <input type="text" ng-model="DNS_Config.Sufixe" ngicon="fas fa-cog"  ng-input  ng-change="Domain.DNS_Configurator.Edit( $index )" />
+                        </td>
+                        
+                        <td><i  ng-click="Domain.DNS_Configurator.Delete( $index )" class="fas fa-trash-alt"></i></td>
+                    </tr>
+                </table>
+        
+                <br />
+                <span class="button button_mini" ng-click="Domain.DNS_Configurator.Add()"><i class="fas fa-plus-circle"></i> Ajouter une entrée</span>
+        
+            </div>
+        
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+    </form>
+
+</div>
