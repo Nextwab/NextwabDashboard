@@ -1,0 +1,23 @@
+<div class="Database_User" ng-controller="Database_Controller as Database_User" ng-init="Database_User.Database_Name = Popup.Config.Database;">
+    
+    <form ng-handler="Database_User" ng-handler-action="Delete_Database" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                    <td>
+                        <h1>Attention</h1>
+                        <b>Supprimer la base de données : {{Database_User.Database_Name}} ?</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+        
+    </form>
+    
+</div>

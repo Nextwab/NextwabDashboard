@@ -28,6 +28,17 @@ Dashboard.value('config_api',
 			SetDNS_Config   :   '/domains/set_config.php',
 			}
 		,
+        
+        // Section MySQL
+		Database : 
+			{
+			List            :   '/mysql/get_list.php',
+            Add_User        :   '/mysql/add_user.php' ,
+            Add_Database    :   '/mysql/add_database.php' ,
+            Delete_User     :   '/mysql/delete_user.php' ,
+            Delete_Database :   '/mysql/delete_database.php' ,
+			}
+		,
 		// Section User
 		User : 
 			{

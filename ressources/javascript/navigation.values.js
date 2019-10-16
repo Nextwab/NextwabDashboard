@@ -15,6 +15,13 @@ Dashboard.value('config_routes', {
     "/domains/popup/set_dns_config.html"    : {file : "/domains/popup/set_dns_config.html"      , handler : "contenair"     , login : true},
     
     
+    "/mysql/"                               : {file : "/mysql/index.html"                       , handler : "contenair"     , login : true},
+    "/mysql/popup/add_user.html"            : {file : "/mysql/popup/add_user.html"              , handler : "contenair"     , login : true},
+    "/mysql/popup/add_database.html"        : {file : "/mysql/popup/add_database.html"          , handler : "contenair"     , login : true},
+    "/mysql/popup/delete_user.html"         : {file : "/mysql/popup/delete_user.html"           , handler : "contenair"     , login : true},
+    "/mysql/popup/delete_database.html"     : {file : "/mysql/popup/delete_database.html"       , handler : "contenair"     , login : true},
+    
+    
     "/vps/"                                 : {file : "/vps/index.html"                         , handler : "contenair"     , login : true},
     "/vps/popup/add.html"                   : {file : "/vps/popup/add.html"                     , handler : "contenair"     , login : true},
     "/vps/popup/edit.html"                  : {file : "/vps/popup/edit.html"                    , handler : "contenair"     , login : true},
@@ -26,6 +33,13 @@ Dashboard.value('config_routes', {
     Endpoints       : {
         'Account'   : {
             'Login'             : "/account/popup/login.html",
+        },
+        
+        'Database'       : {
+            'Add_User'          : "/mysql/popup/add_user.html",
+            'Add_Database'      : "/mysql/popup/add_database.html",
+            'Delete_User'       : "/mysql/popup/delete_user.html",
+            'Delete_Database'   : "/mysql/popup/delete_database.html",
         },
         
         'Domain'       : {

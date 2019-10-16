@@ -1,0 +1,71 @@
+<div class="Frame flex" ng-controller="Database_Controller as DatabaseUser" ng-init="DatabaseUser.init(Dashboard);">
+	
+	<div class="Frame_Header">
+		<h1>Bases MySQL</h1>
+		<span class="button" ng-click="DatabaseUser.Dashboard.ServicePopup.openNew(  {Endpoint : 'Database', Action:'Add_User', Title:'Ajouter un utilisateur MySQL'}    )"><i class="fas fa-plus-circle"></i> Ajouter un utilisateur MySQL</span>
+	</div>
+	
+	<div class="List_Contenair">
+    
+		<div ng-repeat="DatabaseUser_Data in DatabaseUser.Listing" class="List_Item">
+			
+			<table class="width-full" ng-click="DatabaseUser.ManageUser(DatabaseUser_Data)">
+				<tr>
+					<td class="td-icon"><i class="fas fa-key"></i><span class="bull green"></span></td>
+					<td style="width:165px">
+						<b>{{DatabaseUser_Data.User}}</b><br />
+						<span class="legend">Utilisateur</span>
+					</td>
+                    
+                    
+					<td style="width:190px">
+						<b><i class="fas fa-lock"></i> {{DatabaseUser_Data.Password}}</b><br />
+						<span class="legend">Mot de passe</span>
+					</td>
+                    
+                    
+                    
+                    <td style="width:230px">
+						<b><i class="fas fa-database"></i> {{DatabaseUser_Data.Hostname}}</b><br />
+						<span class="legend">Serveur MySQL</span>
+					</td>
+                    
+                    <td style="width:230px">
+						<b><i class="fas fa-terminal"></i> {{DatabaseUser_Data.CloudServer_Hostname}}</b><br />
+						<span class="legend">Serveur VPS rattaché</span>
+					</td>
+                    
+                    
+                    <td style="width:20%">
+						<b><i class="fas fa-archive"></i> {{ DatabaseUser_Data.Databases.length }} Bases de données</b><br />
+						<span class="legend"><i class="fas fa-caret-square-down"></i> Gérer</span>
+					</td>
+                    
+                    
+                    
+					<td style="text-align:right">
+						<span class="button_action"><i class="fas fa-cog"></i></span>
+                        <span class="button_action" ng-click="DatabaseUser.Delete_User(DatabaseUser_Data)"><i class="fas fa-trash"></i></span>
+					</td>
+					
+				</tr>
+			</table>
+	
+            <div class="database-list-wrapper d-l-w-{{DatabaseUser_Data.ID}}">
+                <div class="database-contenair-list">
+                    <table class="table-tiny">
+                        <tr ng-repeat="Database_Data in DatabaseUser_Data.Databases">
+                            <td><i class="fas fa-database"></i></td>
+                            <td style="width: 170px;"><b>{{Database_Data.Database_Name}}</b></td>
+                            <td><i class="far fa-comment-dots"></i> <i>{{Database_Data.Database_Description}}</i></td>
+                            <td><i ng-click="DatabaseUser.Delete_Database( Database_Data )" class="fas fa-trash-alt"></i></td>
+                       </tr>
+                    </table>
+                    
+                    <span class="button button_mini m-h-10" ng-click="DatabaseUser.Add_Database(DatabaseUser_Data)"><i class="fas fa-plus-circle"></i> Ajouter une base de données</span>
+                    
+                </div>
+            </div>
+		</div>
+	</div>
+</div>

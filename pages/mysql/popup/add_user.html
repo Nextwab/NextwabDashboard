@@ -1,0 +1,33 @@
+<div class="Database_User" ng-controller="Database_Controller as Database_User" ng-init="Database_User.getVPS_List()">
+    
+    <form ng-handler="Database_User" ng-handler-action="Add_User" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td class="v-align-top"><i class="fas fa-plus-circle"></i></td>
+                    <td>
+                        <b>Ajouter pour le serveur :</b><br />
+                        <select ng-model="Database_User.ID_CloudDevice" style="width:230px">
+                            <option ng-repeat="VPS_Data in Database_User.VPS_List" value="{{VPS_Data.ID}}">{{VPS_Data.Hostname}}</option>
+                        </select>
+                        <br /><br />
+                    
+                        <b>Utilisateur :</b><br />
+                        <input type="text" ng-model="Database_User.User_Name" ngicon="fas fa-globe-americas" placeholder="userMySQL" ng-input />
+                        <br /><br />
+                        <b>Mot de passe :</b><br />
+                        <input type="password" ng-model="Database_User.User_Password" ngicon="fas fa-globe-americas" placeholder="***************" ng-input />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
+            <div class="clear"></div>
+            <span class="button button_submit"></span>
+        </div>
+        
+    </form>
+    
+</div>
