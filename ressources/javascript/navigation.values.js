@@ -25,7 +25,7 @@ Dashboard.value('config_routes', {
     "/vps/"                                 : {file : "/vps/index.html"                         , handler : "contenair"     , login : true},
     "/vps/popup/add.html"                   : {file : "/vps/popup/add.html"                     , handler : "contenair"     , login : true},
     "/vps/popup/edit.html"                  : {file : "/vps/popup/edit.html"                    , handler : "contenair"     , login : true},
-    
+    "/vps/popup/delete.html"                : {file : "/vps/popup/delete.html"                  , handler : "contenair"     , login : true},
 
 
     
@@ -54,7 +54,8 @@ Dashboard.value('config_routes', {
         
         'VPS'       : {
             'Add'               : "/vps/popup/add.html",
-            'Edit'              : "/vps/popup/edit.html"
+            'Edit'              : "/vps/popup/edit.html",
+            'Delete'            : "/vps/popup/delete.html"
         }
     }
 });

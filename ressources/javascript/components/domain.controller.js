@@ -73,8 +73,6 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     
     
     Domain.closeMenuConfigurator = function() {
-        
-        console.log(Domain.count_EntriesToSend, Domain.count_EntriesSended );
         if(Domain.count_EntriesToSend == Domain.count_EntriesSended ) {
             PopupService.close();
         }

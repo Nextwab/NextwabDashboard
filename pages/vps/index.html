@@ -11,20 +11,33 @@
 			<table class="width-full">
 				<tr>
 					<td style="width:100px"><span class="bull green"></span><span class="legend">#VM.{{VPS_Data.ID}}</span></td>
-					<td>
+					<td style="width: 280px;">
 						<b>{{VPS_Data.Hostname}}</b><br />
 						<span class="legend">{{VPS_Data.CFG_OS}}</span>
 					</td>
+                    
+                    <td>
+                        <div class="" ng-repeat="IP in VPS_Data.IPs">
+                        <span class=""><i class="fas fa-network-wired"></i> {{IP.IP}}</span>
+                        </div>
+                    
+                    </td>
+                    
+                    
 					<td style="width:50px;text-align:center"><i class="fas fa-microchip"></i> {{VPS_Data.CFG_VCORE}}</td>
 					<td style="width:50px;text-align:center"><i class="fas fa-memory"></i> {{VPS_Data.CFG_RAM}}</td>
 					<td style="width:100px;text-align:center"><i class="fas fa-hdd"></i> {{VPS_Data.CFG_DISK}} GB</td>
-					<td style="width:90px;text-align:right">
+					<td style="width:120px;text-align:right">
 						<span class="button_action"><i class="fas fa-power-off"></i></span>
-						<span class="button_action"><i class="fas fa-cog"></i></span>
+						<span class="button_action" ng-click="VPS.Edit(VPS_Data)"><i class="fas fa-cog"></i></span>
+                        <span class="button_action" ng-click="VPS.Delete(VPS_Data)"><i class="fas fa-trash"></i></span>
 					</td>
 					
 				</tr>
 			</table>
+            
+            
+            
 	
 		</div>
 	</div>

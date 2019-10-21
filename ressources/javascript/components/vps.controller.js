@@ -1,4 +1,4 @@
-Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager) {
+Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, PopupService, ListManager) {
 	
     var VPS                 = this;
     var Dashboard           = null; 
@@ -7,12 +7,13 @@ Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager)
     VPS.Price               = null;
     VPS.Calculated_Price    = 0;
     VPS.Calculated_Days     = 31;
-
+    VPS.FormState           = '';
+    VPS.FormError           = '';
 
     // VPS Creation & Edition settings
     VPS.Settings    = {
         vCores          : {title: "vCores"          , name : "vCores"       , type:"range"  , icon: "fas fa-microchip"          , range_start   : 1 , range_end : 8   , value : 1     , unit: "CPU"   },
-        Ram             : {title: "RAM"             , name : "Ram"          , type:"range"  , icon: "fas fa-memory"             , range_start   : 1 , range_end : 14  , value : 1     , unit: "GB"    , display_step:2},
+        Ram             : {title: "RAM"             , name : "Ram"          , type:"range"  , icon: "fas fa-memory"             , range_start   : 1 , range_end : 12  , value : 1     , unit: "GB"    , display_step:2},
         Disk            : {title: "Stockage"        , name : "Disk"         , type:"range"  , icon: "fas fa-hdd"                , range_start   : 1 , range_end : 300 , value : 50    , unit: "GB"    ,range_step: 10 , display_step:50},
         Bandwidth       : {title: "Bande Passante"  , name : "Bandwidth"    , type:"range"  , icon: "fas fa-tachometer-alt"     , range_start   : 1 , range_end : 150 , value : 100   , unit: "Mbps"  ,range_step: 10 , display_step:50},
         IPv4            : {title: "Nombre d'IPv4"   , name : "IPv4"         , type:"range"  , icon: "fas fa-server"             , range_start   : 1 , range_end : 8   , value : 1     , unit: "IPv4"  },
@@ -34,17 +35,23 @@ Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager)
     };
     
     
-    // Chargement de la liste des VPS
-	ListManager.init( { endpoint : "VPS"  } ).then(function(response) { VPS.Listing = response  });
+    VPS.load     = function() {
+        // Chargement de la liste des VPS
+        ListManager.init( { endpoint : "VPS"  } ).then(function(response) { VPS.Listing = response  });
+        
+        // Chargement de la liste des OS disponibles
+        ListManager.init( { endpoint : "VPS" , action : "List_OS"  } ).then(function(response) {  VPS.OS_List = response; VPS.setOS_List(1); });
+        
+        
+        VPS.init = function(Dashboard) {
+            VPS.Dashboard = Dashboard;
+        };
+    };
     
-    // Chargement de la liste des OS disponibles
-    ListManager.init( { endpoint : "VPS" , action : "List_OS"  } ).then(function(response) { if(typeof response !=="undefined" && response.State == 1){ VPS.OS_List = response; VPS.setOS_List(1);} });
     
-	
-	VPS.init = function(Dashboard) {
-		VPS.Dashboard = Dashboard;
-	};
-    
+    VPS.ReloadList = function() {
+        angular.element( $('.Frame') ).scope().VPS.load();
+    };
     
     // Set OS List of selected VPS Type
     VPS.setOS_List = function(Type) {
@@ -72,16 +79,27 @@ Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager)
         
     
     VPS.GetPricing = function() {
-        var settings = ListManager.getValuesOf(this);
+        let settings = ListManager.getValuesOf(this);
         ApiService.post('VPS', 'Pricing' , settings).then(function(response) { VPS.Price = response.data.Price_Per_Month; VPS.update_CalculatedPrice(); });
     };
     
     
     
     // Submit
-    VPS.Submit = function() {
+    VPS.AddSubmit = function(Form) {
         if(VPS.Price) {
+            let settings = ListManager.getValuesOf(this);
             
+            ApiService.post('VPS', 'Add' , settings).then(function(response) { 
+                Form.process(response); 
+            
+                if(response.valid) {
+                    VPS.ReloadList();
+                    $timeout(function() {
+                        PopupService.close();      
+                    }, 1500);
+                }
+            });
         }
     };
     
@@ -98,6 +116,26 @@ Dashboard.controller('VPS_Controller', function($scope, ApiService, ListManager)
     };
     
     
+    VPS.Edit = function(VPS) {
+        PopupService.openNew(  {Endpoint : 'VPS', Action:'Edit', Title:'Editer un VPS', ID_VPS:VPS.ID, VPS_Hostname : VPS.Hostname }    );
+    };
     
-        
+    
+    // Delete - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    VPS.Delete = function(VPS) {
+        PopupService.openNew(  {Endpoint : 'VPS', Action:'Delete', Title:'Supprimer un VPS', ID_VPS:VPS.ID }    );
+    };
+    
+
+    VPS.DeleteSubmit = function(Form) {
+        ApiService.post('VPS', 'Delete' , VPS).then(function(response) {
+           Form.process(response);  
+           VPS.ReloadList();
+           $timeout(function() { PopupService.close() } , 1500);  
+        });
+    };
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    
+    VPS.load();
 });

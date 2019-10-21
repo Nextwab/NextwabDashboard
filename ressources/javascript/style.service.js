@@ -54,8 +54,8 @@ Dashboard.directive("form", function($sanitize){
             
             // On loading
             scope.Form.loading = function() {
-                scope.FormState = 'form_loading';
-                scope.FormError         = "";
+                scope.FormState     = 'form_loading';
+                scope.FormError     = "";
             };
             
             // Process handler

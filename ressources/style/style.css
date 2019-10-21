@@ -148,8 +148,11 @@ popup input[type=text], popup input[type=password]{width:215px}
 
 
 
-.div_bulle{position:relative;background:#19293e;padding:10px;border-bottom:4px solid #111;margin-bottom:20px;border-radius:6px;color:#eee}
-.div_bulle h5{font-size:21px;font-family:Dosis;font-weight:600;color:#FFF}
+.div_bulle{position:relative;background:#19293e;padding:10px;border-bottom:4px solid #111;margin-bottom:40px !important;border-radius:6px;color:#666}
+.div_bulle h5{font-size: 21px;
+font-family: Quicksand;
+font-weight: 800;
+color: #444;}
 ..div_bulle h5 b{font-size:32px;font-weight:600}
 .VPS_Calculator{margin-top:10px;border-top:2px dashed #ffffff2b;padding-top:12px}
 .VPS_Calculator .range_contenair_row .bar{background:#a42525}
@@ -157,12 +160,12 @@ popup input[type=text], popup input[type=password]{width:215px}
 .VPS_Calculator .range_contenair_row div.enabled_tmp .bar,.VPS_Calculator .range_contenair_row div.enabled_tmp::after{background:#7b9571}
 .VPS_Calculator .range_contenair_row div.enabled .bar,.VPS_Calculator .range_contenair_row .selected::after{background:#559f02!important}
 .VPS_Calculator .range_contenair_row .selected b{color:#559f02!important}
-.div_bulle:after{top:100%;left:30px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(17,17,17,0);border-top-color:#111;border-width:11px;border-width:16px;margin-left:-15px}
+.div_bulle:after{top:100%;left:30px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(17,17,17,0);border-top-color:#ddd;border-width:11px;border-width:16px;margin-left:-15px}
 .List_Item{background:#FFF;margin-bottom:15px;padding:10px;border-radius:5px;border-bottom:3px solid #ddd;margin-top:15px}
 
-.div-bulle.d-v-green{background:#dadfd2;border-bottom:4px solid #7e9166;color:#353535}
+.div-bulle.d-v-green{border-bottom:4px solid #7e9166;}
 .div-bulle.d-v-green:after{border-top-color:#7e9166}
-.Line_Item{margin-bottom:40px}
+.Line_Item{margin-bottom:20px}
 .Line_Item_Unit{font-size:19px;color:#457597}
 .Item_Case{display:inline-block;text-align:center;padding:10px;background:#eaeaea78;border-radius:5px;width:130px;border-bottom:3px solid #cecece;font-size:12px;cursor:pointer}
 .Item_Case i{display:block;font-size:26px;margin-bottom:6px;margin-top:3px}
@@ -233,3 +236,10 @@ popup input[type=text], popup input[type=password]{width:215px}
 .database-contenair-list{position:relative;background:#dfdfdf;color:#4A4A4A;padding:7px;border-radius:5px}
 .database-contenair-list:after{bottom:100%;left:35px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(25,86,112,0);border-bottom-color:#dfdfdf;border-width:12px;margin-left:-12px}
 .database-list-wrapper{display:none;margin-top:25px}
+
+.Line_Item_VPS_Setting .td-icon i{
+    
+}
+.Line_Item_VPS_Setting .td-icon{
+    
+}

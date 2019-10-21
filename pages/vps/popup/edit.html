@@ -1,23 +1,38 @@
-<div class="VPS" ng-controller="VPS_Controller as VPS">
-    <div class="Line_Item" ng-repeat="Selector_Settings in VPS.Settings" ng-if="Selector_Settings.visibility != 'hidden'">
-        <b>{{Selector_Settings.title}} :</b> <span class="Line_Item_Unit">{{Selector_Settings.value_displayed || Selector_Settings.value}} {{Selector_Settings.unit}}</span>
+<div ng-controller="VPS_Controller as VPS" class="VPS">
 
-        <selector rootdriver="VPS"></selector>
-    </div>
-    
-    <div class="div_bulle pricing">
-        <h5>Tarif du VPS : <b>{{VPS.Price}}€</b> / Mois</h5>
-    
-        <div class="VPS_Calculator">
-            <div class="Line_Item" ng-repeat="Selector_Settings in VPS.Calculator" >
-                Estimation du cout mensuel si le serveur fonctionne {{Selector_Settings.value_displayed || Selector_Settings.value}} {{Selector_Settings.unit}} dans le mois : <b>{{VPS.Calculated_Price}}€ / Mois</b> 
-                <selector rootdriver="VPS"></selector>
+    <form ng-handler="VPS" ng-handler-action="Add" class="{{FormState}}">
+        <div class="Line_Item List_Item Line_Item_VPS_Setting" ng-repeat="Selector_Settings in VPS.Settings" ng-if="Selector_Settings.visibility != 'hidden'">
+            <table class="width-full">
+                <tr>
+                    <td class="td-icon">
+                        <i class="{{Selector_Settings.icon}}"></i>
+                    </td>
+                    
+                    <td>
+                        <b>{{Selector_Settings.title}} :</b> <span class="Line_Item_Unit">{{Selector_Settings.value_displayed || Selector_Settings.value}} {{Selector_Settings.unit}}</span>
+                    </td>
+                </tr>
+            </table>
+            
+            <selector rootdriver="VPS"></selector>
+        </div>
+        
+        <div class="List_Item div_bulle pricing">
+            <h5>Tarif du VPS : <b>{{VPS.Price}}€</b> / Mois</h5>
+        
+            <div class="VPS_Calculator">
+                <div class="Line_Item" ng-repeat="Selector_Settings in VPS.Calculator" >
+                    Estimation du cout mensuel si le serveur fonctionne {{Selector_Settings.value_displayed || Selector_Settings.value}} {{Selector_Settings.unit}} dans le mois : <b>{{VPS.Calculated_Price}}€ / Mois</b> 
+                    <selector rootdriver="VPS"></selector>
+                </div>
             </div>
         </div>
-    </div>
-    
-    
-    
-    <span class="button" ng-click="VPS.Submit()">Créer</span>
-    <div class="popup_clear"></div>
+        
+        <div class="Popup_Footer" >
+            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
+            <div class="clear"></div>
+            <span class="button button_submit"></span>
+        </div>
+    </form>
+
 </div>

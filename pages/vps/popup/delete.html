@@ -1,0 +1,23 @@
+<div class="VPS" ng-controller="VPS_Controller as VPS" ng-init="VPS.ID_VPS = Popup.Config.ID_VPS;  VPS.Hostname = Popup.Config.VPS_Hostname;">
+    
+    <form ng-handler="VPS" ng-handler-action="Delete" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                    <td>
+                        <h1>Attention</h1>
+                        <b>Supprimer le VPS : {{VPS.Hostname}} ?</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+        
+    </form>
+    
+</div>
