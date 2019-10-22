@@ -9,6 +9,7 @@ Dashboard.value('config_api',
 		VPS : 
 			{
 			Add             :   '/vps/create.php' ,
+			Update          :   '/vps/update.php' ,
 			List            :   '/vps/get_list.php',
             List_OS         :   '/vps/get_list_os.php',
 			Delete          :   '/vps/delete.php',

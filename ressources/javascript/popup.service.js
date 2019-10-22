@@ -22,8 +22,6 @@ Dashboard.service("PopupService", function($compile , $location){
         $('popup').fadeOut().remove(); 
         $('.background_overlay').fadeOut();
     }
-    
-		
 });
 
 Dashboard.directive("popup", function(NavigationService){
@@ -65,7 +63,6 @@ var PopupController = function($scope, $element, $window, $document, NavigationS
         vm_Popup.Styles                     = config.Styles;
         vm_Popup.POPUP_Endpoint_URL         = NavigationService.getEndpointURL(config.Endpoint, config.Action );
         vm_Popup.POPUP_Title                = config.Title;
-        
 		}
     
     

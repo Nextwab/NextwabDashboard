@@ -36,7 +36,7 @@ Dashboard.directive("select", function(){
     });    
     
 // Formulaires 
-Dashboard.directive("form", function($sanitize){
+Dashboard.directive("form", function($sanitize, $rootScope, $timeout){
 	
 	var Form = {
         restrict        : 'E',
@@ -58,6 +58,14 @@ Dashboard.directive("form", function($sanitize){
                 scope.FormError     = "";
             };
             
+            // On error
+            scope.Form.error = function(errorMessage ) {
+                scope.FormState     = 'form_error';
+                scope.FormError     = '<i class="fas fa-exclamation-circle"></i> '+errorMessage;
+                $rootScope.$apply();
+                $timeout(function() { scope.Form.resetState() } , 4000);
+            };
+            
             // Process handler
             scope.Form.process = function(reply) {
                 
@@ -65,12 +73,17 @@ Dashboard.directive("form", function($sanitize){
                     scope.FormState = 'form_valid';
                 }
                 else {
-                    scope.FormState     = 'form_error';
-                    scope.FormError     = '<i class="fas fa-exclamation-circle"></i> '+reply.errorMessage;
+                    scope.Form.error(reply.errorMessage);
                 }
-                
             }
             
+            
+           // Reset state handler
+            scope.Form.resetState = function() {
+                scope.FormState     = ''; 
+                scope.FormError     = '';
+                $rootScope.$apply();
+            } 
 		}
 	};
 	
@@ -80,7 +93,7 @@ Dashboard.directive("form", function($sanitize){
     
     
 // Submits 
-Dashboard.directive("buttonSubmit", function($timeout){
+Dashboard.directive("buttonSubmit", function($timeout, $rootScope){
 	
 	let Submit = {
 		restrict        : 'C',

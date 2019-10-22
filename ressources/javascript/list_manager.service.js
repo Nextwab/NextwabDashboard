@@ -36,6 +36,13 @@ Dashboard.service("ListManager", function( ApiService ){
         return toReturn;
     }
     
-    
+    // Set setting scheme
+	vm_ListManager.setValuesOf     = function( config , values ) {console.log(config);
+        angular.forEach(values, function(value, key) {
+            if(typeof config.Settings[key] !== "undefined" ) {
+                config.Settings[key].value = value;
+            }
+        });
+    }
     
 });

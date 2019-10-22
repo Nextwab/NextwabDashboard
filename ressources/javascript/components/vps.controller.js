@@ -7,9 +7,10 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     VPS.Price               = null;
     VPS.Calculated_Price    = 0;
     VPS.Calculated_Days     = 31;
-    VPS.FormState           = '';
+    VPS.FormState           = 1;
     VPS.FormError           = '';
-
+    VPS.ID                  = false;
+    
     // VPS Creation & Edition settings
     VPS.Settings    = {
         vCores          : {title: "vCores"          , name : "vCores"       , type:"range"  , icon: "fas fa-microchip"          , range_start   : 1 , range_end : 8   , value : 1     , unit: "CPU"   },
@@ -34,18 +35,32 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
         Days            : {title: "Jours"           , name : "Day"          , type:"range"  , icon: "far fa-calendar-alt"      , on_change      : 'update_CalculatedPrice', range_start : 0 , range_end : 31   , value : 31     , unit: "Jours", display_step: 7},
     };
     
-    
-    VPS.load     = function() {
-        // Chargement de la liste des VPS
-        ListManager.init( { endpoint : "VPS"  } ).then(function(response) { VPS.Listing = response  });
-        
-        // Chargement de la liste des OS disponibles
-        ListManager.init( { endpoint : "VPS" , action : "List_OS"  } ).then(function(response) {  VPS.OS_List = response; VPS.setOS_List(1); });
-        
-        
-        VPS.init = function(Dashboard) {
+    VPS.init = function(Dashboard) {
             VPS.Dashboard = Dashboard;
         };
+        
+        
+    VPS.load     = function(ID_VPS = false) {
+        
+        // Load VPS list
+        ListManager.init( { endpoint : "VPS"  } ).then(function(response) { 
+            VPS.Listing = response;
+            
+            // VPS Edition
+            if(ID_VPS) {
+                VPS.ID  = ID_VPS;
+                
+                // Fill settings values
+                ListManager.setValuesOf(VPS , VPS.Listing[ID_VPS] );
+                
+                VPS.Settings.Type.visibility    = "hidden";
+                VPS.Settings.OS.visibility      = "hidden";
+                
+            }
+        });
+        
+        // Load OS List
+        ListManager.init( { endpoint : "VPS" , action : "List_OS"  } ).then(function(response) {  VPS.OS_List = response; VPS.setOS_List(1); });
     };
     
     
@@ -80,7 +95,17 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     
     VPS.GetPricing = function() {
         let settings = ListManager.getValuesOf(this);
-        ApiService.post('VPS', 'Pricing' , settings).then(function(response) { VPS.Price = response.data.Price_Per_Month; VPS.update_CalculatedPrice(); });
+        
+        if(VPS.ID) {
+                settings.Mode = "Update";
+            }
+        
+        ApiService.post('VPS', 'Pricing' , settings).then(function(response) {
+            VPS.FormError   = response.errorMessage;
+            VPS.FormState   = response.valid;
+            VPS.Price       = response.data.Price_Per_Month; 
+            VPS.update_CalculatedPrice(); 
+        });
     };
     
     
@@ -90,7 +115,11 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
         if(VPS.Price) {
             let settings = ListManager.getValuesOf(this);
             
-            ApiService.post('VPS', 'Add' , settings).then(function(response) { 
+            if(VPS.ID) {
+                settings.ID_VPS = VPS.ID;
+            }
+            
+            ApiService.post('VPS', (VPS.ID ? 'Update' : 'Add') , settings).then(function(response) { 
                 Form.process(response); 
             
                 if(response.valid) {
@@ -100,6 +129,9 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
                     }, 1500);
                 }
             });
+        }
+        else {
+            Form.error(VPS.FormError);
         }
     };
     
@@ -117,13 +149,13 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     
     
     VPS.Edit = function(VPS) {
-        PopupService.openNew(  {Endpoint : 'VPS', Action:'Edit', Title:'Editer un VPS', ID_VPS:VPS.ID, VPS_Hostname : VPS.Hostname }    );
+        PopupService.openNew(  {Endpoint : 'VPS', Action:'Edit', Title:'Editer un VPS', ID_VPS:VPS.ID }    );
     };
     
     
     // Delete - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     VPS.Delete = function(VPS) {
-        PopupService.openNew(  {Endpoint : 'VPS', Action:'Delete', Title:'Supprimer un VPS', ID_VPS:VPS.ID }    );
+        PopupService.openNew(  {Endpoint : 'VPS', Action:'Delete', Title:'Supprimer un VPS', ID_VPS:VPS.ID, VPS_Hostname : VPS.Hostname }    );
     };
     
 

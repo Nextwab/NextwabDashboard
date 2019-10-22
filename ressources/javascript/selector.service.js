@@ -48,16 +48,15 @@ var SelectorController = function( $scope, $element){
         
         vm_Selector.generateOptions     = function() {
             vm_Selector.Selectors       = {};     // Flush old list
-            var last_step_displayed = 0;
+            var last_step_displayed     = 0;
             
-            _default_config                     = {
+            _default_config                 = {
                 enabled         : false,
                 enabled_tmp     : false,
                 display_value   : false
             };
-        
             
-            for (var i=vm_Selector.range_start ; i <= (vm_Selector.range_end / vm_Selector.range_step) ; i++) {
+            for (var i=vm_Selector.range_start; i <= (vm_Selector.range_end / vm_Selector.range_step); i++) {
                 var config              = angular.copy(_default_config);
                 
                 config.value            = i*vm_Selector.range_step;
@@ -135,9 +134,9 @@ var SelectorController = function( $scope, $element){
 
         // Handling click action
         vm_Selector.select = function(selector){
-            vm_Selector.value                   = selector.value;
-            Selector_Settings.value               = selector.value;
-            Selector_Settings.value_displayed     = vm_Selector.Selectors[selector.value].title;
+            vm_Selector.value                       = selector.value;
+            Selector_Settings.value                 = selector.value;
+            Selector_Settings.value_displayed       = vm_Selector.Selectors[selector.value].title;
             
             // If onchange handler is defined, we must have a rootdriver defined in attributs
             if(vm_Selector.on_change) {
@@ -158,11 +157,23 @@ var SelectorController = function( $scope, $element){
     }, true);
     
     
-    // if range_end are changed, we must generate selectors
+    // if range_end is changed, we must generate selectors
     $scope.$watch('Selector_Settings.range_end', function(newValue, oldValue, scope){
         vm_Selector.range_end = newValue;
         vm_Selector.generateOptions();
     }, true);
     
+    
+    // if value is changed, we must generate selectors
+    $scope.$watch('Selector_Settings.value', function(newValue, oldValue, scope){
+        vm_Selector.value = newValue;
+        vm_Selector.generateOptions();
+    }, true);
+    
+    // if value is changed, we must generate selectors
+    $scope.$watch('Selector_Settings.visibility', function(newValue, oldValue, scope){
+        vm_Selector.visibility = newValue;
+        vm_Selector.generateOptions();
+    }, true);
     
 };
