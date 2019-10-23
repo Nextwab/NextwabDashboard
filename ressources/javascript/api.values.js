@@ -44,6 +44,7 @@ Dashboard.value('config_api',
 		User : 
 			{
 			Login           :   '/account/login.php',
+			GetInfos        :   '/account/infos.php',
 			},
 			
 		

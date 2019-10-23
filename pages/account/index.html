@@ -1,1 +1,10 @@
-Index Account
+<div class="Frame flex" ng-controller="User_Controller as User" ng-init="User.init(Dashboard); User.load()">
+	
+	<div class="Frame_Header">
+		<h1>{{User.data.FirstName}} {{User.data.LastName}}</h1>
+        {{User.data.Address_StreetNumber}} {{User.data.Address_StreetName}}<br />
+        {{User.data.Address_ZipCode}} {{User.data.Address_City}} <br />
+        {{User.data.Address_Country}} 
+	</div>
+	
+</div>

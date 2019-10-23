@@ -3,7 +3,7 @@
 Dashboard.value('config_routes', {
     "_not_found"                            : {file : "/_commons/not_found.html"                , handler : "empty"         , login : false},
     "_not_logged"                           : {file : "/_commons/not_logged.html"               , handler : "empty"         , login : false},
-    "/"                                     : {file : "/index.html"                             , handler : "contenair"     , login : false},
+    "/"                                     : {file : "/account/index.html"                     , handler : "contenair"     , login : false},
     
     "/account/popup/login.html"             : {file : "/account/popup/login.html"               , handler : "empty"         , login : false,    specific : 'LoginAction'},
 
