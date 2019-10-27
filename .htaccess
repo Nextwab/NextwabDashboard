@@ -1,5 +1,10 @@
 RewriteEngine On
 
+# Redirect HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^dashboard.dev.com [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
+
 # Redirect folder without slash
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !(.*)/$

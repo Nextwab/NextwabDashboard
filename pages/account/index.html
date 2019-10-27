@@ -1,10 +1,40 @@
 <div class="Frame flex" ng-controller="User_Controller as User" ng-init="User.init(Dashboard); User.load()">
 	
-	<div class="Frame_Header">
-		<h1>{{User.data.FirstName}} {{User.data.LastName}}</h1>
-        {{User.data.Address_StreetNumber}} {{User.data.Address_StreetName}}<br />
-        {{User.data.Address_ZipCode}} {{User.data.Address_City}} <br />
-        {{User.data.Address_Country}} 
+	<div class="Frame_Header Frame_Account_Header">
+        
+        
+        <div class="Account_Balance">
+            <img src="/ressources/images/Flat-UI-Vault.png" class="img-50">
+            <b>Mon solde :</b>
+            <h2>{{User.data.Balance | number : 2}} €</h2>
+            
+            <span class="button"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
+        </div>
+    
+        
+        <div class="Account_Profil">
+                    <table class="table-user">
+                        <tr>
+                            <td>
+                                <div class="img-user">
+                                <img src="/ressources/images/no_user.jpg" />
+                                </div>
+                            </td>
+                            
+                            <td>
+                            <h1>{{User.data.FirstName}} {{User.data.LastName}}</h1>
+                            {{User.data.Address_StreetNumber}} {{User.data.Address_StreetName}}<br />
+                            {{User.data.Address_ZipCode}} {{User.data.Address_City}}  {{User.data.Address_Country}} 
+                            
+                            <span class="button">Editer</span>
+                            <span class="button">Deconnexion</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        
 	</div>
+    
+    
 	
 </div>
