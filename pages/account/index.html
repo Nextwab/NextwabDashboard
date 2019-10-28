@@ -8,33 +8,76 @@
             <b>Mon solde :</b>
             <h2>{{User.data.Balance | number : 2}} €</h2>
             
-            <span class="button"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
+           
         </div>
     
-        
         <div class="Account_Profil">
-                    <table class="table-user">
-                        <tr>
-                            <td>
-                                <div class="img-user">
-                                <img src="/ressources/images/no_user.jpg" />
-                                </div>
-                            </td>
-                            
-                            <td>
-                            <h1>{{User.data.FirstName}} {{User.data.LastName}}</h1>
-                            {{User.data.Address_StreetNumber}} {{User.data.Address_StreetName}}<br />
-                            {{User.data.Address_ZipCode}} {{User.data.Address_City}}  {{User.data.Address_Country}} 
-                            
-                            <span class="button">Editer</span>
-                            <span class="button">Deconnexion</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+            <table class="table-user">
+                <tr>
+                    <td>
+                        <div class="img-user">
+                        <img src="/ressources/images/no_user.jpg" />
+                        </div>
+                    </td>
+                    
+                    <td>
+                    <h1>{{User.data.FirstName}} {{User.data.LastName}}</h1>
+                    {{User.data.Address_StreetNumber}} {{User.data.Address_StreetName}}<br />
+                    {{User.data.Address_ZipCode}} {{User.data.Address_City}}  {{User.data.Address_Country}} 
+                    </td>
+                </tr>
+            </table>
+        </div>
+                
+                
+        <div class="Frame_Header_Footer">
+            <span class="button"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
+            
+            <div class="right">
+                <span class="button"><i class="fas fa-user-edit"></i> Editer</span>
+                <span class="button"><i class="fas fa-sign-out-alt"></i> Deconnexion</span>
+            </div>
+        </div>
+	</div>
+    
+    <div class="Frame_Contenair">
+        <div class="List_Item_Mini" ng-controller="VPS_Controller as VPS" ng-init="VPS.init(Dashboard); VPS.load()">
+            <h1>Mes Serveurs VPS</h1>
+            <div class="List_Contenair">
+            <table class="width-full table-tiny">
+                <tr  ng-repeat="VPS_Data in VPS.Listing">
+                    <td style="width:100px"><span class="bull green"></span><span class="legend">#VM.{{VPS_Data.ID}}</span></td>
+                    <td style="width: 280px;">
+                        <b>{{VPS_Data.Hostname}}</b>
+                        
+                    </td>
+                    
+                    <td style="width: 280px;">
+                    <span class="legend">{{VPS_Data.OS}}</span>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        
+        <div class="List_Item_Mini" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
+            <h1>Mes Domaines</h1>
+            <div class="List_Contenair">
+                <table class="width-full table-tiny">
+                    <tr ng-repeat="Domain_Data in Domain.Listing">
+                        <td class="td-icon"><i class="fas fa-globe-americas"></i><span class="bull {{Domain_Data.Enabled ? 'green' : '' }}"></span></td>
+                        <td>
+                            <b>{{Domain_Data.Domain}}</b>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        
         
 	</div>
     
     
-	
+    
 </div>

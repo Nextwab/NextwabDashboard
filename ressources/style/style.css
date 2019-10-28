@@ -135,7 +135,11 @@ table{border-collapse:collapse}
 .table_icon h1{font-weight:800;font-size:22px;color:#b3bcc4;font-family:Quicksand}
 .table_icon i{font-size:65px;color:#b3bcc4}
 .table-tiny td{padding:3px}
-.table-user h1{font-weight:400;color:#2f2f2f;font-family:Metropolis Bold;font-size:24px}
+.table-user h1{font-weight: 400;
+color:
+#4d4d4d;
+font-family: Metropolis Bold;
+font-size: 20px;}
 .button.form_valid{background:#509f30;border-bottom:3px solid #46752E}
 .button.form_loading{background:gray;border-bottom:3px solid #626262}
 .button.form_error{background:#AE2F2F;border-bottom:3px solid #621111}
@@ -150,7 +154,7 @@ div.input input{padding-left:25px;display:inline-block}
 .width-full{width:100%}
 .bull{height:10px;width:10px;display:inline-block;border-radius:19px;vertical-align:-1px;margin-right:6px}
 .bull.green{background:#499112}
-.contenair{background:#eee;height:90vh;margin-top:5vh;width:80vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
+.contenair{background:#FFF url(/ressources/images/background-white.jpg);height:90vh;margin-top:5vh;width:80vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
 .contenair .menu{background:#6b6b6b;z-index:3;background:-moz-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:-webkit-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:linear-gradient(135deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);height:100%;width:55px;position:absolute;top:0;left:0;overflow:hidden;transition:all .3s;border-radius:5px 0 0 5px}
 .contenair .menu:hover{width:240px}
 .contenair .menu nav{margin-top:40px}
@@ -166,6 +170,32 @@ div.input input{padding-left:25px;display:inline-block}
 .Frame .Frame_Header{flex:0 1 auto;width:100%}
 .Frame .Frame_Header .button{position:absolute;right:37px;top:21px;color:#000!important;border:1px dashed #b9b9b9;font-family:Quicksand;font-weight:400;border-radius:5px;padding:7px 11px;background:none!important}
 .Frame .Frame_Header .button i{color:#555}
+
+.Frame .Frame_Header .Frame_Header_Footer{
+margin-right: -20px;
+margin-left: -20px;
+margin-bottom: -10px;
+position:relative;
+padding-left: 10px;
+}
+.Frame .Frame_Header .Frame_Header_Footer .button{position: relative;
+top: auto;
+left: auto;
+right: auto;
+border: 0px;
+color:
+#595959 !important;
+font-family: Quicksand;
+font-weight: 600;
+background: none;
+border-radius: 0;}
+
+.Frame .Frame_Header .Frame_Header_Footer .right {
+position: absolute;
+right: 15px;
+top: 0px;
+}
+
 .Frame .List_Contenair{width:100%;flex:1 1 auto;overflow-x:auto;padding-right:20px}
 .Frame .List_Contenair .button_action{background:#eee;padding:5px 7px;border-radius:5px;margin-left:4px;cursor:pointer}
 .flex{display:flex}
@@ -201,6 +231,39 @@ popup input[type=text],popup input[type=password]{width:215px}
 .VPS_Calculator .range_contenair_row .selected b{color:#559f02!important}
 .div_bulle:after{top:100%;left:30px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(17,17,17,0);border-top-color:#ddd;border-width:11px;border-width:16px;margin-left:-15px}
 .List_Item{background:#FFF;margin-bottom:15px;padding:10px;border-radius:5px;border-bottom:3px solid #ddd;margin-top:15px}
+
+.List_Item_Mini h1{
+font-size: 20px;
+margin-bottom: 5px;    
+}
+
+
+.List_Item_Mini{background:
+#F4F4F4;
+width: calc(50% - 45px);
+display: inline-block;
+vertical-align: top;
+margin-top: 20px;
+margin-right: 20px;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0 0 11px
+#e3e3e3;
+overflow: auto;
+border-bottom:3px solid #ddd;
+}
+
+.List_Item_Mini .List_Contenair{
+max-height: 300px;
+overflow-x: scroll;
+overflow: auto;
+padding: 0;
+}
+
+
+
+
+
 .div-bulle.d-v-green{border-bottom:4px solid #7e9166}
 .div-bulle.d-v-green:after{border-top-color:#7e9166}
 .Line_Item{margin-bottom:20px}
@@ -264,10 +327,13 @@ popup input[type=text],popup input[type=password]{width:215px}
 .table-user td{padding:5px}
 .img-user{position:relative;height:70px;width:70px;overflow:hidden;border-radius:65px}
 .img-user img{position:absolute;height:100%;bottom:-999px;top:-999px;left:-999px;right:-999px;margin:auto}
-.Frame_Account_Header{background:#FFF;margin-left:-20px;margin-top:-20px;padding:10px 20px;box-shadow:0 0 15px #aaa}
+.Frame_Account_Header{margin-left:-20px;margin-top:-20px;padding:10px 20px;}
 .Account_Balance img{position:absolute;left:0}
 .Account_Balance .button{right:auto!important;left:0!important;top:65px!important}
-.Account_Balance{padding-left:65px;position:relative;margin-bottom:50px}
-.Account_Balance h2{font-family:Metropolis Bold;font-size:29px;font-weight:400;color:#3f444a}
+.Account_Balance{    padding-left: 65px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;}
+.Account_Balance h2{font-family:Metropolis Bold;font-size:29px;font-weight:400;color:#3c3c3c}
 .Account_Profil{position:absolute;top:10px;right:20px}
 .img-50{height:50px;width:auto}
