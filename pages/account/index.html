@@ -41,42 +41,58 @@
 	</div>
     
     <div class="Frame_Contenair">
-        <div class="List_Item_Mini" ng-controller="VPS_Controller as VPS" ng-init="VPS.init(Dashboard); VPS.load()">
-            <h1>Mes Serveurs VPS</h1>
-            <div class="List_Contenair">
-            <table class="width-full table-tiny">
-                <tr  ng-repeat="VPS_Data in VPS.Listing">
-                    <td style="width:100px"><span class="bull green"></span><span class="legend">#VM.{{VPS_Data.ID}}</span></td>
-                    <td style="width: 280px;">
-                        <b>{{VPS_Data.Hostname}}</b>
+            
+            <br />
+            
+            <table class="width-full">
+                <tr>
+                    <td class="v-align-top">
+                        <div class="" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
+                            <div ng-repeat="Domain_Data in Domain.Listing" class="List_Item List_Item_ForRack ID_CloudDevice_{{Domain_Data.ID_CloudDevice}}">
                         
+                                <table class="width-full">
+                                    <tr>
+                                        <td class="td-icon"><i class="fas fa-globe-americas"></i><span class="bull {{Domain_Data.Enabled ? 'green' : '' }}"></span></td>
+                                        <td>
+                                            <b>{{Domain_Data.Domain}}</b>
+                                        </td>
+                                    </tr>
+                                </table>
+                
+                            </div>
+                  
+                        </div>
                     </td>
                     
-                    <td style="width: 280px;">
-                    <span class="legend">{{VPS_Data.OS}}</span>
+                    <td class="v-align-top text-align-right">
+                        <div class="rack" ng-controller="VPS_Controller as VPS" ng-init="VPS.init(Dashboard); VPS.LoadRacks()">
+                            <div ng-repeat="VPS_Data in VPS.Rack[0]" style="z-index:{{100 - $index}}" class="server {{VPS_Data.PowerState == 'started' ? 'green' : ''}} {{VPS_Data.PowerState == 'stopped' ? 'red' : ''}}  " 
+                            ng-mouseover="VPS.ServerOver(VPS_Data)" ng-mouseleave="VPS.ServerLeave(VPS_Data)"
+                            
+                            >
+                                <div class="face front">
+                                    <b ng-if="VPS_Data.State == '_loaded'">{{VPS_Data.Hostname}}</b>
+                                    <b ng-if="VPS_Data.State == '_empty'">Ajouter un serveur</b>
+                                    <b ng-if="VPS_Data.State == '_loading'">...</b>
+                                    <span class="power">
+                                        <i class="fas 
+                                        {{VPS_Data.State == '_loaded' ?  'fa-power-off' : '' }} 
+                                        {{VPS_Data.State == '_loading' ?  ' fa-sync-alt fa-spin' : '' }} 
+                                        {{VPS_Data.State == '_empty' ?  ' fa-plus-circle  ' : '' }} 
+                                        "></i>
+                                    </span>
+                                </div>
+                                <div class="face back"> </div>
+                                <div class="face top"></div>
+                                <div class="face bottom"> </div>
+                                <div class="face left"><span class="line"></span></div>
+                                <div class="face right"></div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>
-            </div>
-        </div>
-        
-        <div class="List_Item_Mini" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
-            <h1>Mes Domaines</h1>
-            <div class="List_Contenair">
-                <table class="width-full table-tiny">
-                    <tr ng-repeat="Domain_Data in Domain.Listing">
-                        <td class="td-icon"><i class="fas fa-globe-americas"></i><span class="bull {{Domain_Data.Enabled ? 'green' : '' }}"></span></td>
-                        <td>
-                            <b>{{Domain_Data.Domain}}</b>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        
-        
-        
-	</div>
+
     
     
     

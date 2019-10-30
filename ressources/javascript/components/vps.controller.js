@@ -10,6 +10,9 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     VPS.FormState           = 1;
     VPS.FormError           = '';
     VPS.ID                  = false;
+    VPS.Rack                = [];
+    
+    
     
     // VPS Creation & Edition settings
     VPS.Settings    = {
@@ -62,6 +65,57 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
         // Load OS List
         ListManager.init( { endpoint : "VPS" , action : "List_OS"  } ).then(function(response) {  VPS.OS_List = response; VPS.setOS_List(1); });
     };
+    
+    
+    VPS.LoadRacks = function() {
+        
+        var Serveurs = [];
+        var NB_Server = 15;
+        
+        for (var Serveur = 0; Serveur < NB_Server; Serveur++) {
+            Serveurs[Serveur] = {State:'_loading'};
+        }
+        
+        VPS.Rack[0] = Serveurs;
+        
+        // Load VPS list
+        ListManager.init( { endpoint : "VPS"  } ).then(function(response) { 
+
+            Serveur         = 0;
+            ServeurTimer    = 0;
+            
+            angular.forEach(response, function(value, key) {
+                 $timeout(function() {
+                     
+                        
+                      VPS.Rack[0][Serveur] = value;
+                      VPS.Rack[0][Serveur]['State'] = '_loaded';
+                        Serveur++;
+                    }, (80 * ServeurTimer) );
+                ServeurTimer++;
+            });
+            
+             for (var Serveur2 = ServeurTimer; Serveur2 < NB_Server; Serveur2++) {
+                 $timeout(function() {
+                      VPS.Rack[0][Serveur] = {State:'_empty'};
+                        Serveur++;
+                    }, (80 * ServeurTimer) );
+                ServeurTimer++;
+            }
+
+        });
+    }
+    
+    
+    VPS.ServerOver = function(VPS_Data) {
+        $('.List_Item').addClass("Domain_Blur");
+        $('.ID_CloudDevice_'+VPS_Data.ID).addClass("Domain_Scale");
+    };
+    
+    VPS.ServerLeave = function(VPS_Data) {
+        $('.List_Item').removeClass("Domain_Scale Domain_Blur");
+    };
+    
     
     
     VPS.ReloadList = function() {
