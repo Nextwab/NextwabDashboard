@@ -25,8 +25,10 @@ Dashboard.value('config_api',
 			List            :   '/domains/get_list.php',
 			Delete          :   '/domains/delete.php',
 			SetCloudServer  :   '/domains/set_cloud_device.php',
+			GetCMS_List     :   '/cms/get_list.php',
 			GetDNS_Config   :   '/domains/get_config.php',
 			SetDNS_Config   :   '/domains/set_config.php',
+			SetCMS          :   '/cms/install.php',
 			}
 		,
         

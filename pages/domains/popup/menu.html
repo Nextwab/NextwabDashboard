@@ -1,5 +1,10 @@
 <div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="Domain.Domain = Popup.Config.Domain;">
     
+    <div class="Item_Case" ng-click="Domain.menu_setCMS(Domain)">
+        <i class="fas fa-cloud-download-alt"></i>
+        <b>Installer un CMS</b>
+    </div>
+    
     <div class="Item_Case" ng-click="Domain.menu_setServer(Domain)">
         <i class="fas fa-server"></i>
         <b>Définir un VPS</b>

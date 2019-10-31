@@ -21,6 +21,12 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     };
     
     
+    // Chargement de la liste des domaines
+    Domain.loadCMS     = function() {
+        ListManager.init( { endpoint : "Domain" , action : "GetCMS_List" , } ).then(function(response) { Domain.ListingCMS = response  });
+    };
+    
+    
     // Submit
     Domain.AddSubmit = function(Form) {
         ApiService.post('Domain', 'Add' , Domain).then(function(response) { 
@@ -82,11 +88,12 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     
     // Menu - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     Domain.menu = function(Domain) {
-        PopupService.openNew(  {Endpoint : 'Domain', Action:'Menu', Title:'Gestion du domaine', Domain:Domain.Domain}    );
+        PopupService.openNew(  {Endpoint : 'Domain', Action:'Menu', Title:'Gestion du domaine '+Domain.Domain, Domain:Domain.Domain}    );
     };
     
-    Domain.menu_setServer = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setServer', Title:'Selectioner un serveur', Domain:Domain.Domain }    ); };
-    Domain.menu_setConfig = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setDNS_Config', Title:'Configurer un domaine', Domain:Domain.Domain }    ); };
+    Domain.menu_setCMS      = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setCMS', Title:'Installer un CMS', Domain:Domain.Domain }    ); };
+    Domain.menu_setServer   = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setServer', Title:'Selectioner un serveur', Domain:Domain.Domain }    ); };
+    Domain.menu_setConfig   = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setDNS_Config', Title:'Configurer un domaine', Domain:Domain.Domain }    ); };
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     
@@ -104,6 +111,22 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     Domain.setServer = function(Domain, ID_CloudDevice) {
         ApiService.post('Domain', 'SetCloudServer' , {Domain: Domain, ID_CloudDevice : ID_CloudDevice} ).then(function(response) {
             $timeout(function() { PopupService.close() } , 2000);  
+        });
+    };
+    
+    
+    
+    
+    Domain.InstallCMSSubmit =  function(Form) {
+        ApiService.post('Domain', 'SetCMS' , Domain).then(function(response) { 
+            Form.process(response); 
+            
+            if(response.valid) {
+                $timeout(function() {
+                    PopupService.close();
+                    Domain.menu(Domain);  
+                }, 1500);
+            }
         });
     };
     

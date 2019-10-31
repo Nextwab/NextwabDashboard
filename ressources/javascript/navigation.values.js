@@ -11,6 +11,7 @@ Dashboard.value('config_routes', {
     "/domains/popup/add.html"               : {file : "/domains/popup/add.html"                 , handler : "contenair"     , login : true},
     "/domains/popup/delete.html"            : {file : "/domains/popup/delete.html"              , handler : "contenair"     , login : true},
     "/domains/popup/menu.html"              : {file : "/domains/popup/menu.html"                , handler : "contenair"     , login : true},
+    "/domains/popup/set_cms.html"           : {file : "/domains/popup/set_cms.html"             , handler : "contenair"     , login : true},
     "/domains/popup/set_server.html"        : {file : "/domains/popup/set_server.html"          , handler : "contenair"     , login : true},
     "/domains/popup/set_dns_config.html"    : {file : "/domains/popup/set_dns_config.html"      , handler : "contenair"     , login : true},
     
@@ -48,6 +49,7 @@ Dashboard.value('config_routes', {
             'Edit'              : "/domains/popup/edit.html",
             'Menu'              : "/domains/popup/menu.html",
             'setServer'         : "/domains/popup/set_server.html",
+            'setCMS'            : "/domains/popup/set_cms.html",
             'setDNS_Config'     : "/domains/popup/set_dns_config.html",
             
         },

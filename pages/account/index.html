@@ -47,8 +47,27 @@
             <table class="width-full">
                 <tr>
                     <td class="v-align-top">
-                        <div class="" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
-                            <div ng-repeat="Domain_Data in Domain.Listing" class="List_Item List_Item_ForRack ID_CloudDevice_{{Domain_Data.ID_CloudDevice}}">
+                        <div class="Domains" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
+                            <h1>Mes Domaines</h1>
+                            <div style="min-height:22px">
+                                <div ng-if="Domain.Dashboard.VPS_Focused != null ">
+                                    Sur le serveur {{Domain.Dashboard.VPS_Focused.Hostname}} : 
+                                    
+                                    <b ng-if="Domain.Dashboard.VPS_Focused_DomainsHosted">
+                                    {{Domain.Dashboard.VPS_Focused_DomainsHosted}}
+                                    Domaine(s) 
+                                    </b>
+                                    
+                                    <b ng-if="!Domain.Dashboard.VPS_Focused_DomainsHosted" class="color-red">
+                                    <i class="far fa-times-circle"></i> Aucun 
+                                    </b>
+                                </div>
+                            </div>
+                             
+                            <div ng-repeat="Domain_Data in Domain.Listing" class="List_Item List_Item_ForRack ID_CloudDevice_{{Domain_Data.ID_CloudDevice}}" 
+                            ng-click="Domain.menu(Domain_Data)" 
+                            ng-mouseover="Domain.Dashboard.VPS_Controller.ServerOver({ID:Domain_Data.ID_CloudDevice})" 
+                            ng-mouseleave="Domain.Dashboard.VPS_Controller.ServerLeave({ID:Domain_Data.ID_CloudDevice})">
                         
                                 <table class="width-full">
                                     <tr>
@@ -62,13 +81,52 @@
                             </div>
                   
                         </div>
+                        
+                        <br /><br />
+                        
+                        <div class="Databases" ng-controller="Database_Controller as DatabaseUser" ng-init="DatabaseUser.init(Dashboard);">
+                            <h1>Mes bases de données</h1>
+                            <div style="min-height:22px">
+                                <div ng-if="DatabaseUser.Dashboard.VPS_Focused != null ">
+                                    Sur le serveur {{DatabaseUser.Dashboard.VPS_Focused.Hostname}} : 
+                                    
+                                    <b ng-if="DatabaseUser.Dashboard.VPS_Focused_DatabasesHosted">
+                                    {{DatabaseUser.Dashboard.VPS_Focused_DatabasesHosted}}
+                                    Base(s) de données
+                                    </b>
+                                    
+                                    <b ng-if="!DatabaseUser.Dashboard.VPS_Focused_DatabasesHosted" class="color-red">
+                                    <i class="far fa-times-circle"></i> Aucun 
+                                    </b>
+                                </div>
+                            </div>
+                            
+                            <span ng-repeat="DatabaseUser_Data in DatabaseUser.Listing">
+                                <div ng-repeat="Database_Data in DatabaseUser_Data.Databases" class="List_Item List_Item_ForRack ID_CloudDevice_{{DatabaseUser_Data.ID_CloudDevice}}"
+                                ng-mouseover="DatabaseUser.Dashboard.VPS_Controller.ServerOver({ID:DatabaseUser_Data.ID_CloudDevice})" 
+                                ng-mouseleave="DatabaseUser.Dashboard.VPS_Controller.ServerLeave({ID:DatabaseUser_Data.ID_CloudDevice})"
+                                >
+                            
+                                    <table class="width-full">
+                                        <tr>
+                                            <td class="td-icon"><i class="fas fa-database"></i></td>
+                                            <td>
+                                                <b>{{Database_Data.Database_Name}}</b>
+                                            </td>
+                                        </tr>
+                                    </table>
+                    
+                                </div>
+                            </span>
+                        </div>
+                        
                     </td>
                     
                     <td class="v-align-top text-align-right">
+
                         <div class="rack" ng-controller="VPS_Controller as VPS" ng-init="VPS.init(Dashboard); VPS.LoadRacks()">
-                            <div ng-repeat="VPS_Data in VPS.Rack[0]" style="z-index:{{100 - $index}}" class="server {{VPS_Data.PowerState == 'started' ? 'green' : ''}} {{VPS_Data.PowerState == 'stopped' ? 'red' : ''}}  " 
+                            <div ng-repeat="VPS_Data in VPS.Rack[0]" style="z-index:{{100 - $index}}" class="server server_{{VPS_Data.ID}} {{VPS_Data.PowerState == 'started' ? 'green' : ''}} {{VPS_Data.PowerState == 'stopped' ? 'red' : ''}}  " 
                             ng-mouseover="VPS.ServerOver(VPS_Data)" ng-mouseleave="VPS.ServerLeave(VPS_Data)"
-                            
                             >
                                 <div class="face front">
                                     <b ng-if="VPS_Data.State == '_loaded'">{{VPS_Data.Hostname}}</b>

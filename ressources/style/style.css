@@ -129,6 +129,7 @@ input[disabled=disabled],textarea[disabled=disabled]{background:#eee;border:1px 
 input[disabled=disabled]:hover,textarea[disabled=disabled]:hover{background:#eee!important;border:1px solid #ccc!important;cursor:not-allowed}
 input[type=submit],.button{transition:all .3s;display:inline-block;background:#3a6c88;border-radius:4px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
 h1{font-weight:400;color:#4d4d4d;font-family:Metropolis Bold;font-size:24px;letter-spacing:-.3px}
+h1 b{font-weight:400;}
 h5{font-size:40px;font-family:Dosis}
 table{border-collapse:collapse}
 .table_icon td{padding:10px}
@@ -287,7 +288,7 @@ popup input[type=text],popup input[type=password]{width:215px}
 .rack{perspective:868px;perspective-origin:-170% -160px;transition:all .3s;margin-right:100px;margin-top:25px;display:inline-block;width:200px}
 .rack:hover{perspective:868px;perspective-origin:-170% -160px}
 .server{text-align:left;position:relative;width:200px;transform-style:preserve-3d;height:35px;transition:all .3s}
-.server:hover{margin-left:-40px}
+.server_hover{margin-left:-40px}
 .server .face{position:absolute;width:200px;height:200px;background:#00000029;border:1px solid #dfdfdf;color:#FFF}
 .back{transform:translateZ(-100px) rotateY(180deg)}
 .right{transform:rotateY(-270deg) translateX(100px);transform-origin:top right}
@@ -324,7 +325,4 @@ to{box-shadow:0 0 40px #278e99}
 .domain_contenair{width:900px;transform:translateZ(100px);margin-left:208px;display:block;opacity:0;transition:all .4s}
 .domain_contenair span{display:inline-block;padding:4px;border-radius:3px;color:#5B6B73;font-size:12px;text-shadow:0 0 13px #278e99;margin:5px 25px 6px 5px}
 .Domain_Blur{opacity:.2}
-.Domain_Scale{transform:scale(1.1);z-index:1;opacity:1;background:#00000091;border:0;color:#FFF;box-shadow:0 0 10px #278e99;font-size:12px;padding:7px 16px}
-.Domain_Scale:after{top:15px;left:0;width:16px}
-.Domain_Scale .td-icon i{color:#9FFF14;font-size:11px}
-.Domain_Scale .td-icon span{opacity:0}
+.Domain_Scale{opacity:1;box-shadow:0 0 10px #278e99;}

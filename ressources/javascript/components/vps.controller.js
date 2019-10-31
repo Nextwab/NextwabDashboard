@@ -9,7 +9,8 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     VPS.Calculated_Days     = 31;
     VPS.FormState           = 1;
     VPS.FormError           = '';
-    VPS.ID                  = false;
+
+    VPS.ID                  = false;    // VPS Edition / Focus
     VPS.Rack                = [];
     
     
@@ -40,6 +41,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     
     VPS.init = function(Dashboard) {
             VPS.Dashboard = Dashboard;
+            VPS.Dashboard.VPS_Controller = VPS;
         };
         
         
@@ -108,11 +110,19 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     
     
     VPS.ServerOver = function(VPS_Data) {
+        
+        VPS.Dashboard.VPS_Focused                   = VPS_Data;
+        VPS.Dashboard.VPS_Focused_DomainsHosted     = $('.Domains .ID_CloudDevice_'+VPS_Data.ID).length;
+        VPS.Dashboard.VPS_Focused_DatabasesHosted   = $('.Databases .ID_CloudDevice_'+VPS_Data.ID).length;
+        
+        $('.server_'+VPS_Data.ID).addClass("server_hover");
         $('.List_Item').addClass("Domain_Blur");
         $('.ID_CloudDevice_'+VPS_Data.ID).addClass("Domain_Scale");
     };
     
     VPS.ServerLeave = function(VPS_Data) {
+        VPS.Dashboard.VPS_Focused = null;
+        $('.server_'+VPS_Data.ID).removeClass("server_hover");
         $('.List_Item').removeClass("Domain_Scale Domain_Blur");
     };
     
