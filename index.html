@@ -35,6 +35,7 @@
             <script src="/ressources/javascript/selector.service.js"></script>
             <script src="/ressources/javascript/exchange.service.js"></script>
             <script src="/ressources/javascript/style.service.js"></script>
+            <script src="/ressources/javascript/storage.service.js"></script>
             
             <script src="/ressources/javascript/components/user.controller.js"></script>
 			<script src="/ressources/javascript/components/vps.controller.js"></script>
@@ -53,7 +54,7 @@
 	<body>
 	
 	<body>
-		<div ng-controller="DashboardController as Dashboard" ng-init="Dashboard.Init()" ng-include="Dashboard.pageHandler"></div>
+		<div class="Dashboard" ng-controller="DashboardController as Dashboard" ng-init="Dashboard.Init()" ng-include="Dashboard.pageHandler"></div>
         <div class="background_overlay"></div>
 	</body>
 </html>

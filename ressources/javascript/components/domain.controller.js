@@ -1,4 +1,4 @@
-Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService, PopupService, ListManager) {
+Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService, PopupService, ListManager, StorageService) {
     
     var Domain              = this;
     var Dashboard           = null;
@@ -17,7 +17,7 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     
     // Chargement de la liste des domaines
     Domain.load     = function() {
-        ListManager.init( { endpoint : "Domain"  } ).then(function(response) { Domain.Listing = response  });
+        ListManager.init( { endpoint : "Domain"  } ).then(function(response) { StorageService.set("DomainList", response); Domain.Listing = response  });
     };
     
     
@@ -88,7 +88,7 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     
     // Menu - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     Domain.menu = function(Domain) {
-        PopupService.openNew(  {Endpoint : 'Domain', Action:'Menu', Title:'Gestion du domaine '+Domain.Domain, Domain:Domain.Domain}    );
+        PopupService.openNew(  {Endpoint : 'Domain', Action:'Menu', Title:'Gestion du domaine '+Domain.Domain, Domain:Domain.Domain, DomainID : Domain.ID}    );
     };
     
     Domain.menu_setCMS      = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setCMS', Title:'Installer un CMS', Domain:Domain.Domain }    ); };

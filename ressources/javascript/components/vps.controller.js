@@ -116,14 +116,14 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
         VPS.Dashboard.VPS_Focused_DatabasesHosted   = $('.Databases .ID_CloudDevice_'+VPS_Data.ID).length;
         
         $('.server_'+VPS_Data.ID).addClass("server_hover");
-        $('.List_Item').addClass("Domain_Blur");
+        $('.IndexItemContenair .List_Item').addClass("Domain_Blur");
         $('.ID_CloudDevice_'+VPS_Data.ID).addClass("Domain_Scale");
     };
     
     VPS.ServerLeave = function(VPS_Data) {
         VPS.Dashboard.VPS_Focused = null;
         $('.server_'+VPS_Data.ID).removeClass("server_hover");
-        $('.List_Item').removeClass("Domain_Scale Domain_Blur");
+        $('.IndexItemContenair .List_Item').removeClass("Domain_Scale Domain_Blur");
     };
     
     

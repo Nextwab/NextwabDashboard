@@ -47,7 +47,8 @@
             <table class="width-full">
                 <tr>
                     <td class="v-align-top">
-                        <div class="Domains" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
+                        <div class="Domains IndexItemContenair" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
+                            
                             <h1>Mes Domaines</h1>
                             <div style="min-height:22px">
                                 <div ng-if="Domain.Dashboard.VPS_Focused != null ">
@@ -69,9 +70,9 @@
                             ng-mouseover="Domain.Dashboard.VPS_Controller.ServerOver({ID:Domain_Data.ID_CloudDevice})" 
                             ng-mouseleave="Domain.Dashboard.VPS_Controller.ServerLeave({ID:Domain_Data.ID_CloudDevice})">
                         
-                                <table class="width-full">
+                                <table class="width-full" title="{{Domain_Data.StateMessage}}">
                                     <tr>
-                                        <td class="td-icon"><i class="fas fa-globe-americas"></i><span class="bull {{Domain_Data.Enabled ? 'green' : '' }}"></span></td>
+                                        <td class="td-icon" ><i class="fas {{Domain_Data.State ? 'fa-globe-americas' : 'fa-exclamation-triangle' }}"></i><span class="bull {{Domain_Data.Enabled && Domain_Data.State ? 'green' : 'red' }}"></span></td>
                                         <td>
                                             <b>{{Domain_Data.Domain}}</b>
                                         </td>
@@ -80,11 +81,16 @@
                 
                             </div>
                   
+                            <br /><br />
+                            <span class="button button_mini" ng-click="Domain.Dashboard.ServicePopup.openNew(  {Endpoint : 'Domain', Action:'Add', Title:'Ajouter un domaine'}    )"><i class="fas fa-plus-circle"></i> Ajouter un domaine</span>
+                            <a class="button button_mini" href="/domains"><i class="fas fa-cog"></i> Gérer mes domaines</a>
+                            
+                  
                         </div>
                         
                         <br /><br />
                         
-                        <div class="Databases" ng-controller="Database_Controller as DatabaseUser" ng-init="DatabaseUser.init(Dashboard);">
+                        <div class="Databases IndexItemContenair" ng-controller="Database_Controller as DatabaseUser" ng-init="DatabaseUser.init(Dashboard);">
                             <h1>Mes bases de données</h1>
                             <div style="min-height:22px">
                                 <div ng-if="DatabaseUser.Dashboard.VPS_Focused != null ">
@@ -118,6 +124,12 @@
                     
                                 </div>
                             </span>
+                            
+                            <br /><br />
+                            <span class="button button_mini" ng-click="DatabaseUser.Dashboard.ServicePopup.openNew(  {Endpoint : 'Database', Action:'Add_User', Title:'Ajouter un utilisateur MySQL'}    )"><i class="fas fa-plus-circle"></i> Ajouter une base de données</span>
+                            <a class="button button_mini" href="/mysql/"><i class="fas fa-cog"></i> Gérer mes bases de données</a>
+                            
+                            
                         </div>
                         
                     </td>

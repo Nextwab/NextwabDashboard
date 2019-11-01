@@ -141,7 +141,13 @@ table{border-collapse:collapse}
 .button.form_loading{background:gray;border-bottom:3px solid #626262}
 .button.form_error{background:#AE2F2F;border-bottom:3px solid #621111}
 .button_cancel{background:#D04040;border-bottom:3px solid #8a1313}
-.button_mini{font-size:11px;padding:6px 8px;border-radius:5px}
+.button_mini{font-size: 11px;
+
+padding: 7px 10px 5px 10px;
+
+border-radius: 5px;
+
+font-weight: 600;}
 .v-align-top{vertical-align:top}
 .text-align-right{text-align:right}
 div.input{position:relative}
@@ -152,6 +158,8 @@ div.input input{padding-left:25px;display:inline-block}
 .width-full{width:100%}
 .bull{height:10px;width:10px;display:inline-block;border-radius:19px;vertical-align:-1px;margin-right:6px}
 .bull.green{background:#499112}
+.bull.red{background:#ae2222}
+.bull.blue{background: #0087FF;}
 .contenair{background:#FFF url(/ressources/images/background-white.jpg);height:90vh;margin-top:5vh;width:80vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
 .contenair .menu{background:#6b6b6b;z-index:3;background:-moz-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:-webkit-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:linear-gradient(135deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);height:100%;width:55px;position:absolute;top:0;left:0;overflow:hidden;transition:all .3s;border-radius:5px 0 0 5px}
 .contenair .menu:hover{width:240px}
@@ -174,6 +182,7 @@ div.input input{padding-left:25px;display:inline-block}
 .Frame .List_Contenair{width:100%;flex:1 1 auto;overflow-x:auto;padding-right:20px}
 .Frame .List_Contenair .button_action{background:#eee;padding:5px 7px;border-radius:5px;margin-left:4px;cursor:pointer}
 .flex{display:flex}
+
 .AjaxReply{color:#666;margin-bottom:20px;background:#ffffffbf;border-radius:5px;padding:5px 10px;border-bottom:3px solid #939393;display:inline-block;position:relative}
 .AjaxReply:after{top:100%;left:25px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(136,183,213,0);border-top-color:#939393;border-width:15px;margin-left:-15px}
 popup{z-index:9999;position:fixed;top:10vh;background:#fff;width:800px;left:0;right:0;border-bottom:4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
@@ -218,8 +227,16 @@ popup input[type=text],popup input[type=password]{width:215px}
 .div-bulle.d-v-green:after{border-top-color:#7e9166}
 .Line_Item{margin-bottom:20px}
 .Line_Item_Unit{font-size:19px;color:#457597}
-.Item_Case{display:inline-block;text-align:center;padding:10px;background:#eaeaea78;border-radius:5px;width:130px;border-bottom:3px solid #cecece;font-size:12px;cursor:pointer}
+.Item_Case{position:relative;display:inline-block;text-align:center;padding:10px;background:#eaeaea78;border-radius:5px;width:130px;border-bottom:3px solid #cecece;font-size:12px;cursor:pointer}
 .Item_Case i{display:block;font-size:26px;margin-bottom:6px;margin-top:3px}
+.Item_Case .notification_icon{position: absolute;
+
+top: -11px;
+
+font-size: 21px;
+
+right: 0px;}
+
 .m-h-10{margin-top:10px}
 .m-b-20{margin-bottom:20px}
 .range_contenair{margin-top:10px;display:table;width:100%;border-collapse:separate;border-spacing:1px}

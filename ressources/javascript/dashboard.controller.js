@@ -1,6 +1,6 @@
 // Application Dashboard
 
-Dashboard.controller('DashboardController', function($rootScope , $scope, UserService , NavigationService , ApiService, ExchangeService,  Cookies, ListManager, PopupService, config, config_routes, config_api) {
+Dashboard.controller('DashboardController', function($rootScope , $scope, UserService , NavigationService , ApiService, StorageService, ExchangeService,  Cookies, ListManager, PopupService, config, config_routes, config_api) {
         
 	$scope.User                 = UserService;
 	
@@ -43,6 +43,10 @@ Dashboard.controller('DashboardController', function($rootScope , $scope, UserSe
     // Exchange Service
 	ExchangeService.setDashboard(dashboard);
 	dashboard.ServiceExchange   = ExchangeService;
+    
+    // Storage Service
+	StorageService.setDashboard(dashboard);
+	dashboard.ServiceStorage   = StorageService;
 	
     
 	dashboard.Init              = function() {

@@ -10,7 +10,7 @@
 			
 			<table class="width-full">
 				<tr>
-					<td class="td-icon"><i class="fas fa-globe-americas"></i><span class="bull {{Domain_Data.Enabled ? 'green' : '' }}"></span></td>
+					<td class="td-icon" title="{{Domain_Data.StateMessage}}"><i class="fas {{Domain_Data.State ? 'fa-globe-americas' : 'fa-exclamation-triangle' }}"></i><span class="bull {{Domain_Data.Enabled && Domain_Data.State ? 'green' : 'red' }}"></span></td>
 					<td>
 						<b>{{Domain_Data.Domain}}</b><br />
 						<span class="legend">{{Domain_Data.Folder}}</span>
