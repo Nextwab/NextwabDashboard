@@ -5,6 +5,7 @@ Dashboard.value('config_routes', {
     "_not_logged"                           : {file : "/_commons/not_logged.html"               , handler : "empty"         , login : false},
     "/"                                     : {file : "/account/index.html"                     , handler : "contenair"     , login : true},
     
+    "/account/edit/"                        : {file : "/account/edit.html"                      , handler : "contenair"     , login : true},
     "/account/popup/login.html"             : {file : "/account/popup/login.html"               , handler : "empty"         , login : false,    specific : 'LoginAction'},
 
     "/domains/"                             : {file : "/domains/index.html"                     , handler : "contenair"     , login : true},

@@ -1,56 +1,56 @@
-<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="Domain.init( this.$parent.$parent.$parent.Dashboard ); Domain.Domain = Popup.Config.Domain; Domain.getVPS_List()">
-    
+<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(this.$parent.$parent.$parent.Dashboard); Domain.Domain = Popup.Config.Domain; Domain.getVPS_List()">
+
     <div class="List_Item" style="margin-top:8px; margin-bottom:8px">
-        
+
         <table class="width-full">
             <tr>
                 <td style="width:100px"><span class="bull blue"></span><span class="legend">#VM.000000</span></td>
                 <td style="width: 280px;">
                     <b>Créer un nouveau serveur rapidement</b><br />
-                      <span class="legend"><i class="fab fa-linux"></i> Debian 9</span>
+                    <span class="legend"><i class="fab fa-linux"></i> Debian 9</span>
                 </td>
-                
+
                 <td>
-                    
+
                 </td>
-                
+
                 <td style="width:50px;text-align:center"><i class="fas fa-microchip"></i> 1</td>
                 <td style="width:50px;text-align:center"><i class="fas fa-memory"></i> 1</td>
                 <td style="width:100px;text-align:center"><i class="fas fa-hdd"></i> 20 GB</td>
                 <td style="width:120px;text-align:center">
-                    <span class="button button_mini" ng-click="Domain.setServer(Domain.Domain , 'create');"><i class="fas fa-check"></i> Sélectionner</span>
+                    <span class="button button_mini" ng-click="Domain.setServer(Domain.Domain, 'create');"><i class="fas fa-check"></i> Sélectionner</span>
                 </td>
             </tr>
         </table>
 
     </div>
-    
-   <div ng-repeat="VPS_Data in Domain.VPS_List" class="List_Item" style="margin-top:8px; margin-bottom:8px" ng-mouseover="Domain.Dashboard.VPS_Controller.ServerOver(VPS_Data)" ng-mouseleave="Domain.Dashboard.VPS_Controller.ServerLeave(VPS_Data)">
-			
-			<table class="width-full">
-				<tr>
-					<td style="width:100px"><span class="bull green"></span><span class="legend">#VM.{{VPS_Data.ID}}</span></td>
-					<td style="width: 150px;">
-						<b>{{VPS_Data.Hostname}}</b><br />
-                          <span class="legend"><i class="fab fa-linux"></i> {{VPS_Data.OS}}</span>
-					</td>
-                    
-                    <td>
-                        <div class="" ng-repeat="IP in VPS_Data.IPs">
+
+    <div ng-repeat="VPS_Data in Domain.VPS_List" class="List_Item" style="margin-top:8px; margin-bottom:8px" ng-mouseover="Domain.Dashboard.VPS_Controller.ServerOver(VPS_Data)" ng-mouseleave="Domain.Dashboard.VPS_Controller.ServerLeave(VPS_Data)">
+
+        <table class="width-full">
+            <tr>
+                <td style="width:100px"><span class="bull green"></span><span class="legend">#VM.{{VPS_Data.ID}}</span></td>
+                <td style="width: 150px;">
+                    <b>{{VPS_Data.Hostname}}</b><br />
+                    <span class="legend"><i class="fab fa-linux"></i> {{VPS_Data.OS}}</span>
+                </td>
+
+                <td>
+                    <div class="" ng-repeat="IP in VPS_Data.IPs">
                         <span class=""><i class="fas fa-network-wired"></i> {{IP.IP}}</span>
-                        </div>
-                    </td>
-                    
-					<td style="width:50px;text-align:center"><i class="fas fa-microchip"></i> {{VPS_Data.vCores}}</td>
-					<td style="width:50px;text-align:center"><i class="fas fa-memory"></i> {{VPS_Data.Ram}}</td>
-					<td style="width:100px;text-align:center"><i class="fas fa-hdd"></i> {{VPS_Data.Disk}} GB</td>
-					<td style="width:120px;text-align:center">
-                        <span class="button button_mini" ng-click="Domain.setServer(Domain.Domain , VPS_Data.ID);"><i class="fas fa-check"></i> Sélectionner</span>
-                    </td>
-				</tr>
-			</table>
-	
-		</div>
-   
-   
+                    </div>
+                </td>
+
+                <td style="width:50px;text-align:center"><i class="fas fa-microchip"></i> {{VPS_Data.vCores}}</td>
+                <td style="width:50px;text-align:center"><i class="fas fa-memory"></i> {{VPS_Data.Ram}}</td>
+                <td style="width:100px;text-align:center"><i class="fas fa-hdd"></i> {{VPS_Data.Disk}} GB</td>
+                <td style="width:120px;text-align:center">
+                    <span class="button button_mini" ng-click="Domain.setServer(Domain.Domain, VPS_Data.ID);"><i class="fas fa-check"></i> Sélectionner</span>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
 </div>

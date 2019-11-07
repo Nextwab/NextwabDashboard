@@ -69,6 +69,12 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     };
     
     
+    // Chargement de la liste des domaines
+    VPS.getDomain_List = function() {
+        ListManager.init( { endpoint : "Domain"  } ).then(function(response) { VPS.Domain_List = response;}); 
+    }
+    
+    
     VPS.LoadRacks = function() {
         
         var Serveurs = [];

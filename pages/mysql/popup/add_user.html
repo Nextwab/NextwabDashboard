@@ -1,5 +1,5 @@
 <div class="Database_User" ng-controller="Database_Controller as Database_User" ng-init="Database_User.getVPS_List()">
-    
+
     <form ng-handler="Database_User" ng-handler-action="Add_User" class="{{FormState}}">  
         <div class="Line_Item m-b-20">
             <table class="table_icon">
@@ -11,7 +11,7 @@
                             <option ng-repeat="VPS_Data in Database_User.VPS_List" value="{{VPS_Data.ID}}">{{VPS_Data.Hostname}}</option>
                         </select>
                         <br /><br />
-                    
+
                         <b>Utilisateur :</b><br />
                         <input type="text" ng-model="Database_User.User_Name" ngicon="fas fa-globe-americas" placeholder="userMySQL" ng-input />
                         <br /><br />
@@ -27,7 +27,7 @@
             <div class="clear"></div>
             <span class="button button_submit"></span>
         </div>
-        
+
     </form>
-    
+
 </div>

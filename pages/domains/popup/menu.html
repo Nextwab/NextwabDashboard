@@ -1,10 +1,10 @@
-<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="DomainController = this.$parent.$parent.$parent; Domain.init( DomainController.Dashboard ); Domain.ID = Popup.Config.DomainID;  Domain.Domain = Popup.Config.Domain; DomainData = DomainController.Dashboard.ServiceStorage.DomainList[Domain.ID];">
-    
+<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="DomainController = this.$parent.$parent.$parent; Domain.init(DomainController.Dashboard); Domain.ID = Popup.Config.DomainID;  Domain.Domain = Popup.Config.Domain; DomainData = DomainController.Dashboard.ServiceStorage.DomainList[Domain.ID];">
+
     <div class="Item_Case" ng-click="Domain.menu_setCMS(Domain)">
         <i class="fas fa-cloud-download-alt"></i>
         <b>Installer un CMS</b>
     </div>
-    
+
     <div class="Item_Case" ng-click="Domain.menu_setServer(Domain)">
         <i ng-if="!DomainData.ID_CloudDevice" title="Cliquez ici pour selectionner un serveur cloud pour gérer ce domaine"  class="notification_icon fas fa-exclamation-circle color-red"></i>
         <i class="fas fa-server"></i>
@@ -15,10 +15,10 @@
         <i class="fas fa-globe"></i>
         <b>Configuration DNS</b>
     </div>
-    
+
     <div class="color-red" ng-if="!DomainData.State" style="margin-top:15px;">
-    <i class="fas fa-exclamation-circle color-red"></i>
-    <b>{{DomainData.StateMessage}}</b>
+        <i class="fas fa-exclamation-circle color-red"></i>
+        <b>{{DomainData.StateMessage}}</b>
     </div>
-    
+
 </div>

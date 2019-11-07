@@ -1,40 +1,65 @@
-<div class="Frame flex" ng-controller="VPS_Controller as VPS" ng-init="VPS.init(Dashboard); VPS.load()">
-	
-	<div class="Frame_Header">
-		<h1>Mes Serveurs VPS</h1>
-		<span class="button" ng-click="VPS.Dashboard.ServicePopup.openNew(  {Endpoint : 'VPS', Action:'Edit', Title:'Créer un serveur VPS'}    )"><i class="fas fa-plus-circle"></i> Ajouter</span>
-	</div>
-	
-	<div class="List_Contenair">
-		<div ng-repeat="VPS_Data in VPS.Listing" class="List_Item">
-			
-			<table class="width-full">
-				<tr>
-					<td style="width:100px"><span class="bull green"></span><span class="legend">#VM.{{VPS_Data.ID}}</span></td>
-					<td style="width: 280px;">
-						<b>{{VPS_Data.Hostname}}</b><br />
-						<span class="legend">{{VPS_Data.OS}}</span>
-					</td>
-                    
+<div class="Frame flex" ng-controller="VPS_Controller as VPS" ng-init="VPS.init(Dashboard); VPS.load(); VPS.getDomain_List()">
+
+    <div class="Frame_Header">
+        <h1>Mes Serveurs VPS</h1>
+        <span class="button" ng-click="VPS.Dashboard.ServicePopup.openNew({Endpoint: 'VPS', Action: 'Edit', Title: 'Créer un serveur VPS'})"><i class="fas fa-plus-circle"></i> Ajouter</span>
+    </div>
+
+    <div class="List_Contenair">
+
+        <div ng-repeat="VPS_Data in VPS.Listing" class="List_Item">
+            <table class="width-full">
+                <tr>
+                    <td class="td-icon"><i class="fas fa-server"></i><span class="bull green"></span></td>
+                    <td style="width: 280px;">
+                        <b>{{VPS_Data.Hostname}}</b><br />
+                        <span class="legend">#VM.{{VPS_Data.ID}} &bull; {{VPS_Data.OS}}</span>
+                    </td>
+
                     <td>
                         <div class="" ng-repeat="IP in VPS_Data.IPs">
-                        <span class=""><i class="fas fa-network-wired"></i> {{IP.IP}}</span>
+                            <span class=""><i class="fas fa-network-wired"></i> {{IP.IP}}</span>
                         </div>
-                    
                     </td>
-                    
-                    
-					<td style="width:50px;text-align:center"><i class="fas fa-microchip"></i> {{VPS_Data.vCores}}</td>
-					<td style="width:50px;text-align:center"><i class="fas fa-memory"></i> {{VPS_Data.Ram}}</td>
-					<td style="width:100px;text-align:center"><i class="fas fa-hdd"></i> {{VPS_Data.Disk}} GB</td>
-					<td style="width:120px;text-align:right">
-						<span class="button_action"><i class="fas fa-power-off"></i></span>
-						<span class="button_action" ng-click="VPS.Edit(VPS_Data)"><i class="fas fa-cog"></i></span>
+
+
+                    <td style="width:50px;text-align:center"><i class="fas fa-microchip"></i> {{VPS_Data.vCores}}</td>
+                    <td style="width:50px;text-align:center"><i class="fas fa-memory"></i> {{VPS_Data.Ram}}</td>
+                    <td style="width:100px;text-align:center"><i class="fas fa-hdd"></i> {{VPS_Data.Disk}} GB</td>
+                    <td style="width:120px;text-align:right">
+                        <span class="button_action"><i class="fas fa-power-off"></i></span>
+                        <span class="button_action" ng-click="VPS.Edit(VPS_Data)"><i class="fas fa-cog"></i></span>
                         <span class="button_action" ng-click="VPS.Delete(VPS_Data)"><i class="fas fa-trash"></i></span>
-					</td>
-					
-				</tr>
-			</table>
-		</div>
-	</div>
+                    </td>
+
+                </tr>
+            </table>
+
+            <div class="List_Item_Footer">
+                <div ng-repeat="Domain_Data in VPS.Domain_List" class="List_Item List_Item_ForItem ID_CloudDevice_{{Domain_Data.ID_CloudDevice}}" ng-if="Domain_Data.ID_CloudDevice == VPS_Data.ID">
+                    <table class="width-full" title="{{Domain_Data.StateMessage}}">
+                        <tr>
+                            <td class="td-icon" ><i class="fas {{Domain_Data.State ? 'fa-globe-americas' : 'fa-exclamation-triangle' }}"></i><span class="bull {{Domain_Data.Enabled && Domain_Data.State ? 'green' : 'red' }}"></span></td>
+                            <td>
+                                <b>{{Domain_Data.Domain}}</b>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div class="List_Item List_Item_ForItem">
+                    <table class="width-full" title="Ajouter un domaine">
+                        <tr>
+                            <td class="td-icon" ><i class="fas fa-plus-circle"></i><span class="bull blue"></span></td>
+                            <td>
+                                <b>Ajouter un domaine</b>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

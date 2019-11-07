@@ -1,31 +1,28 @@
-
 <div class="contenair" >
-	
-	<header>
-	
-	</header>
-	
-	<div class="menu">
-		<nav>
+
+    <header>
+
+    </header>
+
+    <div class="menu">
+        <nav>
             <a href="/"><i class="fas fa-home"></i> <span>Accueil</span></a>
-			<a href="/domains/"><i class="fas fa-globe-americas"></i> <span>Domaines</span></a>
-			<a href="/vps/"><i class="fas fa-terminal"></i> <span>Serveurs VPS</span></a>
-			<a href="/mysql/"><i class="fas fa-database"></i> <span>Bases de données</span></a>
-			<a href="/mailbox"><i class="fas fa-at"></i> <span>Boites Mails</span></a>
-			<a href="/dedicated-hosting"><i class="fas fa-server"></i> <span>Serveurs Dédiés</span></a>
-			<a href="/account"><i class="fas fa-user-friends"></i> <span>Édition</span></a>
-            
+            <a href="/domains/"><i class="fas fa-globe-americas"></i> <span>Domaines</span></a>
+            <a href="/vps/"><i class="fas fa-terminal"></i> <span>Serveurs VPS</span></a>
+            <a href="/mysql/"><i class="fas fa-database"></i> <span>Bases de données</span></a>
+            <a href="/mailbox/"><i class="fas fa-at"></i> <span>Boites Mails</span></a>
+            <a href="/account/edit/"><i class="fas fa-user-friends"></i> <span>Édition</span></a>
+
             <div class="bottom">
-            <a href="https://github.com/Nextwab/NextwabDashboard" target="_blank"><i class="fab fa-github"></i> <span>Télécharger</span></a>
-            <a href="#" ng-click="Dashboard.ServiceUser.Logout()"><i class="fas fa-sign-out-alt"></i> <span>Se déconnecter</span></a>
+                <a href="https://github.com/Nextwab/NextwabDashboard" target="_blank"><i class="fab fa-github"></i> <span>Télécharger</span></a>
+                <a href="#" ng-click="Dashboard.ServiceUser.Logout()"><i class="fas fa-sign-out-alt"></i> <span>Se déconnecter</span></a>
             </div>
-		</nav>
-	</div>
-	
-    
-	<div class="contenair_sub_frame" ng-if="(!Dashboard.pageViewConfig.login || (Dashboard.pageViewConfig.login && Dashboard.ServiceUser.Logged) )"     ng-include="Dashboard.pageRequested"></div>
-    <div class="contenair_sub_frame" ng-if="Dashboard.pageViewConfig.login && !Dashboard.ServiceUser.Logged"                                            ng-include="'/pages/'+Dashboard.config_routes._not_logged.file"></div>
-    
-    
+        </nav>
+    </div>
+
+
+    <div class="contenair_sub_frame" ng-if="(!Dashboard.pageViewConfig.login || (Dashboard.pageViewConfig.login && Dashboard.ServiceUser.Logged))"     ng-include="Dashboard.pageRequested"></div>
+    <div class="contenair_sub_frame" ng-if="Dashboard.pageViewConfig.login && !Dashboard.ServiceUser.Logged"                                            ng-include="'/pages/' + Dashboard.config_routes._not_logged.file"></div>
+
 </div>
 

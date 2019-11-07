@@ -1,60 +1,58 @@
 <!DOCTYPE html>
-	<html ng-app="dashboard">
-		<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>Nextwab Dashbord</title>
-			
+<html ng-app="dashboard">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Nextwab Dashboard</title>
 
-			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
-			
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>		
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-cookies.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-sanitize.min.js"></script>
-			<script>
-			Dashboard = angular.module('dashboard', ['ngCookies', 'ngSanitize']);
-			</script>
-			
-			<script src="/config/config.js"></script>
-            <script src="/ressources/javascript/common.js"></script>
-			<script src="/ressources/javascript/dashboard.controller.js"></script>
-			
-			<script src="/ressources/javascript/navigation.values.js"></script>			
-			<script src="/ressources/javascript/navigation.service.js"></script>
-			
-			
-			
-			<script src="/ressources/javascript/user.service.js"></script>
-			<script src="/ressources/javascript/cookies.service.js"></script>
-			<script src="/ressources/javascript/api.values.js"></script>			
-			<script src="/ressources/javascript/api.service.js"></script>
-			<script src="/ressources/javascript/list_manager.service.js"></script>
-			<script src="/ressources/javascript/popup.service.js"></script>
-            <script src="/ressources/javascript/selector.service.js"></script>
-            <script src="/ressources/javascript/exchange.service.js"></script>
-            <script src="/ressources/javascript/style.service.js"></script>
-            <script src="/ressources/javascript/storage.service.js"></script>
-            
-            <script src="/ressources/javascript/components/user.controller.js"></script>
-			<script src="/ressources/javascript/components/vps.controller.js"></script>
-			<script src="/ressources/javascript/components/domain.controller.js"></script>
-            <script src="/ressources/javascript/components/database.controller.js"></script>
-			
-            
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-			<link rel="stylesheet"  href="/ressources/style/style.css" type="text/css" media="all" />
 
-            
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
 
-		</head>
-		
-	<body>
-	
-	<body>
-		<div class="Dashboard" ng-controller="DashboardController as Dashboard" ng-init="Dashboard.Init()" ng-include="Dashboard.pageHandler"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>		
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-cookies.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-sanitize.min.js"></script>
+        <script>
+            Dashboard = angular.module('dashboard', ['ngCookies', 'ngSanitize']);
+        </script>
+
+        <script src="/config/config.js"></script>
+        <script src="/ressources/javascript/common.js"></script>
+        <script src="/ressources/javascript/dashboard.controller.js"></script>
+
+        <script src="/ressources/javascript/navigation.values.js"></script>			
+        <script src="/ressources/javascript/navigation.service.js"></script>
+
+
+
+        <script src="/ressources/javascript/user.service.js"></script>
+        <script src="/ressources/javascript/cookies.service.js"></script>
+        <script src="/ressources/javascript/api.values.js"></script>			
+        <script src="/ressources/javascript/api.service.js"></script>
+        <script src="/ressources/javascript/list_manager.service.js"></script>
+        <script src="/ressources/javascript/popup.service.js"></script>
+        <script src="/ressources/javascript/selector.service.js"></script>
+        <script src="/ressources/javascript/exchange.service.js"></script>
+        <script src="/ressources/javascript/style.service.js"></script>
+        <script src="/ressources/javascript/storage.service.js"></script>
+
+        <script src="/ressources/javascript/components/user.controller.js"></script>
+        <script src="/ressources/javascript/components/vps.controller.js"></script>
+        <script src="/ressources/javascript/components/domain.controller.js"></script>
+        <script src="/ressources/javascript/components/database.controller.js"></script>
+
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet"  href="/ressources/style/style.css" type="text/css" media="all" />
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
+    </head>
+
+    <body>
+        <div class="Dashboard" ng-controller="DashboardController as Dashboard" ng-init="Dashboard.Init()" ng-include="Dashboard.pageHandler"></div>
         <div class="background_overlay"></div>
-	</body>
+    </body>
 </html>
