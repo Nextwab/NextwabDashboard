@@ -146,7 +146,7 @@ input[type=password]:focus,input[type=password]:hover,input[type=text]:focus,inp
 input[type=number]{width:50px;text-align:center}
 input[disabled=disabled],textarea[disabled=disabled]{background:#eee;border:1px solid #ccc}
 input[disabled=disabled]:hover,textarea[disabled=disabled]:hover{background:#eee!important;border:1px solid #ccc!important;cursor:not-allowed}
-input[type=submit],.button{transition:all .3s;display:inline-block;background:#3a6c88;border-radius:4px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
+input[type=submit],.button{transition:all .3s;display:inline-block;background:#3a6c88;border-radius:4px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF !important;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
 .checkbox{transition:all .2s;cursor:pointer}
 .checkbox:hover{color:#000}
 h1{font-weight:400;color:#4d4d4d;font-family:Metropolis Bold;font-size:24px;letter-spacing:-.3px}
