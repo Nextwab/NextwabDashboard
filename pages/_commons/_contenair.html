@@ -1,8 +1,6 @@
 <div class="contenair" >
 
-    <header>
-
-    </header>
+    <header></header>
 
     <div class="menu">
         <nav>
@@ -23,7 +21,6 @@
 
 
     <div class="contenair_sub_frame" ng-if="(!Dashboard.pageViewConfig.login || (Dashboard.pageViewConfig.login && Dashboard.ServiceUser.Logged))"     ng-include="Dashboard.pageRequested"></div>
-    <div class="contenair_sub_frame" ng-if="Dashboard.pageViewConfig.login && !Dashboard.ServiceUser.Logged"                                            ng-include="'/pages/' + Dashboard.config_routes._not_logged.file"></div>
-
+    <div class="contenair_sub_frame" ng-if="Dashboard.pageViewConfig.login && !Dashboard.ServiceUser.Logged"                                           ng-include="'/pages/' + Dashboard.config_routes._not_logged.file"></div>
 </div>
 

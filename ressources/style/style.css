@@ -147,6 +147,8 @@ input[type=number]{width:50px;text-align:center}
 input[disabled=disabled],textarea[disabled=disabled]{background:#eee;border:1px solid #ccc}
 input[disabled=disabled]:hover,textarea[disabled=disabled]:hover{background:#eee!important;border:1px solid #ccc!important;cursor:not-allowed}
 input[type=submit],.button{transition:all .3s;display:inline-block;background:#3a6c88;border-radius:4px;border:0;padding:8px 15px 6px;width:auto;font-family:Quicksand;font-weight:800;color:#FFF;border-bottom:3px solid #294d62;font-size:12px;z-index:2;position:relative;cursor:pointer}
+.checkbox{transition:all .2s;cursor:pointer}
+.checkbox:hover{color:#000}
 h1{font-weight:400;color:#4d4d4d;font-family:Metropolis Bold;font-size:24px;letter-spacing:-.3px}
 h1 b{font-weight:400}
 h5{font-size:40px;font-family:Dosis}
@@ -200,13 +202,11 @@ div.input input{padding-left:25px;display:inline-block}
 .Frame .List_Contenair .loader img{display:block;margin:0 auto}
 .Frame .List_Contenair{position:relaive;padding-left:5px;width:100%;flex:1 1 auto;overflow-x:auto;padding-right:20px}
 .Frame .List_Contenair .button_action{background:#eee;padding:5px 7px;border-radius:5px;margin-left:4px;cursor:pointer}
+.Frame a{color:#3a6c88}
 .flex{display:flex}
 .AjaxReply{color:#666;margin-bottom:20px;background:#ffffffbf;border-radius:5px;padding:5px 10px;border-bottom:3px solid #939393;display:inline-block;position:relative}
 .AjaxReply:after{top:100%;left:25px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(136,183,213,0);border-top-color:#939393;border-width:15px;margin-left:-15px}
-.text-align-center .AjaxReply:after {
-    left: 50%;
-}
-
+.text-align-center .AjaxReply:after{left:50%}
 popup{z-index:9999;position:fixed;top:10vh;background:#fff;width:800px;left:0;right:0;border-bottom:4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
 popup:after{content:""}
 popup input[type=text],popup input[type=password]{width:215px}
@@ -239,7 +239,7 @@ popup input[type=text],popup input[type=password]{width:215px}
 .div_bulle:after{top:100%;left:30px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(17,17,17,0);border-top-color:#ddd;border-width:11px;border-width:16px;margin-left:-15px}
 .Case_Contenair{display:inline-block;vertical-align:top}
 .Case_Contenair.w-450{width:450px}
-.Case{margin-top:10px;background:#FFF;padding:10px;border-radius:4px}
+.Case{margin-top:10px;padding:10px;border-radius:4px}
 .input-group .select2{margin-top:5px}
 .input-group{margin-top:20px;border-left:2px solid #ececec;padding-left:12px}
 .List_Item{box-shadow:0 0 10px #dbdbdb;background:#FFF;margin-bottom:15px;padding:10px;border-radius:5px;border-bottom:3px solid #ddd;margin-top:15px;transition:all .2s;position:relative}
@@ -347,6 +347,7 @@ to{color:#6f8395}
 .img-user{position:relative;height:70px;width:70px;overflow:hidden;border-radius:65px}
 .img-user img{position:absolute;height:100%;bottom:-999px;top:-999px;left:-999px;right:-999px;margin:auto}
 .Frame_Account_Header{margin-left:-20px;margin-top:-20px;padding:10px 20px;background:#FFF url(/ressources/images/background-535353.png);color:#E3E3E3}
+.Header_Account_Creation{background:#FFF url(/ressources/images/background-black.png)}
 .Account_Balance img{position:absolute;left:0}
 .Account_Balance .button{right:auto!important;left:0!important;top:65px!important}
 .Account_Balance{padding-left:65px;position:relative;margin-bottom:16px;margin-top:16px}
@@ -364,7 +365,7 @@ to{color:#6f8395}
 .server .top{transform:rotateX(-90deg) translateY(-100px);transform-origin:top center}
 .server .bottom{transform:rotateX(90deg) translateY(-99px);transform-origin:top left;margin-top:31px;box-shadow:0 0 40px #000}
 .server .front{transform:translateZ(100px)}
-.server .front a, .server .front b{font-size:11px;position:absolute;top:7px;left:91px}
+.server .front a,.server .front b{font-size:11px;position:absolute;top:7px;left:91px}
 .server .front,.server .back,.server .right,.server .left{height:30px!important}
 .power{background:#686868;position:absolute;bottom:13px}
 .power:after,.power:before,.Domain_Scale:after{content:"";border-bottom:1px solid #686868;height:0;position:absolute;bottom:13px;top:0}
@@ -394,4 +395,4 @@ to{box-shadow:0 0 40px #278e99}
 .domain_contenair span{display:inline-block;padding:4px;border-radius:3px;color:#5B6B73;font-size:12px;text-shadow:0 0 13px #278e99;margin:5px 25px 6px 5px}
 .Domain_Blur{opacity:.2}
 .Domain_Scale{opacity:1;box-shadow:0 0 10px #278e99}
-.account_creation_title{font-size:30px;text-align:center;margin-top:40px;margin-bottom:70px}
+.account_creation_title{font-size:30px;text-align:left;margin-top:20px;margin-bottom:20px}

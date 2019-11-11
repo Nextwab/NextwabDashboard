@@ -1,8 +1,10 @@
 <div class="Frame flex" ng-controller="User_Controller as User" ng-init="User.init(Dashboard);">
     <div class="Frame_Contenair">
-
-        <h4 class="account_creation_title">Création d'un compte</h4>
-
+        
+        <div class="Frame_Header Frame_Account_Header Header_Account_Creation">
+        <h4 class="account_creation_title"><i class="fas fa-user-plus"></i> Création d'un compte</h4>
+        </div>
+        
         <br />
 
         <form autocomplete="off" ng-handler="User" ng-handler-action="Create" class="{{FormState}}" >

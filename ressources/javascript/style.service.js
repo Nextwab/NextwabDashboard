@@ -155,3 +155,24 @@ Dashboard.directive("buttonCancel", function($rootScope, $timeout , PopupService
 	
 	return Cancel;
     });
+    
+Dashboard.directive('checkbox', function(){
+    return {
+    restrict: 'C',
+    require: 'ngModel',
+    replace: true,
+    template: '<span><i class="far {{ngModel ? \'fa-check-square\' : \'fa-square\'}}"></i> <input id="{{id}}" type="checkbox" style="display: none" ng-checked="ngModel"/></span>',
+    scope: {
+        id: '@',
+        ngModel: '='
+    },
+    link: function(scope, element, attrs){
+            element.removeAttr('id');
+            element.bind('click', function(){
+                element.toggleClass('checked');
+                scope.ngModel = !scope.ngModel;
+                scope.$apply();
+            })
+        }
+    };
+});

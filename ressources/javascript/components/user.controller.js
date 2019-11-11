@@ -8,6 +8,10 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
     User.Birthday_Months    = [];
     User.Birthday_Years     = [];
     
+    User.GCU_Approval       = false;
+    User.CGU_Data_Approval  = false;
+    User.Form_Mode          = "Create";
+    
     User.Login              = function(){
         UserService.Login(User);
     };
@@ -46,8 +50,6 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
             
             User.data                   = response.data.Data; 
             User.data.Affiliation_ID    = User.Dashboard.config.userID;
-            
-            
         });
     };
     
@@ -55,6 +57,12 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
     
     // Submit Creation
     User.CreateSubmit = function(Form) {
+        
+        if(User.GCU_Approval == false || User.GCU_Data_Approval == false) {
+            Form.error("Veuillez approuver les conditions d'utilisation");
+            return false;
+        }
+        
         ApiService.post('User', 'Create' ,  User.data).then(function(response) { 
             Form.process(response); 
             
