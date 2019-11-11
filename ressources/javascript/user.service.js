@@ -1,4 +1,4 @@
-Dashboard.service("UserService", function($rootScope , $location, ApiService, Cookies, PopupService ){
+Dashboard.service("UserService", function($rootScope , $location, $timeout, ApiService, Cookies, PopupService ){
     
     var vm_User                     = this;
     vm_User.dashboard               = null; 
@@ -34,20 +34,29 @@ Dashboard.service("UserService", function($rootScope , $location, ApiService, Co
     // Logging handler
     vm_User.Login                   = function(User)            {
         
+        $('.button_login').val("Chargement...").addClass('bg-grey');
+        
         ApiService.post('User' , 'Login' , {LOGIN_Mail : User.Login_Mail, LOGIN_Password : User.Login_Password} )
         .then(function(Exchange) { 
+            
+            $('.button_login').val("Se connecter").removeClass('bg-grey');
             
             if(Exchange.valid) {
                 Cookies.set('Login_Mail' , User.Login_Mail);
                 Cookies.set('Login_HashKey' , Exchange.data.Key_Hash);
                 
                 vm_User.Login_HashKey = Exchange.data.Key_Hash;
-                vm_User.isLogged();
                 
-                if(vm_User.Logged) {
-                    vm_User.dashboard.UpdateInterface();
-                    PopupService.close();
-                }
+                $timeout(function() {
+                    
+                    vm_User.isLogged();
+
+                    if(vm_User.Logged) {
+                        vm_User.dashboard.UpdateInterface();
+                        PopupService.close();
+                    }
+                    
+                }, 500);
                 
             }
             else {

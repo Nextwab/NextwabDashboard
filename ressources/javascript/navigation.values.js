@@ -33,7 +33,9 @@ Dashboard.value('config_routes', {
     "/vps/popup/delete.html"                : {file : "/vps/popup/delete.html"                  , handler : "contenair"     , login : true},
     "/vps/popup/manage_power.html"          : {file : "/vps/popup/manage_power.html"            , handler : "contenair"     , login : true},
 
-
+    "/mails/"                               : {file : "/mails/index.html"                         , handler : "contenair"     , login : true},
+    
+    
     
     // Internal Endpoints
     Endpoints       : {

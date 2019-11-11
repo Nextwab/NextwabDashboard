@@ -188,8 +188,8 @@ div.input input{padding-left:25px;display:inline-block}
 .contenair .menu a:hover{background:#ffffff1a}
 .contenair .menu i{position:absolute;top:15px;left:20px}
 .contenair .menu .bottom{position:absolute;bottom:0;left:0}
-.contenair .menu:after{transition:all .3s;position:absolute;content:"";background:#226201;height:150px;width:300px;bottom:0;z-index:1;transform:rotate(-30deg);left:-51px}
-.contenair .menu:hover:after{transform:rotate(-14deg);width:400px;height:192px;bottom:-40px}
+.contenair .menu:after{transition:all .3s;position:absolute;content:"";background:#3a6c88;height:180px;width:300px;bottom:0;z-index:1;transform:rotate(-30deg);left:-51px}
+.contenair .menu:hover:after{transform:rotate(-14deg);width:400px;height:240px;bottom:-40px}
 .Frame{margin-left:55px;padding:20px;overflow:hidden;flex-flow:column;height:85vh}
 .Frame .Frame_Header{flex:0 1 auto;width:100%}
 .Frame .Frame_Header .button{position:absolute;right:18px;top:13px;font-family:Quicksand;font-weight:600}
@@ -203,6 +203,10 @@ div.input input{padding-left:25px;display:inline-block}
 .flex{display:flex}
 .AjaxReply{color:#666;margin-bottom:20px;background:#ffffffbf;border-radius:5px;padding:5px 10px;border-bottom:3px solid #939393;display:inline-block;position:relative}
 .AjaxReply:after{top:100%;left:25px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(136,183,213,0);border-top-color:#939393;border-width:15px;margin-left:-15px}
+.text-align-center .AjaxReply:after {
+    left: 50%;
+}
+
 popup{z-index:9999;position:fixed;top:10vh;background:#fff;width:800px;left:0;right:0;border-bottom:4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
 popup:after{content:""}
 popup input[type=text],popup input[type=password]{width:215px}
@@ -360,7 +364,7 @@ to{color:#6f8395}
 .server .top{transform:rotateX(-90deg) translateY(-100px);transform-origin:top center}
 .server .bottom{transform:rotateX(90deg) translateY(-99px);transform-origin:top left;margin-top:31px;box-shadow:0 0 40px #000}
 .server .front{transform:translateZ(100px)}
-.server .front b{font-size:11px;position:absolute;top:7px;left:91px}
+.server .front a, .server .front b{font-size:11px;position:absolute;top:7px;left:91px}
 .server .front,.server .back,.server .right,.server .left{height:30px!important}
 .power{background:#686868;position:absolute;bottom:13px}
 .power:after,.power:before,.Domain_Scale:after{content:"";border-bottom:1px solid #686868;height:0;position:absolute;bottom:13px;top:0}

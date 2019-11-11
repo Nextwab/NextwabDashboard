@@ -16,7 +16,7 @@
                 <tr>
                     <td>
                         <div class="img-user">
-                            <img src="/ressources/images/no_user.jpg" />
+                            <img src="/ressources/images/no_user.png" />
                         </div>
                     </td>
 
@@ -199,7 +199,7 @@
                              >
                             <div class="face front">
                                 <b ng-if="VPS_Data.State == '_loaded'">{{VPS_Data.Hostname}}</b>
-                                <b ng-if="VPS_Data.State == '_empty'">Ajouter un serveur</b>
+                                <a ng-if="VPS_Data.State == '_empty'" href="/vps/" >Ajouter un serveur</a>
                                 <b ng-if="VPS_Data.State == '_loading'">...</b>
                                 <span class="power">
                                     <i class="fas 

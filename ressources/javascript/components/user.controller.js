@@ -31,11 +31,23 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
         for(year = date.getFullYear() - 15; year > date.getFullYear() - 100; year = year-1) {
             User.Birthday_Years.push({name : year, value: year});
         }
+        
+        User.data.Affiliation_ID    = User.Dashboard.config.userID;
+        User.data.User_Type         = "Classic";
     };
     
     User.load = function() {
         ApiService.post('User', 'GetInfos' , {} ).then(function(response) {
-            User.data   = response.data.Data; 
+            
+            if(response.data.State != 1) {
+                User.Dashboard.ServiceUser.Logout();
+                return false;
+            }
+            
+            User.data                   = response.data.Data; 
+            User.data.Affiliation_ID    = User.Dashboard.config.userID;
+            
+            
         });
     };
     
@@ -47,7 +59,7 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
             Form.process(response); 
             
             if(response.valid) {
-                PopupService.openNew(  {Endpoint : 'Account',   Action:'Login', Title:'Connexion', Styles : {width:"610px"} }    )
+                window.location = User.Dashboard.config.applicationURL;
             }
         });
     };
