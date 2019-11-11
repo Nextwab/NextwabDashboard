@@ -1,4 +1,4 @@
-<div class="Domain" ng-controller="Domain_Controller as Domain">
+<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(this.$parent.$parent.$parent.Dashboard); DomainController = this.$parent.$parent.$parent; Domain.ID_CloudDevice = Popup.Config.ID_CloudDevice;">
 
     <form ng-handler="Domain" ng-handler-action="Add" class="{{FormState}}">  
         <div class="Line_Item m-b-20">

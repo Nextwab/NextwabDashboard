@@ -6,7 +6,9 @@ Dashboard.value('config_routes', {
     "/"                                     : {file : "/account/index.html"                     , handler : "contenair"     , login : true},
     
     "/account/edit/"                        : {file : "/account/edit.html"                      , handler : "contenair"     , login : true},
+    "/account/create/"                      : {file : "/account/create.html"                    , handler : "contenair"     , login : false},
     "/account/popup/login.html"             : {file : "/account/popup/login.html"               , handler : "empty"         , login : false,    specific : 'LoginAction'},
+    "/account/popup/balance.html"           : {file : "/account/popup/balance.html"             , handler : "empty"         , login : false},
 
     "/domains/"                             : {file : "/domains/index.html"                     , handler : "contenair"     , login : true},
     "/domains/popup/add.html"               : {file : "/domains/popup/add.html"                 , handler : "contenair"     , login : true},
@@ -14,6 +16,7 @@ Dashboard.value('config_routes', {
     "/domains/popup/menu.html"              : {file : "/domains/popup/menu.html"                , handler : "contenair"     , login : true},
     "/domains/popup/set_cms.html"           : {file : "/domains/popup/set_cms.html"             , handler : "contenair"     , login : true},
     "/domains/popup/set_server.html"        : {file : "/domains/popup/set_server.html"          , handler : "contenair"     , login : true},
+    "/domains/popup/set_server_confirmation.html"        : {file : "/domains/popup/set_server_confirmation.html"          , handler : "contenair"     , login : true},
     "/domains/popup/set_dns_config.html"    : {file : "/domains/popup/set_dns_config.html"      , handler : "contenair"     , login : true},
     
     
@@ -28,6 +31,7 @@ Dashboard.value('config_routes', {
     "/vps/popup/add.html"                   : {file : "/vps/popup/add.html"                     , handler : "contenair"     , login : true},
     "/vps/popup/edit.html"                  : {file : "/vps/popup/edit.html"                    , handler : "contenair"     , login : true},
     "/vps/popup/delete.html"                : {file : "/vps/popup/delete.html"                  , handler : "contenair"     , login : true},
+    "/vps/popup/manage_power.html"          : {file : "/vps/popup/manage_power.html"            , handler : "contenair"     , login : true},
 
 
     
@@ -35,6 +39,7 @@ Dashboard.value('config_routes', {
     Endpoints       : {
         'Account'   : {
             'Login'             : "/account/popup/login.html",
+            'Balance'           : "/account/popup/balance.html",
         },
         
         'Database'       : {
@@ -50,6 +55,7 @@ Dashboard.value('config_routes', {
             'Edit'              : "/domains/popup/edit.html",
             'Menu'              : "/domains/popup/menu.html",
             'setServer'         : "/domains/popup/set_server.html",
+            'setServer_Confirmation'         : "/domains/popup/set_server_confirmation.html",
             'setCMS'            : "/domains/popup/set_cms.html",
             'setDNS_Config'     : "/domains/popup/set_dns_config.html",
             
@@ -58,7 +64,8 @@ Dashboard.value('config_routes', {
         'VPS'       : {
             'Add'               : "/vps/popup/add.html",
             'Edit'              : "/vps/popup/edit.html",
-            'Delete'            : "/vps/popup/delete.html"
+            'Delete'            : "/vps/popup/delete.html",
+            'ManagePower'       : "/vps/popup/manage_power.html"
         }
     }
 });

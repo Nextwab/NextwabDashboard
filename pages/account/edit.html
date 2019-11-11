@@ -29,11 +29,11 @@
 
 
         <div class="Frame_Header_Footer">
-            <span class="button"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
+            <span class="button" ng-click="User.Manage_Balance()"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
 
             <div class="right">
                 <a href="/account/edit/" class="button"><i class="fas fa-user-edit"></i> Éditer</a>
-                <span class="button"><i class="fas fa-sign-out-alt"></i> Déconnexion</span>
+                <span class="button" ng-click="Dashboard.ServiceUser.Logout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</span>
             </div>
         </div>
     </div>
@@ -45,103 +45,7 @@
         <br />
 
         <form autocomplete="off" ng-handler="User" ng-handler-action="Update" class="{{FormState}}" >
-            <div class="Case_Contenair w-450">   
-                <div class="Case">
-                    <h1><i class="fas fa-address-card"></i> Identité</h1>
-
-                    <div class="input-group">
-                        <b>Type de compte :</b><br />
-                        <select ngicon="fas fa-globe-americas" >
-                            <option>Particulier</option>
-                            <option>Professionnel</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <b>Nom :</b><br />
-                        <input type="text" name="FirstName" ng-model="User.data.User_FirstName"/>
-                    </div>
-
-                    <div class="input-group">
-                        <b>Prénom :</b><br />
-                        <input type="text" name="LastName" ng-model="User.data.User_LastName"/>
-                    </div>
-
-                    <div class="input-group">
-                        <b>Date de naissance :</b><br />
-
-                        <select ngicon="fas fa-globe-americas" name="Birthday_Day" ng-model="User.data.User_Birthday_Day">
-                            <option ng-repeat="birthday_day in User.Birthday_Days"      value="{{birthday_day.value}}">{{birthday_day.name}}</option>
-                        </select>
-
-                        <select ngicon="fas fa-globe-americas" name="Birthday_Month" ng-model="User.data.User_Birthday_Month">
-                            <option ng-repeat="birthday_month in User.Birthday_Months"  value="{{birthday_month.value}}">{{birthday_month.name}}</option>
-                        </select>
-
-                        <select ngicon="fas fa-globe-americas" name="Birthday_Year" ng-model="User.data.User_Birthday_Year">
-                            <option ng-repeat="birthday_year in User.Birthday_Years"    value="{{birthday_year.value}}">{{birthday_year.name}}</option>
-                        </select>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="Case_Contenair w-450">      
-                <div class="Case">
-                    <h1><i class="fas fa-map-marker-alt"></i> Adresse</h1>
-
-                    <div class="input-group">
-                        <b>Numéro de rue et Nom de rue</b><br />
-                        <input type="text" style="width:40px; text-align:center" name="Address_StreetNumber" ng-model="User.data.Address_StreetNumber" /> <input type="text" ng-model="User.data.Address_StreetName" />
-                    </div>
-
-                    <div class="input-group">
-                        <b>Ville</b><br />
-                        <input type="text" name="Address_City" ng-model="User.data.Address_City"/>
-                    </div>
-
-                    <div class="input-group">
-                        <b>Code postal</b><br />
-                        <input type="text" style="width:100px"  name="Address_ZipCode" ng-model="User.data.Address_ZipCode"/> 
-                    </div>
-
-                    <div class="input-group">
-                        <b>Pays</b><br />
-                        <input type="text"  name="Address_Country" ng-model="User.data.Address_Country" autocomplete="off"/> 
-                    </div>
-
-                </div>
-            </div>   
-
-            <div class="Case_Contenair w-450">      
-                <div class="Case">
-                    <h1><i class="fas fa-user-shield"></i> Accès au compte</h1>
-
-                    <div class="input-group">
-                        <b>Adresse e-mail : </b><br />
-                        <input type="text" name="Address_Country" ng-model="User.data.Account_Mail" autocomplete="off"/>
-                    </div>
-
-
-                    <div class="input-group">
-                        <b>Nouveau mot de passe :</b><br />
-                        <input type="password" autocomplete="off" ng-model="User.data.Account_Password" />
-                    </div>
-
-                    <div class="input-group">
-                        <b>Confirmation de nouveau mot de passe :</b><br />
-                        <input type="password" autocomplete="off" ng-model="User.data.Account_PasswordConfirmation" />
-                    </div>
-
-
-                </div>
-            </div>   
-
-            <br /> <br />
-            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
-            <div class="clear"></div>
-            <span class="button button_submit"></span>
-
+            <div class="" ng-include="'/pages/account/_account_editor.html'"></div>
         </form>
     </div>
 

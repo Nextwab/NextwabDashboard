@@ -27,7 +27,7 @@ Dashboard.service("UserService", function($rootScope , $location, ApiService, Co
     
     
     vm_User.LoginForm               = function()        {
-        PopupService.openNew(  {Endpoint : 'Account',   Action:'Login', Title:'Connexion', Styles : {width:"500px"} }    )
+        PopupService.openNew(  {Endpoint : 'Account',   Action:'Login', Title:'Connexion', Styles : {width:"610px"} }    )
     }
     
     

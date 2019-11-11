@@ -7,6 +7,20 @@
 
     <div class="List_Contenair">
 
+
+        <div class="table_icon text-align-center absolute-middle" ng-if="!DatabaseUser.Listing && DatabaseUser.ListStatut == 'loaded'">
+            <i class="fas fa-database"></i>
+            <br />
+            <h1>Aucune base de données hébergée actuellement</h1>
+            Créez et gérez vos utilisateurs et bases MySQL selon vos besoins
+
+            <br /><br />
+            <span class="button" ng-click="DatabaseUser.Dashboard.ServicePopup.openNew({Endpoint: 'Database', Action: 'Add_User', Title: 'Ajouter un utilisateur MySQL'})">Ajouter un utilisateur MySQL</span>
+
+
+        </div>
+
+
         <div ng-repeat="DatabaseUser_Data in DatabaseUser.Listing" class="List_Item">
 
             <table class="width-full" ng-click="DatabaseUser.ManageUser(DatabaseUser_Data)">

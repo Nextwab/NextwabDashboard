@@ -1,0 +1,25 @@
+<div class="VPS" ng-controller="VPS_Controller as VPS" ng-init="VPS.ID_VPS = Popup.Config.ID_VPS;  VPS.Hostname = Popup.Config.VPS_Hostname;">
+
+    <form ng-handler="VPS" ng-handler-action="Power" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-power-off"></i></td>
+                    <td>
+                        <h1>Choisissez une action :</h1>
+                        <label><input type="radio" ng-model="VPS.Power" value="1" style="vertical-align: -2px;"/> Démarrer</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label><input type="radio" ng-model="VPS.Power" value="0" style="vertical-align: -2px;"/> Arrêter</label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+
+    </form>
+
+</div>

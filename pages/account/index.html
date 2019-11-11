@@ -31,11 +31,11 @@
 
 
         <div class="Frame_Header_Footer">
-            <span class="button"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
+            <span class="button" ng-click="User.Manage_Balance()"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
 
             <div class="right">
                 <a href="/account/edit/" class="button"><i class="fas fa-user-edit"></i> Éditer</a>
-                <span class="button"><i class="fas fa-sign-out-alt"></i> Déconnexion</span>
+                <span class="button" ng-click="Dashboard.ServiceUser.Logout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</span>
             </div>
         </div>
     </div>
@@ -46,10 +46,10 @@
 
         <table class="width-full">
             <tr>
-                <td class="v-align-top">
-                    <div class="Domains IndexItemContenair" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard)">
+                <td class="v-align-top" style="padding-right: 70px;">
+                    <div class="Domains IndexItemContenair" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard); Domain.load()">
 
-                        <h1>Mes Domaines</h1>
+                        <h1><i class="fas fa-globe-americas"></i> Mes Domaines</h1>
                         <div style="min-height:22px">
                             <div ng-if="Domain.Dashboard.VPS_Focused != null">
                                 Sur le serveur {{Domain.Dashboard.VPS_Focused.Hostname}} : 
@@ -64,6 +64,11 @@
                                 </b>
                             </div>
                         </div>
+
+                        <div class="loader loader_domain">
+                            <img src="/ressources/images/loader.gif">
+                        </div>
+
 
                         <div ng-repeat="Domain_Data in Domain.Listing" class="List_Item List_Item_ForRack ID_CloudDevice_{{Domain_Data.ID_CloudDevice}}" 
                              ng-click="Domain.menu(Domain_Data)" 
@@ -81,17 +86,30 @@
 
                         </div>
 
+                        <div class="" ng-if="!Domain.Listing && Domain.ListStatut == 'loaded'">
+
+
+                            <table class="table_icon">
+                                <tr>
+                                    <td><i class="fas fa-globe-americas"></i></td>
+                                    <td>
+                                        <h1>Aucun domaine hébergé actuellement</h1>
+                                        Commencez dès à présent à héberger un domaine en l'ajoutant ci-dessous !
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+
                         <br /><br />
-                        <span class="button button_mini" ng-click="Domain.Dashboard.ServicePopup.openNew({Endpoint : 'Domain', Action:'Add', Title:'Ajouter un domaine'})"><i class="fas fa-plus-circle"></i> Ajouter un domaine</span>
-                        <a class="button button_mini" href="/domains"><i class="fas fa-cog"></i> Gérer mes domaines</a>
-
-
+                        <a class="button button_mini" href="/domains/"><i class="fas fa-cog"></i> Gérer mes domaines</a>
                     </div>
 
                     <br /><br />
 
                     <div class="Databases IndexItemContenair" ng-controller="Database_Controller as DatabaseUser" ng-init="DatabaseUser.init(Dashboard);">
-                        <h1>Mes bases de données</h1>
+                        <h1><i class="fas fa-database"></i> Mes bases de données</h1>
                         <div style="min-height:22px">
                             <div ng-if="DatabaseUser.Dashboard.VPS_Focused != null">
                                 Sur le serveur {{DatabaseUser.Dashboard.VPS_Focused.Hostname}} : 
@@ -105,6 +123,10 @@
                                     <i class="far fa-times-circle"></i> Aucun 
                                 </b>
                             </div>
+                        </div>
+
+                        <div class="loader loader_database">
+                            <img src="/ressources/images/loader.gif">
                         </div>
 
                         <span ng-repeat="DatabaseUser_Data in DatabaseUser.Listing">
@@ -125,12 +147,47 @@
                             </div>
                         </span>
 
+
+                        <div class="" ng-if="!DatabaseUser.Listing && DatabaseUser.ListStatut == 'loaded'">
+
+
+                            <table class="table_icon">
+                                <tr>
+                                    <td><i class="fas fa-database"></i></td>
+                                    <td>
+                                        <h1>Aucune base de données hébergée actuellement</h1>
+                                        Créez et gérez vos utilisateurs et bases MySQL selon vos besoins
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+
                         <br /><br />
-                        <span class="button button_mini" ng-click="DatabaseUser.Dashboard.ServicePopup.openNew({Endpoint : 'Database', Action:'Add_User', Title:'Ajouter un utilisateur MySQL'})"><i class="fas fa-plus-circle"></i> Ajouter une base de données</span>
                         <a class="button button_mini" href="/mysql/"><i class="fas fa-cog"></i> Gérer mes bases de données</a>
 
 
                     </div>
+
+
+
+                    <br /><br />
+
+
+                    <h1><i class="fas fa-info-circle"></i> Votre nouveau panel client !</h1>
+                    Nous sommes heureux de vous accueillir sur la version bêta de notre nouveau panel client !
+
+                    <br />
+
+                    Nous avons fait en sorte de vous fournir le panel client le plus simple et le plus clair, afin que votre expérience utilisateur soit la plus efficace possible.
+
+                    <br /><br />
+
+                    Certaines fonctionnalités sont encore en cours de développement et de nombreuses mises à jour sont en cours de préparation. <br />
+                    Si vous ne trouvez pas ce que vous cherchez ici, vous pouvez cliquez sur le bouton <i class="fas fa-external-link-alt"></i> dans le menu a gauche pour accéder à l'ancien panel client.
+
+
 
                 </td>
 

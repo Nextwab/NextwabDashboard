@@ -1,4 +1,4 @@
-Dashboard.controller('User_Controller', function($scope, UserService, ApiService) {
+Dashboard.controller('User_Controller', function($scope, UserService, ApiService, PopupService) {
 	
     var User                = this;
     var Dashboard           = null; 
@@ -40,6 +40,18 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
     };
     
     
+    
+    // Submit Creation
+    User.CreateSubmit = function(Form) {
+        ApiService.post('User', 'Create' ,  User.data).then(function(response) { 
+            Form.process(response); 
+            
+            if(response.valid) {
+                PopupService.openNew(  {Endpoint : 'Account',   Action:'Login', Title:'Connexion', Styles : {width:"610px"} }    )
+            }
+        });
+    };
+    
     // Submit Update
     User.UpdateSubmit = function(Form) {
         ApiService.post('User', 'Update' ,  User.data).then(function(response) { 
@@ -49,6 +61,11 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
                 
             }
         });
+    };
+    
+    
+    User.Manage_Balance = function() {
+        PopupService.openNew(  {Endpoint : 'Account', Action:'Balance', Title:'Gestion du solde'}    );
     };
     
 });

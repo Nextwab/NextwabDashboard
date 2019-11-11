@@ -1,0 +1,12 @@
+<div class="Frame flex" ng-controller="User_Controller as User" ng-init="User.init(Dashboard); User.load()">
+    <div class="Frame_Contenair">
+
+        <h4 class="account_creation_title">Création d'un compte</h4>
+
+        <br />
+
+        <form autocomplete="off" ng-handler="User" ng-handler-action="Create" class="{{FormState}}" >
+            <div class="" ng-include="'/pages/account/_account_editor.html'"></div>
+        </form>
+    </div>
+</div>

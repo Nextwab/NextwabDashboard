@@ -3,6 +3,8 @@ Dashboard.controller('Database_Controller', function($scope, $timeout , ApiServi
     var Database                = this;
     var Dashboard               = null;    
     
+    Database.ListStatut         = "loading";
+    
     Database.init               = function(Dashboard) {
         Database.Dashboard      = Dashboard;
     };
@@ -10,7 +12,7 @@ Dashboard.controller('Database_Controller', function($scope, $timeout , ApiServi
     
     // Chargement de la liste des databasees
     Database.load     = function() {
-        ListManager.init( { endpoint : "Database"  } ).then(function(response) { Database.Listing = response  });
+        ListManager.init( { endpoint : "Database"  } ).then(function(response) {Database.ListStatut = "loaded"; $('.loader_database').hide(); Database.Listing = response  });
     };
     
     

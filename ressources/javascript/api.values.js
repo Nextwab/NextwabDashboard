@@ -15,6 +15,7 @@ Dashboard.value('config_api',
 			Delete          :   '/vps/delete.php',
 			Update          :   '/vps/update.php',
             Pricing         :   '/vps/get_pricing.php',
+            SetPower        :   '/vps/set_power.php',
 			}
 		,
         
@@ -22,6 +23,7 @@ Dashboard.value('config_api',
 		Domain : 
 			{
 			Add             :   '/domains/add.php' ,
+			Buy             :   '/domains/buy.php' ,
 			List            :   '/domains/get_list.php',
 			Delete          :   '/domains/delete.php',
 			SetCloudServer  :   '/domains/set_cloud_device.php',
@@ -48,14 +50,13 @@ Dashboard.value('config_api',
 			Login           :   '/account/login.php',
 			GetInfos        :   '/account/infos.php',
             Update          :   '/account/update.php',
+            Create          :   '/account/create.php',
 			},
 			
 		
 		// VPS 
 		VPS_GetPricing      :   '/vps/get_pricing.php' ,
-		VPS_SetRawData      :   '/vps/set_data_raw.php' ,
-		
-		
+		VPS_SetRawData      :   '/vps/set_data_raw.php' ,		
 		VPS_SetPower        :   '/vps/set_power.php',
 
 		//USER

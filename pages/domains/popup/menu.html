@@ -1,4 +1,12 @@
-<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="DomainController = this.$parent.$parent.$parent; Domain.init(DomainController.Dashboard); Domain.ID = Popup.Config.DomainID;  Domain.Domain = Popup.Config.Domain; DomainData = DomainController.Dashboard.ServiceStorage.DomainList[Domain.ID];">
+<div class="Domain" ng-controller="Domain_Controller as Domain" ng-init="
+                DomainController = this.$parent.$parent.$parent;
+                Domain.init(DomainController.Dashboard);
+                Domain.ID = Popup.Config.DomainID;
+                Domain.Domain = Popup.Config.Domain;
+                Domain.CheckIfDomainLoaded(Domain.ID);
+                Domain.DomainData = DomainController.Dashboard.ServiceStorage.DomainList[Domain.ID];
+
+     ">
 
     <div class="Item_Case" ng-click="Domain.menu_setCMS(Domain)">
         <i class="fas fa-cloud-download-alt"></i>
@@ -6,7 +14,7 @@
     </div>
 
     <div class="Item_Case" ng-click="Domain.menu_setServer(Domain)">
-        <i ng-if="!DomainData.ID_CloudDevice" title="Cliquez ici pour selectionner un serveur cloud pour gérer ce domaine"  class="notification_icon fas fa-exclamation-circle color-red"></i>
+        <i ng-if="!Domain.DomainData.ID_CloudDevice && Domain.DomainData.Date_Expiration != 0" title="Cliquez ici pour selectionner un serveur cloud pour gérer ce domaine"  class="notification_icon fas fa-exclamation-circle color-red"></i>
         <i class="fas fa-server"></i>
         <b>Définir un VPS</b>
     </div>
@@ -16,9 +24,153 @@
         <b>Configuration DNS</b>
     </div>
 
-    <div class="color-red" ng-if="!DomainData.State" style="margin-top:15px;">
+    <div class="color-red m-h-30" ng-if="!Domain.DomainData.State && Domain.DomainData.Registrar != ''">
         <i class="fas fa-exclamation-circle color-red"></i>
-        <b>{{DomainData.StateMessage}}</b>
+        <b>{{Domain.DomainData.StateError_Message}}</b>
     </div>
+
+
+
+    <h1 class="m-h-15">Informations</h1>
+
+
+
+    <div ng-if="Domain.DomainData.Registrar != ''">
+        <table class="table-tiny">
+            <tr>
+                <td>Registar :</td><td><b>{{Domain.DomainData.Registrar}}</b></td>
+            </tr>
+
+            <tr>
+                <td>Date d'enregistrement :</td><td>{{Domain.DomainData.Date_Registration * 1000|  date: 'dd/MM/yyyy'}}</td>
+            </tr>
+
+            <tr>
+                <td>Date d'expiration :</td><td><b>{{Domain.DomainData.Date_Expiration * 1000|  date: 'dd/MM/yyyy'}}</b></td>
+            </tr>
+
+        </table>
+    </div>
+
+
+    <!-- Order Allowed -->
+    <div ng-if="Domain.DomainData.OrderCapability_Code == 1">
+
+        <!-- Not registred -->
+        <div ng-if="Domain.DomainData.Registrar == ''" class="warning_request_registration">
+            <div class="List_Item div_bulle m-b-15">
+                <b class="color-red">Ce domaine ne semble pas être enregistré.</b><br />
+                Vous devrez enregistrer ce domaine pour le rendre fonctionnel
+            </div>
+            <span class="button" ng-click="Domain.Show_PricingPart()">Enregistrer ce domaine</span>
+        </div>
+
+        <!-- Transfert -->
+        <div ng-if="Domain.DomainData.Registrar != '' && Domain.DomainData.Registred_By_Us == 0" class="warning_request_registration">
+            <div class="List_Item div_bulle m-b-15">
+                <b class="color-orange">Non autoritaire sur ce domaine.</b><br />
+                L'enregistrement de ce domaine n'est actuellement pas géré par nos services. Si vous êtes propriétaire de ce domaine, vous pouvez le transférer ici. 
+                <br /> 
+                Le transfert d'un domaine n'est pas obligatoire tant que celui-ci est paramétré pour utiliser nos NameServers
+            </div>
+            <span class="button" ng-click="Domain.Show_PricingPart()">Transférer ce domaine</span>
+        </div>
+
+        <!-- Renewal -->
+        <div ng-if="Domain.DomainData.Registrar != '' && Domain.DomainData.Registred_By_Us == 1" class="warning_request_registration">
+            <div class="List_Item div_bulle m-b-15">
+                <b class="color-orange">Votre domaine va expirer</b><br />
+                Votre domaine va arriver à expiration le {{Domain.DomainData.Date_Expiration * 1000|  date: 'dd/MM/yyyy'}}.<br />
+                <i class="legend">Passé cette date et sans renouvellement de votre part, la procédure de suppression de votre domaine sera automatiquement lancé et celui-ci tombera de nouveau dans le domaine publique</i>
+            </div>
+            <span class="button" ng-click="Domain.Show_PricingPart()">Renouveler ce domaine</span>
+        </div>
+
+
+        <div class="request_registration_pricing" style="display:none">
+
+            <div class="List_Item div_bulle m-b-15 pricing">
+
+                <div class="List_Item_Loader_Contenair">
+                    <div class="loader loader-100">
+                        <img src="/ressources/images/loader.gif" >
+                    </div>
+                </div>
+
+
+                <div class="List_Item_Loaded">
+
+                    <div ng-if="Domain.BuyProcessState == 'QueryPrice'">
+                        <div ng-if="Domain.Extension_Price != 0">
+                            <h5>Tarif du domaine : <b>{{Domain.Extension_Price}}€</b>/An</span></h5>
+                            Date d'expiration : {{ Domain.Renewal_Date * 1000 |  date: 'dd/MM/yyyy'}}
+                            <br /><br />
+
+                            <div class="" ng-if="Domain.DomainData.Date_Expiration != 0 && Domain.DomainData.Registred_By_Us == 0">
+                                <b>Code de transfert :</b><br />
+                                <input type="text" ng-model="Domain.Auth_Code" placeholder="Entrez le code de transfert ici..."/>
+                            </div>
+
+
+                            <i class="legend">Passé cette date et sans renouvellement de votre part, ce domaine sera supprimé</i>
+                        </div>
+
+                        <div ng-if="Domain.Extension_Price == 0">
+                            <b class="color-red">Extension incorrecte</b><br />
+                            Désolé, cette extension n'est pas disponible à l'achat
+                        </div>
+                    </div>
+
+                    <div ng-if="Domain.BuyProcessState == 'OrderReply'"  class="menu-order-reply {{Domain.OrderReply_State ? 'color-green' : 'color-red' }}">
+                        <i class="fas {{Domain.OrderReply_State ? 'fa-check-circle' : 'fa-exclamation-circle' }}"></i>
+
+                        <div ng-if="Domain.OrderReply_State">
+                            Achat effectué ! Votre domaine sera actif dans les prochaines 24 Heures
+                        </div>
+
+                        <div ng-if="!Domain.OrderReply_State">
+                            {{Domain.OrderReply_Message}}
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="menu_loading" style="display:none">
+                <span class="menu_string_loading"><i class="fas fa-sync-alt fa-spin" style="font-size: 41px;margin-left: 10px;color: #ccc;margin-top: 9px;"></i></span>
+            </div>
+
+            <div class="menu_loaded" style="display:none">
+
+                <div ng-if="Domain.BuyProcessState == 'QueryPrice'">
+                    <span class="button menu_button_pay" ng-if="Domain.Extension_Price != 0" ng-click="Domain.Buy()">Payer</span>
+                    <span ng-if="Domain.Extension_Price == 0"><i class="fas fa-exclamation-circle color-red" style="font-size: 41px;margin-left: 10px;"></i></span>
+                </div>
+
+
+                <div ng-if="Domain.BuyProcessState == 'OrderReply'">
+                    <span class="button" ng-if="Domain.OrderReply_State">Fermer</span>
+                    <span class="button" ng-if="!Domain.OrderReply_State" ng-click="Domain.BuyProcessState = 'QueryPrice'"><i class="fas fa-arrow-circle-left"></i> Précedent</span>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Order not allowed -->
+    <div ng-if="Domain.DomainData.OrderCapability_Code != 1" style="margin-top:10px">
+        <b ng-if="Domain.DomainData.OrderCapability_Code == 2" class="color-green"><i class="fas fa-check-circle"></i> {{Domain.DomainData.OrderCapability_Message}}</b>
+        <b ng-if="Domain.DomainData.OrderCapability_Code == 3 || Domain.DomainData.OrderCapability_Code == 5" class="color-red"><i class="fas fa-exclamation-circle"></i> {{Domain.DomainData.OrderCapability_Message}}</b>
+        <b ng-if="Domain.DomainData.OrderCapability_Code == 4" class="color-orange"><i class="far fa-clock"></i> {{Domain.DomainData.OrderCapability_Message}}</b>
+    </div>
+
+
+
 
 </div>

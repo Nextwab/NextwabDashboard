@@ -22,7 +22,7 @@ Dashboard.controller('DashboardController', function($rootScope , $scope, UserSe
 	dashboard.pageHandler       = '/'+dashboard.pageViewBase+'/_commons/'+dashboard.pageViewHandler;
 	dashboard.pageRequested     = '/'+dashboard.pageViewBase+'/'+dashboard.pageViewFile;
 	dashboard.pageViewConfig    = null;
-    
+    dashboard.Controllers       = [];
     
 	// User Service
 	UserService.setDashboard(dashboard);
@@ -49,9 +49,15 @@ Dashboard.controller('DashboardController', function($rootScope , $scope, UserSe
 	dashboard.ServiceStorage   = StorageService;
 	
     
-	dashboard.Init              = function() {
+	dashboard.Init                      = function() {
         dashboard.UpdateInterface();
         };
+        
+        
+    dashboard.ControllerRegistration    = function(Name, Controller) {
+        dashboard.Controllers[Name] = Controller;
+        };    
+        
 	
 	dashboard.UpdateInterface = function() {
 		var pageViewConfig          = NavigationService.getPageViewConfig();

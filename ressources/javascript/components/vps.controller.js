@@ -13,7 +13,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     VPS.ID                  = false;    // VPS Edition / Focus
     VPS.Rack                = [];
     
-    
+    VPS.ListStatut          = "loading";
     
     // VPS Creation & Edition settings
     VPS.Settings    = {
@@ -46,10 +46,14 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
         
         
     VPS.load     = function(ID_VPS = false) {
-        
+        $('.List_Contenair .loader').fadeIn();
         // Load VPS list
         ListManager.init( { endpoint : "VPS"  } ).then(function(response) { 
-            VPS.Listing = response;
+        
+            $('.List_Contenair .loader').fadeOut();
+            
+            VPS.ListStatut      = "loaded";
+            VPS.Listing         = response;
             
             // VPS Edition
             if(ID_VPS) {
@@ -207,6 +211,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     
     
     
+    
     // Calculate the estimated price
     VPS.update_CalculatedPrice  = function(Days = false) {
         
@@ -222,6 +227,18 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
         PopupService.openNew(  {Endpoint : 'VPS', Action:'Edit', Title:'Editer un VPS', ID_VPS:VPS.ID }    );
     };
     
+    VPS.ManagePower = function(VPS) {
+        PopupService.openNew(  {Endpoint : 'VPS', Action:'ManagePower', Title:'Gestion Alimentation', ID_VPS:VPS.ID }    );
+    };
+    
+    
+    VPS.PowerSubmit = function(Form) {
+        ApiService.post('VPS', 'SetPower' , VPS).then(function(response) {
+           Form.process(response);  
+           VPS.ReloadList();
+           $timeout(function() { PopupService.close() } , 1500);  
+        });
+    };
     
     // Delete - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     VPS.Delete = function(VPS) {
