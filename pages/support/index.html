@@ -41,20 +41,24 @@
 
             <table class="width-full">
                 <tr>
-                    <td class="td-icon"><i class="fas {{Ticket.State ? 'fas fa-comments' : 'far fa-comments' }}"></i><span class="bull 
-                                                                                                                           {{Ticket.State_Code == 0 ? 'blue' : '' }}
-                                                                                                                           {{Ticket.State_Code == 1 ? 'green' : '' }}
-                                                                                                                           {{Ticket.State_Code == 2 ? 'blue blink' : '' }}
-                                                                                                                           {{Ticket.State_Code == 3 ? 'orange' : '' }}
-                                                                                                                           {{Ticket.State_Code == 5 ? 'green' : '' }}
-                                                                                                                           "></span></td>
+                    <td class="td-icon"><i class="{{Ticket.State_Code == 5 ? 'fas fa-user-tie' : 'fas fa-comments' }}"></i>
+
+
+                        <span class="bull 
+                              {{Ticket.State_Code == 0 ? 'blue' : '' }}
+                              {{Ticket.State_Code == 1 ? 'green' : '' }}
+                              {{Ticket.State_Code == 2 ? 'blue blink' : '' }}
+                              {{Ticket.State_Code == 3 ? 'orange' : '' }}
+                              {{Ticket.State_Code == 5 ? 'green' : '' }}
+                              "></span>
+                    </td>
 
                     <td style="white-space:pre-wrap">{{Ticket.Content}}</td>
                 </tr>
             </table>
 
             <div class="List_Item_Footer" style="padding:10px;font-size: 12px;">
-                {{Ticket.Date * 1000|  date: 'dd/MM/yyyy'}} &bull; <b>{{Ticket.State_Message}}</b> &bull; par {{Ticket.Author_Name}}
+                par {{Ticket.Author_Name}} le {{Ticket.Date * 1000|  date: 'dd/MM/yyyy'}} &bull; <b>{{Ticket.State_Message}}</b> <b ng-if="Ticket.Admin_Name">par {{Ticket.Admin_Name}}</b>
             </div>
 
         </div>
