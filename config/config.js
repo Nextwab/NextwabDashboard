@@ -1,6 +1,6 @@
 Dashboard.value('config', 
 	{
-	applicationURL 	: "https://dashboard.dev.com",
+	applicationURL 	: "https://dashboard.nextwab.com",
 	userID		: 1,
 	}
 );
