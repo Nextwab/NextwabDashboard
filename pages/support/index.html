@@ -1,0 +1,62 @@
+<div class="Frame flex" ng-controller="Support_Controller as Support" ng-init="Support.init(Dashboard);">
+
+    <div class="Frame_Header">
+        <h1>Centre d'assistance et de support</h1>
+        <span class="button" ng-click="Support.Dashboard.ServicePopup.openNew({Endpoint: 'Ticket', Action: 'Add', Title: 'Rédiger un ticket'})">Rédiger un ticket</span>
+
+        Retrouvez ici vos dernières demandes d'assistance et la documentation nécessaire.
+        <br />
+
+
+        <div class="Case CaseSupport">
+            <h2>Documentation</h2>
+            Avant d'ouvrir un ticket, prenez connaissance de notre centre de documentation afin de déterminer au préalable si une documentation correspond déjà à votre demande
+            <br />
+
+            <a href="https://www.nextwab.com/infos/" class="button" target="_blank">Ouvrir le centre de documentation</a>
+        </div>
+
+
+
+    </div>
+
+    <div class="List_Contenair">
+
+        <div class="loader">
+            <img src="/ressources/images/loader.gif" >
+        </div>
+
+
+
+        <div class="table_icon text-align-center absolute-middle" ng-if="!Support.Tickets_Listing && Support.ListStatut == 'loaded'">
+            <i class="far fa-life-ring"></i>
+            <br />
+            <h1>Aucune demande d'assistance actuellement</h1>
+            <br /><br />
+            <span class="button" ng-click="Support.Dashboard.ServicePopup.openNew({Endpoint: 'Ticket', Action: 'Add', Title: 'Rédiger un ticket'})">Créer un ticket d'assistance</span>
+        </div>
+
+
+        <div ng-repeat="Ticket in Support.Tickets_Listing" class="List_Item">
+
+            <table class="width-full">
+                <tr>
+                    <td class="td-icon"><i class="fas {{Ticket.State ? 'fas fa-comments' : 'far fa-comments' }}"></i><span class="bull 
+                                                                                                                           {{Ticket.State_Code == 0 ? 'blue' : '' }}
+                                                                                                                           {{Ticket.State_Code == 1 ? 'green' : '' }}
+                                                                                                                           {{Ticket.State_Code == 2 ? 'blue blink' : '' }}
+                                                                                                                           {{Ticket.State_Code == 3 ? 'orange' : '' }}
+                                                                                                                           {{Ticket.State_Code == 5 ? 'green' : '' }}
+                                                                                                                           "></span></td>
+
+                    <td style="white-space:pre-wrap">{{Ticket.Content}}</td>
+                </tr>
+            </table>
+
+            <div class="List_Item_Footer" style="padding:10px;font-size: 12px;">
+                {{Ticket.Date * 1000|  date: 'dd/MM/yyyy'}} &bull; <b>{{Ticket.State_Message}}</b> &bull; par {{Ticket.Author_Name}}
+            </div>
+
+        </div>
+    </div>
+</div>

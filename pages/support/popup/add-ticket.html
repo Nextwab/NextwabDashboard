@@ -1,0 +1,32 @@
+<div class="Support" ng-controller="Support_Controller as Support" ng-init="Support.init(this.$parent.$parent.$parent.Dashboard); SupportController = this.$parent.$parent.$parent;">
+
+    <form ng-handler="Support" ng-handler-action="AddTicket" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon width-full">
+                <tr>
+                    <td style="width: 80px;"><i class="far fa-comments"></i></td>
+                    <td>
+                        <h1>Créer un ticket</h1>
+                        <textarea ng-model="Support.Message" placeholder="Écrivez votre message ici" style="height: 120px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+            
+            <b style="font-size:12px">La rédaction d'un nouveau ticket entraine l'annulation des précédents tickets en attente de traitement </b><br />
+            <i style="font-size:11px">Le temps de réponse d'un ticket varie en fonction de son caractère (assistance commercial ou technique), ainsi que du nombre de ticket actuellement en cours de traitement.</i>
+            <i style="font-size:11px">Dans le cas d'un incident isolé n'affectant que vos services, votre ticket est traité de façon prioritaire. Dans le cas d'un incident global, la priorité est accordé au traitement de l'incident puis au traitement des différents ticket</i>
+            <i style="font-size:11px">Si votre ticket ne nécessite pas une réponse personnalisée du support, celui-ci sera exécute et marqué comme étant "traité".</i>
+            <br />
+            <i style="font-size:11px">Le support technique est disponible 7J/7. Le support commercial est disponible uniquement en jours ouvrées</i>
+            
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
+            <div class="clear"></div>
+            <span class="button button_submit"></span>
+        </div>
+
+    </form>
+
+</div>

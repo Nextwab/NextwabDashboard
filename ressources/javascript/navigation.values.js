@@ -33,9 +33,11 @@ Dashboard.value('config_routes', {
     "/vps/popup/delete.html"                : {file : "/vps/popup/delete.html"                  , handler : "contenair"     , login : true},
     "/vps/popup/manage_power.html"          : {file : "/vps/popup/manage_power.html"            , handler : "contenair"     , login : true},
 
-    "/mails/"                               : {file : "/mails/index.html"                         , handler : "contenair"     , login : true},
+    "/mails/"                               : {file : "/mails/index.html"                       , handler : "contenair"     , login : true},
     
     
+    "/support/"                             : {file : "/support/index.html"                     , handler : "contenair"     , login : true},
+    "/support/popup/add-ticket.html"        : {file : "/support/popup/add-ticket.html"                 , handler : "contenair"     , login : true},
     
     // Internal Endpoints
     Endpoints       : {
@@ -68,6 +70,12 @@ Dashboard.value('config_routes', {
             'Edit'              : "/vps/popup/edit.html",
             'Delete'            : "/vps/popup/delete.html",
             'ManagePower'       : "/vps/popup/manage_power.html"
+        },
+        
+        'Ticket'       : {
+            'Add'               : "/support/popup/add-ticket.html",
         }
+        
+        
     }
 });

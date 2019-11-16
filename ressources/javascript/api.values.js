@@ -52,6 +52,13 @@ Dashboard.value('config_api',
             Update          :   '/account/update.php',
             Create          :   '/account/create.php',
 			},
+            
+        // Section Support
+		Ticket : 
+			{
+			List            :   '/tickets/get_list.php',
+			Add             :   '/tickets/add.php'
+			},
 			
 		
 		// VPS 
