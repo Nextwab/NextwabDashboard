@@ -62,12 +62,15 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     
     // Submit
     Domain.CheckSubmit = function(Form) {
+        Form.ForceApply = false;   
+        Form.resetState();        
         $('.button_check i').removeClass('fa-search').addClass('fa-sync-alt fa-spin');
         
         ApiService.post('Domain', 'Check' , Domain).then(function(response) { 
             Form.process(response); 
             $('.button_check i').addClass('fa-search').removeClass('fa-sync-alt fa-spin');
             if(response.valid) {
+                
                 Domain.CheckStatut      = true;
                 
                 if(!response.data.Domain.Registrar) {
@@ -81,6 +84,12 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
             }
         });
     };
+    
+    Domain.ResetStatut = function(Form) {
+        Form.ForceApply = false;
+        Form.resetState();
+    }
+    
     
     // Submit
     Domain.AddSubmit = function(Form) {

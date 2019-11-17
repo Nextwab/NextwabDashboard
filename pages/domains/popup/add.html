@@ -7,7 +7,7 @@
                     <td><i class="fas fa-plus-circle"></i></td>
                     <td>
                         <h1>Domaine</h1>
-                        <input type="text" ng-model="Domain.Domain" ngicon="fas fa-globe-americas" placeholder="domaine-exemple.fr" ng-input ng-keypress="Domain.CheckStatut = false" />
+                        <input type="text" ng-model="Domain.Domain" ngicon="fas fa-globe-americas" placeholder="domaine-exemple.fr" ng-input ng-keypress="Domain.ResetStatut(Form)" />
 
                         <div class="{{Domain.CheckCssClass}}" ng-if="Domain.CheckStatut">
                             {{Domain.CheckMessage}}

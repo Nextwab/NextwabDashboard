@@ -45,6 +45,8 @@ Dashboard.directive("form", function($sanitize, $rootScope, $timeout){
             scope.FormState         = "";
             scope.FormButtonIcon    = "";
             scope.FormError         = "";
+            scope.Form.ForceApply        = true;
+            
             
             // Submit
             scope.Form.send = function() {
@@ -62,7 +64,11 @@ Dashboard.directive("form", function($sanitize, $rootScope, $timeout){
             scope.Form.error = function(errorMessage ) {
                 scope.FormState     = 'form_error';
                 scope.FormError     = '<i class="fas fa-exclamation-circle"></i> '+errorMessage;
-                $rootScope.$apply();
+                
+                if(scope.Form.ForceApply) {
+                    $rootScope.$apply();
+                }
+                
                 $timeout(function() { scope.Form.resetState() } , 4000);
             };
             
@@ -82,7 +88,10 @@ Dashboard.directive("form", function($sanitize, $rootScope, $timeout){
             scope.Form.resetState = function() {
                 scope.FormState     = ''; 
                 scope.FormError     = '';
-                $rootScope.$apply();
+                
+                if(scope.Form.ForceApply) {
+                    $rootScope.$apply();
+                }
             } 
 		}
 	};
