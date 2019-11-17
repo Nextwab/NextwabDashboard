@@ -15,6 +15,9 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     
     Domain.ListStatut       = "loading";
     
+    Domain.CheckStatut      = false;
+    Domain.CheckMessage     = "";
+    
     
     Domain.init             = function(Dashboard) {
         Domain.Dashboard    = Dashboard;
@@ -55,6 +58,29 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
         ListManager.init( { endpoint : "Domain" , action : "GetCMS_List" } ).then(function(response) { Domain.ListingCMS = response  });
     };
     
+    
+    
+    // Submit
+    Domain.CheckSubmit = function(Form) {
+        $('.button_check i').removeClass('fa-search').addClass('fa-sync-alt fa-spin');
+        
+        ApiService.post('Domain', 'Check' , Domain).then(function(response) { 
+            Form.process(response); 
+            $('.button_check i').addClass('fa-search').removeClass('fa-sync-alt fa-spin');
+            if(response.valid) {
+                Domain.CheckStatut      = true;
+                
+                if(!response.data.Domain.Registrar) {
+                Domain.CheckMessage     = "Ce domaine semble disponible. Vous pouvez l'enregistrer pour "+response.data.Domain.Pricing+"€/an";
+                Domain.CheckCssClass    = "color-green";
+                }
+                else {
+                Domain.CheckMessage     = "Ce domaine semble déjà enregistré. Vous pouvez le transférer pour "+response.data.Domain.Pricing+"€/an si vous en êtes le propriétaire";
+                Domain.CheckCssClass    = "color-orange";
+                }
+            }
+        });
+    };
     
     // Submit
     Domain.AddSubmit = function(Form) {

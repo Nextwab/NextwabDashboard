@@ -22,6 +22,7 @@ Dashboard.value('config_api',
 		// Section VPS
 		Domain : 
 			{
+            Check           :   '/domains/check.php' ,
 			Add             :   '/domains/add.php' ,
 			Buy             :   '/domains/buy.php' ,
 			List            :   '/domains/get_list.php',

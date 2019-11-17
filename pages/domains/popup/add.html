@@ -7,7 +7,12 @@
                     <td><i class="fas fa-plus-circle"></i></td>
                     <td>
                         <h1>Domaine</h1>
-                        <input type="text" ng-model="Domain.Domain" ngicon="fas fa-globe-americas" placeholder="domaine-exemple.fr" ng-input />
+                        <input type="text" ng-model="Domain.Domain" ngicon="fas fa-globe-americas" placeholder="domaine-exemple.fr" ng-input ng-keypress="Domain.CheckStatut = false" />
+
+                        <div class="{{Domain.CheckCssClass}}" ng-if="Domain.CheckStatut">
+                            {{Domain.CheckMessage}}
+                        </div>
+
                     </td>
                 </tr>
             </table>
@@ -16,7 +21,8 @@
         <div class="Popup_Footer" >
             <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
             <div class="clear"></div>
-            <span class="button button_submit"></span>
+            <span class="button button_check" ng-click="Domain.CheckSubmit(Form)"><i class="fas fa-search"></i> Vérifier la disponibilité</span>
+            <span class="button button_submit" ng-if="Domain.CheckStatut"></span>
         </div>
 
     </form>
