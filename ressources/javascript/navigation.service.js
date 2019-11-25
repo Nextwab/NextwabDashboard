@@ -15,8 +15,8 @@ Dashboard.service("NavigationService", function($location , UserService){
 	    
 		// Get URL     
 		var URL = $location.$$absUrl;
-		var RelativeURL = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "");
-
+		var RelativeURL = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "").split('?')[0];
+        
 		var PageViewConfig = vm_NavigationService.getViewConfig(RelativeURL);
 		
 		// If user is not loggued
