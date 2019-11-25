@@ -10,7 +10,7 @@ Dashboard.value('config_api',
 			{
 			Add             :   '/vps/create.php' ,
 			Update          :   '/vps/update.php' ,
-			List            :   '/vps/get_list.php',
+			List            :   '/vps/GetList',
             List_OS         :   '/vps/get_list_os.php',
 			Delete          :   '/vps/delete.php',
 			Update          :   '/vps/update.php',
@@ -62,6 +62,19 @@ Dashboard.value('config_api',
 			},
 			
 		
+        // Section VPS
+		Mailbox : 
+			{
+			Add             :   '/mailbox/Create' ,
+			Add_Alias       :   '/mailbox_alias/Create' ,
+			List            :   '/mailbox/GetList',
+			List_Alias      :   '/mailbox_alias/GetList',
+			Delete          :   '/mailbox/Delete',
+			Delete_Alias    :   '/mailbox_alias/Delete',
+			UpdatePassword  :   '/mailbox/UpdatePassword',
+			}
+		,
+        
 		// VPS 
 		VPS_GetPricing      :   '/vps/get_pricing.php' ,
 		VPS_SetRawData      :   '/vps/set_data_raw.php' ,		

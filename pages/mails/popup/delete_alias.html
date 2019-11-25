@@ -1,0 +1,25 @@
+<div class="Mail" ng-controller="Mail_Controller as Mail" ng-init="Mail.ID = Popup.Config.Alias_ID; Mail.From = Popup.Config.From; Mail.To = Popup.Config.To;">
+
+    <form ng-handler="Mail" ng-handler-action="DeleteAlias_" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                    <td>
+                        <h1>Attention</h1>
+                        <b>Supprimer la redirection de {{Mail.From}} vers {{Mail.To}} ?</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
+            <div class="clear"></div>
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+
+    </form>
+
+</div>

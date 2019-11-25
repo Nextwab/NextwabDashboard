@@ -34,10 +34,15 @@ Dashboard.value('config_routes', {
     "/vps/popup/manage_power.html"          : {file : "/vps/popup/manage_power.html"            , handler : "contenair"     , login : true},
 
     "/mails/"                               : {file : "/mails/index.html"                       , handler : "contenair"     , login : true},
+    "/mails/popup/add.html"                 : {file : "/mails/popup/add.html"                   , handler : "contenair"     , login : true},
+    "/mails/popup/add_alias.html"           : {file : "/mails/popup/add_alias.html"             , handler : "contenair"     , login : true},
+    "/mails/popup/update_password.html"     : {file : "/mails/popup/update_password.html"       , handler : "contenair"     , login : true},
+    "/mails/popup/delete.html"              : {file : "/mails/popup/delete.html"                , handler : "contenair"     , login : true},
+    "/mails/popup/delete_alias.html"        : {file : "/mails/popup/delete_alias.html"          , handler : "contenair"     , login : true},
     
     
     "/support/"                             : {file : "/support/index.html"                     , handler : "contenair"     , login : true},
-    "/support/popup/add-ticket.html"        : {file : "/support/popup/add-ticket.html"                 , handler : "contenair"     , login : true},
+    "/support/popup/add-ticket.html"        : {file : "/support/popup/add-ticket.html"          , handler : "contenair"     , login : true},
     
     // Internal Endpoints
     Endpoints       : {
@@ -70,6 +75,14 @@ Dashboard.value('config_routes', {
             'Edit'              : "/vps/popup/edit.html",
             'Delete'            : "/vps/popup/delete.html",
             'ManagePower'       : "/vps/popup/manage_power.html"
+        },
+        
+        'Mail'       : {
+            'Add'               : "/mails/popup/add.html",
+            'Add_Alias'         : "/mails/popup/add_alias.html",
+            'UpdatePassword'    : "/mails/popup/update_password.html",
+            'Delete'            : "/mails/popup/delete.html",
+            'Delete_Alias'      : "/mails/popup/delete_alias.html",
         },
         
         'Ticket'       : {

@@ -176,6 +176,7 @@ div.input input{padding-left:25px;display:inline-block}
 .color-red{color:#ae2222}
 .color-green{color:#6fae22}
 .color-orange{color:#ce7f19}
+.color-blue{color:#0087FF}
 .legend{font-size:12px}
 .width-full{width:100%}
 .bull{height:10px;width:10px;display:inline-block;border-radius:19px;vertical-align:-1px;margin-right:6px}
@@ -343,6 +344,7 @@ to{color:#6f8395}
 .select2-container--default .select2-selection--single{border:1px solid #eee;border-bottom:2px solid #e3e3e3!important;border-radius:5px}
 .select2-container--default .select2-selection--single .select2-selection__rendered{line-height:31px}
 .select2-container .select2-selection--single{height:33px}
+.select2-search--dropdown {display: none !important;}
 .table-domain-config input,.table-domain-config .select2-selection{width:auto!important;border:0!important;font-family:Quicksand;font-weight:600;font-size:13px;background:none}
 .table-domain-config i{position:absolute!important;top:13px!important;left:8px!important;color:#d0d0d0!important;font-size:10px!important}
 .table-domain-config td{border-bottom:1px solid #d5d6d7;position:relative}
