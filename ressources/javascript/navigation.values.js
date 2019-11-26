@@ -41,6 +41,9 @@ Dashboard.value('config_routes', {
     "/mails/popup/delete_alias.html"        : {file : "/mails/popup/delete_alias.html"          , handler : "contenair"     , login : true},
     
     
+    "/on-facebook/"                         : {file : "/social/facebook.html"                   , handler : "contenair"     },
+    
+    
     "/support/"                             : {file : "/support/index.html"                     , handler : "contenair"     , login : true},
     "/support/popup/add-ticket.html"        : {file : "/support/popup/add-ticket.html"          , handler : "contenair"     , login : true},
     

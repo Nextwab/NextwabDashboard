@@ -10,16 +10,15 @@
             
             <br />
             
-            <input type="text" name="amount" id="amount"  class="balance_input" value="20"><b class="balance_input_suffixe">€</b>
+            <input type="text" name="amount" id="amount"  class="balance_input" value=""><b class="balance_input_suffixe">€</b>
 
             <br />
             
             
-            <input class="button" type="submit" value="Confirmer" />
+            <input type="checkbox" class="checkbox" ng-model="User.GCV_Approval" checked="false"/> J'approuve les <a href="https://www.nextwab.com/license/cgv.php" target="_blank" class="color-blue">conditions générale de vente</a> afin de confirmer ma commande
+            <br /><br /><br />
             
-            
-            
-            
+            <input class="button" type="submit" value="Confirmer" ng-disabled="!User.GCV_Approval" />
             </div>
             
         </div>
@@ -36,6 +35,8 @@
     <input type="hidden" name="business" value="LRQB22BZGHMG2" />
    </form>
 
+   <script>
+   $('.balance_input').focus().val(20);
+   </script>
+   
 </div>
-    
-    
