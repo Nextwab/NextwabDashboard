@@ -405,6 +405,7 @@ to{color:#6f8395}
 .rack{perspective:868px;perspective-origin:-170% -160px;transition:all .3s;margin-right:100px;margin-top:25px;display:inline-block;width:200px}
 .rack:hover{perspective:868px;perspective-origin:-170% -160px}
 .server{text-align:left;position:relative;width:200px;transform-style:preserve-3d;height:35px;transition:all .3s}
+.server a{color:#FFF !important}
 .server_hover{margin-left:-40px}
 .server .face{position:absolute;width:200px;height:200px;background:#00000029;border:1px solid #dfdfdf;color:#FFF}
 .server .back{transform:translateZ(-100px) rotateY(180deg)}
