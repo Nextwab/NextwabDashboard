@@ -1,0 +1,24 @@
+<div class="User" ng-controller="User_Controller as User" ng-init="User.init(this.$parent.$parent.$parent.Dashboard);  User.load()">
+
+    <div class="Line_Item m-b-20">
+        <table class="table_icon">
+            <tr>
+                <td><i class="fas fa-exclamation-triangle red"></i></td>
+                <td>
+                    <h1 class="red">Compte invalide</h1>
+                    <b>Votre compte présente des défaut d'authenticité qui ont conduit à la suspension de vos services.</b>              
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    Merci de corriger l'erreur suivante pour que nous puissions procéder à la validation de votre compte :
+    <i class="red">{{User.data.Account_Problem_Details}}</i>
+
+
+
+    <div class="Popup_Footer Popup_Footer_White" >
+        <a href="/account/edit/" class="button">Corriger les informations de mon compte</a>
+    </div>
+</div>

@@ -9,6 +9,7 @@ Dashboard.value('config_routes', {
     "/account/create/"                      : {file : "/account/create.html"                    , handler : "contenair"     , login : false},
     "/account/popup/login.html"             : {file : "/account/popup/login.html"               , handler : "empty"         , login : false,    specific : 'LoginAction'},
     "/account/popup/balance.html"           : {file : "/account/popup/balance.html"             , handler : "empty"         , login : false},
+    "/account/popup/account_error.html"     : {file : "/account/popup/account_error.html"       , handler : "empty"         , login : false},
 
     "/domains/"                             : {file : "/domains/index.html"                     , handler : "contenair"     , login : true},
     "/domains/popup/add.html"               : {file : "/domains/popup/add.html"                 , handler : "contenair"     , login : true},
@@ -52,6 +53,7 @@ Dashboard.value('config_routes', {
         'Account'   : {
             'Login'             : "/account/popup/login.html",
             'Balance'           : "/account/popup/balance.html",
+            'AccountError'      : "/account/popup/account_error.html",
         },
         
         'Database'       : {

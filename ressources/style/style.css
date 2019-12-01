@@ -260,6 +260,7 @@ div.input input{padding-left:25px;display:inline-block}
 popup{z-index:9999;position:fixed;top:10vh;background:#fff;width:800px;left:0;right:0;border-bottom:4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
 popup:after{content:""}
 popup input[type=text],popup input[type=password]{width:215px}
+popup .red, .color-red{color:#ca4545 !important}
 .Popup_Login{text-align:center}
 .Popup_Login b{display:block;font-weight:600}
 .Popup_Login .block{margin-top:20px;margin-bottom:40px}
@@ -279,7 +280,7 @@ popup input[type=text],popup input[type=password]{width:215px}
 .form_valid .Popup_Footer{background:#9cc49e}
 .div_bulle{position:relative;background:#19293e;padding:10px;border-bottom:4px solid #111;margin-bottom:40px!important;border-radius:6px;color:#666}
 .div_bulle h5{font-size:21px;font-family:Quicksand;font-weight:800;color:#444}
-..div_bulle h5 b{font-size:32px;font-weight:600}
+.div_bulle h5 b{font-size:32px;font-weight:600}
 .VPS_Calculator{margin-top:10px;border-top:2px dashed #ffffff2b;padding-top:12px}
 .VPS_Calculator .range_contenair_row .bar{background:#a42525}
 .VPS_Calculator .range_contenair.selected b{color:#3a5362}
@@ -319,13 +320,13 @@ popup input[type=text],popup input[type=password]{width:215px}
 .Item_Case .notification_icon{position:absolute;top:-11px;font-size:21px;right:0}
 .BalanceManager_Contenair img{width:200px;height:200px;position:absolute;opacity:.2;margin:auto;left:-999px;right:-999px;top:110px;z-index:1;animation:5s fadeIn_Balance}
 @keyframes fadeIn_Balance {
-from{opacity:0}
-to{opacity:.2}
+    from{opacity:0}
+    to{opacity:.2}
 }
 .BalanceManager h1{position:relative;z-index:2;color:#6f8395;animation:2s fadeIn_BalanceH1;text-shadow:0 0 6px #fff}
 @keyframes fadeIn_BalanceH1 {
-from{color:#b3bcc4}
-to{color:#6f8395}
+    from{color:#b3bcc4}
+    to{color:#6f8395}
 }
 .BalanceManager{text-align:center;padding:80px 0 0;z-index:2;position:relative}
 .BalanceManager .balance_input{font-size:35px;text-align:center;border:2px solid #eee0!important;font-family:Montserrat;font-weight:800;padding:0!important;color:#6f8395;margin-bottom:90px;width:130px;background:none;animation:balance_input 5s infinite;text-shadow:3px 3px 0 #fff;transition:all .4s}
@@ -427,8 +428,8 @@ to{color:#6f8395}
 .server.green .power i{color:#9FFF14}
 .server.green .left .line{border-bottom:1px dashed #9FFF14}
 @keyframes poweron {
-from{box-shadow:0 0 40px #000}
-to{box-shadow:0 0 40px #278e99}
+    from{box-shadow:0 0 40px #000}
+    to{box-shadow:0 0 40px #278e99}
 }
 .red .front,.red .left{background:#B31B1B7D}
 .red .back,.red .right{background:#bfbfbf}
@@ -447,26 +448,26 @@ to{box-shadow:0 0 40px #278e99}
 .account_creation_title{font-size:30px;text-align:left;margin-top:20px;margin-bottom:20px}
 .blink,.blink-bg{animation-name:blinker;animation-duration:1.5s;animation-timing-function:linear;animation-iteration-count:infinite;-webkit-animation-name:blinker;-webkit-animation-duration:1.5s;-webkit-animation-timing-function:linear;-webkit-animation-iteration-count:infinite}
 @-moz-keyframes blinker-menu {
-0%,100%{opacity:.9}
-50%{opacity:.5}
+    0%,100%{opacity:.9}
+    50%{opacity:.5}
 }
 @-webkit-keyframes blinker-menu {
-0%,100%{opacity:.9}
-50%{opacity:.5}
+    0%,100%{opacity:.9}
+    50%{opacity:.5}
 }
 @keyframes blinker-menu {
-0%,100%{opacity:.9}
-50%{opacity:.5}
+    0%,100%{opacity:.9}
+    50%{opacity:.5}
 }
 @-moz-keyframes blinker {
-0%,100%{opacity:1}
-50%{opacity:.3}
+    0%,100%{opacity:1}
+    50%{opacity:.3}
 }
 @-webkit-keyframes blinker {
-0%,100%{opacity:1}
-50%{opacity:.3}
+    0%,100%{opacity:1}
+    50%{opacity:.3}
 }
 @keyframes blinker {
-0%,100%{opacity:1}
-50%{opacity:.3}
+    0%,100%{opacity:1}
+    50%{opacity:.3}
 }

@@ -1,45 +1,10 @@
 <div class="Frame flex" ng-controller="User_Controller as User" ng-init="User.init(Dashboard); User.load()">
 
     <div class="Frame_Header Frame_Account_Header">
-
-
-        <div class="Account_Balance">
-            <img src="/ressources/images/Flat-UI-Vault.png" class="img-50">
-            <b>Mon solde :</b>
-            <h2>{{User.data.Balance| number : 2}} €</h2>
-
-
-        </div>
-
-        <div class="Account_Profil">
-            <table class="table-user">
-                <tr>
-                    <td>
-                        <div class="img-user">
-                            <img src="/ressources/images/no_user.png" />
-                        </div>
-                    </td>
-
-                    <td>
-                        <h1>{{User.data.User_FirstName}} {{User.data.User_LastName}}</h1>
-                        {{User.data.Address_StreetNumber}} {{User.data.Address_StreetName}}<br />
-                        {{User.data.Address_ZipCode}} {{User.data.Address_City}}  {{User.data.Address_Country}} 
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-
-        <div class="Frame_Header_Footer">
-            <span class="button" ng-click="User.Manage_Balance()"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
-
-            <div class="right">
-                <a href="/account/edit/" class="button"><i class="fas fa-user-edit"></i> Éditer</a>
-                <span class="button" ng-click="Dashboard.ServiceUser.Logout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</span>
-            </div>
-        </div>
+        <div ng-include="'/pages/account/_account_header.html'"></div>
     </div>
-
+    
+    
     <div class="Frame_Contenair">
 
         <br />
@@ -47,6 +12,17 @@
         <table class="width-full">
             <tr>
                 <td class="v-align-top" style="padding-right: 70px;">
+                
+                    <div ng-if="User.data.Solde < 0.01" class="m-b-20">
+                        <h2 class="color-red"><i class="fas fa-exclamation-circle"></i> Niveau de solde bas</h2>
+                        Les services que vous commandez sont prélevés sur votre solde Nextwab. 
+                        Afin de pouvoir commander ou lancer l'exécution de vos services, votre solde doit être alimenté en conséquence au préalable.
+                        
+                        <br /><br />
+                        
+                        <span class="button button_mini" ng-click="User.Manage_Balance()"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
+                    </div>
+                
                     <div class="Domains IndexItemContenair" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard); Domain.load()">
 
                         <h1><i class="fas fa-globe-americas"></i> Mes Domaines</h1>
