@@ -11,11 +11,13 @@
             <input type="password" ng-model="User.Login_Password" />
         </div>
 
-        <div class="Buttons_Contenair">
+        <div class="Buttons_Contenair" style="position:relative">
             <input type="submit" class="button button_login" value="Se connecter" />
+            <div class="block login_loading" style="position: absolute;top: -12px;z-index: 10;color: #8C8C8C;left: 200px;display:none"><i class="fas fa-sync-alt fa-spin"></i></div>
         </div>
 
 
+        
         <div class="block color-red user-error" ng-if="User.ErrorMessage"><i class="fas fa-exclamation-triangle"></i>{{User.ErrorMessage}}</div>
 
     </form>

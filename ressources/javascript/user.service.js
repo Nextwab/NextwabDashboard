@@ -43,34 +43,34 @@ Dashboard.service("UserService", function ($rootScope, $location, $timeout, ApiS
     vm_User.Login = function (User) {
 
         $('.button_login').val("Chargement...").addClass('bg-grey');
+        $('.login_loading').fadeIn();
+        
+        ApiService.post('User', 'Login', {LOGIN_Mail: User.Login_Mail, LOGIN_Password: User.Login_Password}).then(function (Exchange) {
 
-        ApiService.post('User', 'Login', {LOGIN_Mail: User.Login_Mail, LOGIN_Password: User.Login_Password})
-                .then(function (Exchange) {
+            $('.button_login').val("Se connecter").removeClass('bg-grey');
+            $('.login_loading').fadeOut();
 
-                    $('.button_login').val("Se connecter").removeClass('bg-grey');
+            if (Exchange.valid) {
+                Cookies.set('Login_Mail', User.Login_Mail);
+                Cookies.set('Login_HashKey', Exchange.data.Key_Hash);
 
-                    if (Exchange.valid) {
-                        Cookies.set('Login_Mail', User.Login_Mail);
-                        Cookies.set('Login_HashKey', Exchange.data.Key_Hash);
+                vm_User.Login_HashKey = Exchange.data.Key_Hash;
 
-                        vm_User.Login_HashKey = Exchange.data.Key_Hash;
+                $timeout(function () {
 
-                        $timeout(function () {
+                    vm_User.isLogged();
 
-                            vm_User.isLogged();
-
-                            if (vm_User.Logged) {
-                                vm_User.dashboard.UpdateInterface();
-                                PopupService.close();
-                            }
-
-                        }, 500);
-
-                    } else {
-                        User.ErrorMessage = Exchange.errorMessage;
-
+                    if (vm_User.Logged) {
+                        vm_User.dashboard.UpdateInterface();
+                        PopupService.close();
                     }
-                });
+
+                }, 500);
+
+            } else {
+                User.ErrorMessage = Exchange.errorMessage;
+            }
+        });
     };
 
 
