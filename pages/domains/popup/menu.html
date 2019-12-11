@@ -166,7 +166,7 @@
     <!-- Order not allowed -->
     <div ng-if="Domain.DomainData.OrderCapability_Code != 1" style="margin-top:10px">
         <b ng-if="Domain.DomainData.OrderCapability_Code == 2" class="color-green"><i class="fas fa-check-circle"></i> {{Domain.DomainData.OrderCapability_Message}}</b>
-        <b ng-if="Domain.DomainData.OrderCapability_Code == 3 || Domain.DomainData.OrderCapability_Code == 5" class="color-red"><i class="fas fa-exclamation-circle"></i> {{Domain.DomainData.OrderCapability_Message}}</b>
+        <b ng-if="Domain.DomainData.OrderCapability_Code == 3 || Domain.DomainData.OrderCapability_Code == 5 || Domain.DomainData.OrderCapability_Code == 7" class="color-red"><i class="fas fa-exclamation-circle"></i> {{Domain.DomainData.OrderCapability_Message}}</b>
         <b ng-if="Domain.DomainData.OrderCapability_Code == 4" class="color-orange"><i class="far fa-clock"></i> {{Domain.DomainData.OrderCapability_Message}}</b>
     </div>
 
