@@ -170,8 +170,25 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
         });
     }
     
+    Domain.DNS_Configurator.ResetForm = function() {
+        $('.Reset_DNS_Form').slideDown(); 
+    }
     
+    Domain.DNS_Configurator.ResetClose = function() {
+        $('.Reset_DNS_Form').slideUp(); 
+        $('.Reset_DNS_Form .button_submit_form i').addClass('fa-check-circle').removeClass('fa-sync-alt fa-spin');
+    }
     
+    Domain.DNS_Configurator.ResetSubmit = function() {
+        
+        $('.Reset_DNS_Form .button_submit_form i').removeClass('fa-check-circle').addClass('fa-sync-alt fa-spin');
+        
+        ApiService.post('Domain', 'Reset_Config' , {Domain : Domain.DomainName} ).then(function(response) {
+            
+            Domain.getDNS_Config_List(Domain.Domain);
+            Domain.DNS_Configurator.ResetClose();
+        });
+    }
     
     Domain.DNS_Configurator.Add = function() {
         Domain.DNS_Config[Domain.DNS_Config.length] = {ID : 0, Action: "Add"};
@@ -184,8 +201,6 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     Domain.DNS_Configurator.Delete = function(ID) {
         Domain.DNS_Config[ID].Action = "Delete";
     }
-    
-    
     
     Domain.setConfigDNS_Submit = function() {
         

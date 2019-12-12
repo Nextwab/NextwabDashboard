@@ -17,7 +17,7 @@
             <selector rootdriver="VPS"></selector>
         </div>
 
-        <div class="List_Item div_bulle pricing">
+        <div class="Line_Item List_Item div_bulle pricing">
             <h5>Tarif du VPS : <span ng-if="VPS.FormState"><b>{{VPS.Price}}€</b> / Mois</span> <span ng-if="!VPS.FormState"><i class="fas fa-exclamation-circle color-red"></i></span> </h5>
             <div ng-if="!VPS.FormState" class="color-red">
                 <i class="fas fa-exclamation-circle "></i> {{VPS.FormError}}

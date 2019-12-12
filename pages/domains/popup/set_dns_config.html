@@ -36,7 +36,30 @@
             </table>
 
             <br />
-            <span class="button button_mini" ng-click="Domain.DNS_Configurator.Add()"><i class="fas fa-plus-circle"></i> Ajouter une entrée</span>
+
+            <div style="position:relative">
+                <span class="button button_mini" ng-click="Domain.DNS_Configurator.Add()"><i class="fas fa-plus-circle"></i> Ajouter une entrée</span>
+                <span class="button button_mini" ng-click="Domain.DNS_Configurator.ResetForm()" style="position: absolute;right: 0px;"><i class="fas fa-sync-alt"></i> Ré-initialiser la configuration DNS</span>
+            </div>
+
+
+            <div class="Reset_DNS_Form" style="margin-top:20px; display:none">
+                <table class="table_icon">
+                    <tr>
+                        <td class="v-align-top"><i class="fas fa-exclamation-circle"></i></td>
+                        <td>
+                            <h1>Confirmer votre action</h1>
+                            Attention, en confirmant la ré-initialisation, toutes les entrées DNS que vous avez paramétré manuellement seront effacées.
+
+                            <br /><br />
+                            <span class="button button_submit_form" ng-click="Domain.DNS_Configurator.ResetSubmit()"><i class="fas fa-check-circle"></i> Ré-initialiser la configuration DNS</span>
+                            <span class="button bg-red" ng-click="Domain.DNS_Configurator.ResetClose()"><i class="fas fa-time"></i> Annuler</span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
 
         </div>
 

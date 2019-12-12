@@ -31,7 +31,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
                 {value : 4 , title : "SSD - Windows"    ,icon: "fab fa-windows"},
             ]
         },
-        OS              : {title: "OS"              , name : "OS"          , type:"option" , icon: "fas fa-server"             , options        : [] , value  : "Ubuntu 18.04"  },
+        OS              : {title: "OS"              , name : "OS"          , type:"option" , icon: "fas fa-server"             , options        : [] , value  : "Debian 9"  },
     };
     
     

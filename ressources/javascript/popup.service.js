@@ -13,7 +13,7 @@ Dashboard.service("PopupService", function($compile , $location){
     
 	// Open new modal windows
 	vm_Popup.openNew = function( Config ){
-		angular.element(document.body).append($compile('<popup ng-style=\''+JSON.stringify(Config.Styles)+'\' config=\''+JSON.stringify(Config)+'\'></popup>')(vm_Popup.dashboard.scope));
+		angular.element(document.body).append($compile('<popup ng-style=\''+JSON.stringify(Config.Styles)+'\' class="'+Config.ClassName+'" config=\''+JSON.stringify(Config)+'\'></popup>')(vm_Popup.dashboard.scope));
         $('.background_overlay').fadeIn();
 	};
     
