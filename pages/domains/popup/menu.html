@@ -48,6 +48,16 @@
             <tr>
                 <td>Date d'expiration :</td><td><b>{{Domain.DomainData.Date_Expiration * 1000|  date: 'dd/MM/yyyy'}}</b></td>
             </tr>
+            
+            <tr ng-if="Domain.DomainData.Registred_By_Us == 1">
+                <td>AuthCode :</td>
+                <td>
+                    <span style="font-size:12px; font-style:italic; cursor:pointer" class="color-blue" ng-if="Domain.DomainData.AuthCode_Requested == 0" ng-click="Domain.Request_AuthCode()">Demander le déverrouillage et le code de transfert</span>
+                    <span style="font-size:12px; font-style:italic" ng-if="Domain.DomainData.AuthCode_Requested == 1 && Domain.DomainData.AuthCode == ''">Déverrouillage du domaine en cours...</span>
+                    <span ng-if="Domain.DomainData.AuthCode != '' ">{{Domain.DomainData.AuthCode}}</span>
+                    
+                </td>
+            </tr>
 
         </table>
     </div>

@@ -71,7 +71,10 @@ var PopupController = function($scope, $element, $window, $document, NavigationS
     
     vm_Popup.Close  = function(Popup) {
         $($element).fadeOut().remove(); 
-        $('.background_overlay').fadeOut();
+        
+        if($('popup').length == 0) {
+            $('.background_overlay').fadeOut();
+        }
     }
     
     

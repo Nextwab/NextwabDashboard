@@ -11,14 +11,15 @@ Dashboard.value('config_routes', {
     "/account/popup/balance.html"           : {file : "/account/popup/balance.html"             , handler : "empty"         , login : false},
     "/account/popup/account_error.html"     : {file : "/account/popup/account_error.html"       , handler : "empty"         , login : false},
 
-    "/domains/"                             : {file : "/domains/index.html"                     , handler : "contenair"     , login : true},
-    "/domains/popup/add.html"               : {file : "/domains/popup/add.html"                 , handler : "contenair"     , login : true},
-    "/domains/popup/delete.html"            : {file : "/domains/popup/delete.html"              , handler : "contenair"     , login : true},
-    "/domains/popup/menu.html"              : {file : "/domains/popup/menu.html"                , handler : "contenair"     , login : true},
-    "/domains/popup/set_cms.html"           : {file : "/domains/popup/set_cms.html"             , handler : "contenair"     , login : true},
-    "/domains/popup/set_server.html"        : {file : "/domains/popup/set_server.html"          , handler : "contenair"     , login : true},
-    "/domains/popup/set_server_confirmation.html"        : {file : "/domains/popup/set_server_confirmation.html"          , handler : "contenair"     , login : true},
-    "/domains/popup/set_dns_config.html"    : {file : "/domains/popup/set_dns_config.html"      , handler : "contenair"     , login : true},
+    "/domains/"                                     : {file : "/domains/index.html"                         , handler : "contenair"     , login : true},
+    "/domains/popup/add.html"                       : {file : "/domains/popup/add.html"                     , handler : "contenair"     , login : true},
+    "/domains/popup/delete.html"                    : {file : "/domains/popup/delete.html"                  , handler : "contenair"     , login : true},
+    "/domains/popup/menu.html"                      : {file : "/domains/popup/menu.html"                    , handler : "contenair"     , login : true},
+    "/domains/popup/set_cms.html"                   : {file : "/domains/popup/set_cms.html"                 , handler : "contenair"     , login : true},
+    "/domains/popup/set_server.html"                : {file : "/domains/popup/set_server.html"              , handler : "contenair"     , login : true},
+    "/domains/popup/set_server_confirmation.html"   : {file : "/domains/popup/set_server_confirmation.html" , handler : "contenair"     , login : true},
+    "/domains/popup/set_dns_config.html"            : {file : "/domains/popup/set_dns_config.html"          , handler : "contenair"     , login : true},
+    "/domains/popup/set_ns_config.html"             : {file : "/domains/popup/set_ns_config.html"           , handler : "contenair"     , login : true},
     
     
     "/mysql/"                               : {file : "/mysql/index.html"                       , handler : "contenair"     , login : true},
@@ -64,14 +65,15 @@ Dashboard.value('config_routes', {
         },
         
         'Domain'       : {
-            'Add'               : "/domains/popup/add.html",
-            'Delete'            : "/domains/popup/delete.html",
-            'Edit'              : "/domains/popup/edit.html",
-            'Menu'              : "/domains/popup/menu.html",
-            'setServer'         : "/domains/popup/set_server.html",
-            'setServer_Confirmation'         : "/domains/popup/set_server_confirmation.html",
-            'setCMS'            : "/domains/popup/set_cms.html",
-            'setDNS_Config'     : "/domains/popup/set_dns_config.html",
+            'Add'                       : "/domains/popup/add.html",
+            'Delete'                    : "/domains/popup/delete.html",
+            'Edit'                      : "/domains/popup/edit.html",
+            'Menu'                      : "/domains/popup/menu.html",
+            'setServer'                 : "/domains/popup/set_server.html",
+            'setServer_Confirmation'    : "/domains/popup/set_server_confirmation.html",
+            'setCMS'                    : "/domains/popup/set_cms.html",
+            'setDNS_Config'             : "/domains/popup/set_dns_config.html",
+            'setNS_Config'              : "/domains/popup/set_ns_config.html",
             
         },
         

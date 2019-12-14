@@ -224,7 +224,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     
     
     VPS.Edit = function(VPS) {
-        PopupService.openNew(  {Endpoint : 'VPS', Action:'Edit', Title:'Editer un VPS', ID_VPS:VPS.ID }    );
+        PopupService.openNew(  {Endpoint : 'VPS', Action:'Edit', Title:'Editer un VPS', ID_VPS:VPS.ID , ClassName : 'VPS_Popup'}    );
     };
     
     VPS.ManagePower = function(VPS) {

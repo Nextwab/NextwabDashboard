@@ -30,8 +30,10 @@ Dashboard.value('config_api',
                             GetCMS_List: '/cms/get_list.php',
                             GetDNS_Config: '/domains/get_config.php',
                             SetDNS_Config: '/domains/set_config.php',
+                            SetNS_Config: '/domain/Set_NameServers',
                             SetCMS: '/cms/install.php',
                             Reset_Config: '/domain/Reset_Config',
+                            Request_AuthCode: '/domain/Request_AuthCode',
                         }
                 ,
 

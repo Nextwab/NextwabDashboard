@@ -31,7 +31,6 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     Domain.load     = function() {
         $('.List_Contenair .loader').fadeIn();
         
-        
         return ListManager.init( { endpoint : "Domain"  } ).then(function(response) { 
             $('.List_Contenair .loader').fadeOut(); 
             $('.loader_domain').hide(); 
@@ -46,10 +45,8 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
                 Domain.Listing = false;
             }
             
-            
             return response;  
         });
-
     };
     
     
@@ -69,17 +66,17 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
         ApiService.post('Domain', 'Check' , Domain).then(function(response) { 
             Form.process(response); 
             $('.button_check i').addClass('fa-search').removeClass('fa-sync-alt fa-spin');
+            
             if(response.valid) {
-                
                 Domain.CheckStatut      = true;
                 
                 if(!response.data.Domain.Registrar) {
-                Domain.CheckMessage     = "Ce domaine semble disponible. Vous pouvez l'enregistrer pour "+response.data.Domain.Pricing+"€/an";
-                Domain.CheckCssClass    = "color-green";
+                    Domain.CheckMessage     = "Ce domaine semble disponible. Vous pouvez l'enregistrer pour "+response.data.Domain.Pricing+"€/an";
+                    Domain.CheckCssClass    = "color-green";
                 }
                 else {
-                Domain.CheckMessage     = "Ce domaine semble déjà enregistré. Vous pouvez le transférer pour "+response.data.Domain.Pricing+"€/an si vous en êtes le propriétaire";
-                Domain.CheckCssClass    = "color-orange";
+                    Domain.CheckMessage     = "Ce domaine semble déjà enregistré. Vous pouvez le transférer pour "+response.data.Domain.Pricing+"€/an si vous en êtes le propriétaire";
+                    Domain.CheckCssClass    = "color-orange";
                 }
             }
         });
@@ -108,7 +105,6 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
                     }
                     
                     Domain.Dashboard.Controllers['Domain'].load();
-                   
                 }, 1500);
             }
         });
@@ -162,7 +158,6 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
             $('.List_Item_Loader_Contenair, .menu_loading').slideUp(); 
             $('.List_Item_Loaded, .menu_loaded').slideDown();
 
-        
             Domain.BuyProcessState  = "OrderReply";
             Domain.OrderReply_State = response.data.State;
             Domain.OrderReply_Message = response.data.Message;
@@ -180,7 +175,6 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     }
     
     Domain.DNS_Configurator.ResetSubmit = function() {
-        
         $('.Reset_DNS_Form .button_submit_form i').removeClass('fa-check-circle').addClass('fa-sync-alt fa-spin');
         
         ApiService.post('Domain', 'Reset_Config' , {Domain : Domain.DomainName} ).then(function(response) {
@@ -220,6 +214,21 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
                 });
             }      
         });
+    } 
+    
+    
+    Domain.setConfigNS_Submit = function() { 
+        ApiService.post('Domain', 'SetNS_Config' , Domain.DomainData ).then(function(response) {
+            PopupService.close();
+        });
+    }
+    
+    
+    Domain.Request_AuthCode = function() { 
+        ApiService.post('Domain', 'Request_AuthCode' , Domain ).then(function(response) {
+            var DomainID        = Domain.getID_by_Name(Domain.Domain);
+            StorageService.DomainList[DomainID].AuthCode_Requested = 1;
+        });
     }
     
     
@@ -240,6 +249,27 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
     Domain.menu_setServer   = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setServer', Title:'Selectioner un serveur', Domain:Domain.Domain, Styles : {width:"960px"} }    ); };
     Domain.menu_setConfig   = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setDNS_Config', Title:'Configurer un domaine', Domain:Domain.Domain }    ); };
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    
+    Domain.getID_by_Name    = function(DomainName) {
+        var to_return = false;
+        
+        angular.forEach(StorageService.DomainList, function(Config, ID) {
+            if(Config.Domain == DomainName) {
+                to_return = Config.ID;
+            }
+        });
+        
+        return to_return;
+    };
+    
+    
+    Domain.Popup_Set_NS     = function(Domain) { console.log(Domain); PopupService.openNew(  {Endpoint : 'Domain', Action:'setNS_Config', Title:'Configurer les NameServers', Domain:Domain.Domain }    ); };
+    
+    Domain.loadConfig = function(DomainName) {        
+        var DomainID        = Domain.getID_by_Name(DomainName);
+        Domain.DomainData   = StorageService.DomainList[DomainID]
+    }
     
     
     // Chargement de la liste des VPS
