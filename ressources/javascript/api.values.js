@@ -50,7 +50,7 @@ Dashboard.value('config_api',
                 // Section User
                 User:
                         {
-                            Login: '/account/login.php',
+                            Login: '/User/Login',
                             GetInfos: '/User/Get_Data',
                             Update: '/account/update.php',
                             Create: '/account/create.php',
@@ -65,7 +65,7 @@ Dashboard.value('config_api',
                             Add: '/tickets/add.php'
                         },
 
-                // Section VPS
+                // Section Mail
                 Mailbox:
                         {
                             Add: '/mailbox/Create',
