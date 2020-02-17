@@ -271,6 +271,9 @@ popup .red,.color-red{color:#ca4545!important}
 .Popup_Content{padding:20px;max-height:73vh;overflow-y:auto;padding-bottom:30px}
 .Popup_Footer{padding:20px;background:#b3bcc4;transition:all .3s;margin:15px -20px -30px}
 .Popup_Footer_White{background:#f3f5f7!important}
+.Popup_PreFooter{padding:6px 15px;background:#e6e6e6;transition:all .3s;margin:15px -20px -15px}
+.Popup_PreFooter span{font-family:Nunito Sans;font-size:13px;cursor:pointer;transition:all .2s}
+.Popup_PreFooter span:hover{opacity:.7}
 .background_overlay{display:none;position:fixed;background:#213235B8;width:100%;height:100%;left:0;top:0;z-index:1000}
 .popup_clear{height:40px}
 .form_error .Popup_Footer{background:#c49c9c}
@@ -303,8 +306,10 @@ popup .red,.color-red{color:#ca4545!important}
 .Case_Contenair{display:inline-block;vertical-align:top}
 .Case_Contenair.w-450{width:450px}
 .Case{margin-top:10px;padding:10px;border-radius:4px}
-.CaseSupport{background:url(/ressources/images/background-support.png);color:#FFF;margin-bottom:10px}
-.CaseSupport .button{position:relative!important;top:auto!important;right:auto!important;margin-top:10px}
+.CaseSupport,.CaseGift{background:url(/ressources/images/background-support.png);color:#FFF;margin-bottom:10px;border-radius:0;margin-left:-20px;margin-right:-20px;padding:25px;box-shadow:0 0 10px #ccc}
+.CaseGift{background:url(/ressources/images/background-orange.png)}
+.CaseGift input{width:360px!important}
+.CaseSupport .button,.CaseGift .button{position:relative!important;top:auto!important;right:auto!important;margin-top:10px}
 .input-group .select2{margin-top:5px}
 .input-group{margin-top:20px;border-left:2px solid #ececec;padding-left:12px}
 .List_Item{box-shadow:0 0 10px #dbdbdb;background:#FFF;margin-bottom:15px;padding:10px;border-radius:5px;border-bottom:3px solid #ddd;margin-top:15px;transition:all .2s;position:relative}

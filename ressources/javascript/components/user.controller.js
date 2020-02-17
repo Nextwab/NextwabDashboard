@@ -1,4 +1,4 @@
-Dashboard.controller('User_Controller', function($scope, UserService, ApiService, PopupService) {
+Dashboard.controller('User_Controller', function($scope, UserService, ApiService, PopupService, NavigationService) {
 	
     var User                = this;
     var Dashboard           = null; 
@@ -14,6 +14,10 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
     
     User.Login              = function(){
         UserService.Login(User);
+    };
+    
+    User.Popup_Login              = function(){
+        UserService.LoginForm();
     };
     
     User.init = function(Dashboard) {
@@ -50,6 +54,52 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
             
             User.data                   = response.data.Data; 
             User.data.Affiliation_ID    = User.Dashboard.config.userID;
+        });
+    };
+    
+    
+    User.Popup_RecoverPassword = function(mail = '', key = '') {
+        PopupService.openNew(  {Endpoint : 'Account',   Action:'RecoverPassword', Title:'Ré-initialiser le mot de passe', Styles : {width:"510px", top: "15vh"} });
+    };
+    
+    
+    User.Check_PopupAccountRecover = function() {
+        if(NavigationService.get('mail') && NavigationService.get('key') ) {
+            User.ResetPassword(NavigationService.get('mail'), NavigationService.get('key'));
+        }
+    }
+    
+    User.RecoverPassword       = function(){
+        
+        User._recover_password_process = true;
+        User._recover_password_process_text = '<i class="fas fa-spinner fa-spin"></i> Chargement en cours...';
+        
+        ApiService.post('User', 'Recover_Password_Link', {Mail:User.Mail}).then(function (response) {
+            if(response.valid) {
+                User._recover_password_process_text = '<i class="fas fa-check-circle color-green"></i> Votre demande a été prise en compte. Si une adresse e-mail correspond à un compte, un mail sera envoyé à l\'adresse indiquée.';
+            }
+            
+        });
+    };
+    
+    User.ResetPassword       = function(mail, key){
+        
+        $('.Form_RecoverPassword').slideUp();
+        
+        User._reset_password_process = true;
+        User._reset_password_process_text = '<i class="fas fa-spinner fa-spin"></i> Chargement en cours...';
+        
+        ApiService.post('User', 'Reset_Password', {Mail : mail, Key: key}).then(function (response) {
+            
+            User._recover_password_reply = response.valid;
+            
+            if(response.valid) {
+                User._reset_password_process_text = '<i class="fas fa-check-circle color-green"></i> Votre nouveau mot de passe est : <b>'+response.data.Data.Password+'</b>. Rendez-vous dans l\'édition de votre compte pour le modifier.';
+            }
+            else {
+                User._reset_password_process_text = '<i class="fas fa-exclamation-triangle color-red"></i> Clé d\'authentification incorrecte.';
+            }
+            
         });
     };
     

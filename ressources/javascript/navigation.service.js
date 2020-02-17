@@ -10,6 +10,23 @@ Dashboard.service("NavigationService", function($location , UserService){
 		vm_NavigationService.dashboard = dashboard;
 	};
     
+    // Return get var
+	vm_NavigationService.get = function(name){
+        
+        var URL             = $location.$$absUrl;
+        var RelativeURL     = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "").split('?')[0];
+		var Arguments       = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "").split('?')[1];
+        
+        try {
+        var Argument        = JSON.parse('{"' + decodeURI(Arguments).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+        
+        return Argument[name];
+        }
+        catch(error) {
+            return false;
+        }
+    }
+    
 	// Return page to view
 	vm_NavigationService.getPageViewConfig = function(){
 	    

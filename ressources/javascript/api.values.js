@@ -53,7 +53,9 @@ Dashboard.value('config_api',
                             Login: '/account/login.php',
                             GetInfos: '/User/Get_Data',
                             Update: '/account/update.php',
-                            Create: '/account/create.php'
+                            Create: '/account/create.php',
+                            Recover_Password_Link: '/User/Recover_Password_Link',
+                            Reset_Password: '/User/Reset_Password'
                         },
 
                 // Section Support

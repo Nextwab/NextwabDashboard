@@ -10,6 +10,8 @@ Dashboard.value('config_routes', {
     "/account/popup/login.html"             : {file : "/account/popup/login.html"               , handler : "empty"         , login : false,    specific : 'LoginAction'},
     "/account/popup/balance.html"           : {file : "/account/popup/balance.html"             , handler : "empty"         , login : false},
     "/account/popup/account_error.html"     : {file : "/account/popup/account_error.html"       , handler : "empty"         , login : false},
+    "/account/recover_password.html"        : {file : "/account/recover_password.html"          , handler : "contenair"     , login : false},
+    "/account/popup/recover_password.html"  : {file : "/account/popup/recover_password.html"    , handler : "empty"         , login : false},
 
     "/domains/"                                     : {file : "/domains/index.html"                         , handler : "contenair"     , login : true},
     "/domains/popup/add.html"                       : {file : "/domains/popup/add.html"                     , handler : "contenair"     , login : true},
@@ -49,12 +51,16 @@ Dashboard.value('config_routes', {
     "/support/"                             : {file : "/support/index.html"                     , handler : "contenair"     , login : true},
     "/support/popup/add-ticket.html"        : {file : "/support/popup/add-ticket.html"          , handler : "contenair"     , login : true},
     
+    "/gifts-cards/"                         : {file : "/gifts_cards/index.html"                 , handler : "contenair"     , login : true},
+    
+    
     // Internal Endpoints
     Endpoints       : {
         'Account'   : {
             'Login'             : "/account/popup/login.html",
             'Balance'           : "/account/popup/balance.html",
             'AccountError'      : "/account/popup/account_error.html",
+            'RecoverPassword'   : "/account/popup/recover_password.html",
         },
         
         'Database'       : {
@@ -95,7 +101,6 @@ Dashboard.value('config_routes', {
         'Ticket'       : {
             'Add'               : "/support/popup/add-ticket.html",
         }
-        
         
     }
 });
