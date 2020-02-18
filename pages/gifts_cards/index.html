@@ -1,0 +1,62 @@
+<div class="Frame flex" ng-controller="GiftCard_Controller as GiftCard" ng-init="GiftCard.init(Dashboard);">
+
+    <div class="Frame_Header">
+        <h1>Cartes cadeau</h1>
+
+        Gérer ici vos cartes cadeaux, les achats et les ajouts de solde.
+        <br />
+
+
+        <div class="Case CaseGift">
+            <h2>Enregistrer une carte cadeau</h2>
+            Vous avez une carte cadeau ? Convertissez là en solde Nextwab en entrant son code ci-dessous
+            <br />
+
+
+            <input type="text" class="input carte_cadeau" placeholder="0000-ABCD-EFGH-IJKL-MNOP-QRST-UVWX-YZ00-0000" ng-model="GiftCard.Code"/>
+            
+            <br />
+            
+            <span class="button submit_UseCode" ng-click="GiftCard.UseCode()" ><i class="fas fa-gift"></i> Ajouter</span>
+            <div class="Reply" style="margin-top:15px;display:none" ></div>
+
+
+
+    </div>
+
+    <div class="List_Contenair">
+
+        <div class="loader">
+            <img src="/ressources/images/loader.gif" >
+        </div>
+
+
+
+        <div class="table_icon text-align-center absolute-middle" ng-if="!GiftCard.GiftCard_Listing && GiftCard.ListStatut == 'loaded'">
+            <i class="far fa-life-ring"></i>
+            <br />
+            <h1>Aucune </h1>
+            <br /><br />
+            <span class="button" ng-click="GiftCard.Dashboard.ServicePopup.openNew({Endpoint: 'Ticket', Action: 'Add', Title: 'Rédiger un ticket'})">Créer un ticket d'assistance</span>
+        </div>
+
+        
+        <div ng-repeat="GiftCard in GiftCard.GiftCard_Listing" class="List_Item">
+
+            <table class="width-full">
+                <tr>
+                    <td class="td-icon v-align-top"><i class="fas fa-hand-holding-heart"></i></i>
+
+                        <span class="bull 
+                              {{GiftCard.ID_User_Attribution ? 'green' : 'blue' }}
+                              "></span>
+                    </td>
+
+                    <td><h4>{{GiftCard.Code}}</h4>
+                    <b>{{GiftCard.Price}} €</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

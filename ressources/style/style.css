@@ -204,6 +204,7 @@ table{border-collapse:collapse}
 .table_icon h1,.BalanceManager h1{font-weight:800;font-size:22px;color:#b3bcc4;font-family:Quicksand}
 .table_icon i{font-size:65px;color:#b3bcc4}
 .table-tiny td{padding:3px}
+.table-med td{padding:5px}
 .table-user h1{font-weight:400;color:#fff;font-family:Metropolis Bold;font-size:20px}
 .button.form_valid{background:#509f30;border-bottom:3px solid #46752E}
 .button.form_loading{background:gray;border-bottom:3px solid #626262}
@@ -309,6 +310,13 @@ popup .red,.color-red{color:#ca4545!important}
 .CaseSupport,.CaseGift{background:url(/ressources/images/background-support.png);color:#FFF;margin-bottom:10px;border-radius:0;margin-left:-20px;margin-right:-20px;padding:25px;box-shadow:0 0 10px #ccc}
 .CaseGift{background:url(/ressources/images/background-orange.png)}
 .CaseGift input{width:360px!important}
+.Events{display:none}
+.Events .Event_Content,.Events .Event_Switcher{background:#EEE}
+.Events .Event_Content{border-radius:8px;display:none}
+.Events .Event_Switcher{margin-bottom:25px;display:inline-block;margin-left:40px;padding:5px 20px;border-radius:0 0 5px 5px;font-weight:700;font-size:12px;border-top:1px dashed #aaa;cursor:pointer}
+.Events .title{display:block;font-size:15px}
+.Events a{color:#00a1fb}
+.Events .td-icon img{width:50px}
 .CaseSupport .button,.CaseGift .button{position:relative!important;top:auto!important;right:auto!important;margin-top:10px}
 .input-group .select2{margin-top:5px}
 .input-group{margin-top:20px;border-left:2px solid #ececec;padding-left:12px}

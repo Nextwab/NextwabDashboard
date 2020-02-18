@@ -23,6 +23,29 @@
                         <span class="button button_mini" ng-click="User.Manage_Balance()"><i class="fas fa-plus-circle"></i> Ajouter du solde</span>
                     </div>
                 
+                
+                    
+                    <div class="Events" ng-controller="Event_Controller as Event" ng-init="Event.init(Dashboard); Event.load()">
+
+                        <div class="Event_Content" ng-repeat="Event in Event.Listing">
+                            <table class="width-full table-med">
+                                <tr>
+                                    <td class="td-icon" ><img src="/ressources/images/icons/{{Event.Icon}}" /></td>
+                                    <td>
+                                        <b class="title">{{Event.Title}}</b>
+                                        <p ng-bind-html="Event.Message"></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <div class="Event_Switcher" ng-click="Event.Next();">
+                            Événement suivant <i class="fas fa-chevron-circle-right"></i>
+                        </div>
+                        
+                    </div>
+                
+                
                     <div class="Domains IndexItemContenair" ng-controller="Domain_Controller as Domain" ng-init="Domain.init(Dashboard); Domain.load()">
 
                         <h1><i class="fas fa-globe-americas"></i> Mes Domaines</h1>
@@ -49,7 +72,9 @@
                         <div ng-repeat="Domain_Data in Domain.Listing" class="List_Item List_Item_ForRack ID_CloudDevice_{{Domain_Data.ID_CloudDevice}}" 
                              ng-click="Domain.menu(Domain_Data)" 
                              ng-mouseover="Domain.Dashboard.VPS_Controller.ServerOver({ID:Domain_Data.ID_CloudDevice})" 
-                             ng-mouseleave="Domain.Dashboard.VPS_Controller.ServerLeave({ID:Domain_Data.ID_CloudDevice})">
+                             ng-mouseleave="Domain.Dashboard.VPS_Controller.ServerLeave({ID:Domain_Data.ID_CloudDevice})"
+                             ng-if="Domain_Data.Is_Subdomain == false"
+                             >
 
                             <table class="width-full" title="{{Domain_Data.StateMessage}}">
                                 <tr>
@@ -145,25 +170,6 @@
 
 
                     </div>
-
-
-
-                    <br /><br />
-
-
-                    <h1><i class="fas fa-info-circle"></i> Votre nouveau panel client !</h1>
-                    Nous sommes heureux de vous accueillir sur la version bêta de notre nouveau panel client !
-
-                    <br />
-
-                    Nous avons fait en sorte de vous fournir le panel client le plus simple et le plus clair, afin que votre expérience utilisateur soit la plus efficace possible.
-
-                    <br /><br />
-
-                    Certaines fonctionnalités sont encore en cours de développement et de nombreuses mises à jour sont en cours de préparation. <br />
-                    Si vous ne trouvez pas ce que vous cherchez ici, vous pouvez cliquez sur le bouton <i class="fas fa-external-link-alt"></i> dans le menu a gauche pour accéder à l'ancien panel client.
-
-
 
                 </td>
 

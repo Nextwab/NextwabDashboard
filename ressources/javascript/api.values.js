@@ -77,6 +77,22 @@ Dashboard.value('config_api',
                             UpdatePassword: '/mailbox/UpdatePassword'
                         }
                 ,
+                
+                
+                // Section Gifts_Card
+                Gift_Card:
+                        {
+                            List: '/Gift_Card/GetList',
+                            UseCode: '/Gift_Card/UseCode'
+                        }
+                ,
+                
+                // Section Gifts_Card
+                Event:
+                        {
+                            List: '/Event/GetList'
+                        }
+                ,
 
                 // VPS 
                 VPS_GetPricing: '/vps/get_pricing.php',
