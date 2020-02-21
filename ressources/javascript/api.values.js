@@ -78,6 +78,13 @@ Dashboard.value('config_api',
                         }
                 ,
                 
+                // Section Gifts_Card
+                Transaction:
+                        {
+                            List: '/Transaction/GetList',
+                            GetBill: '/Transaction/GetBill'
+                        }
+                ,
                 
                 // Section Gifts_Card
                 Gift_Card:

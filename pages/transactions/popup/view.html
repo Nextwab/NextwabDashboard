@@ -1,0 +1,10 @@
+<div class="Transaction text-align-center" ng-controller="Transaction_Controller as Transaction" ng-init="Transaction.init(this.$parent.$parent.$parent.Dashboard); Transaction.GetBill(Popup.Config.ID_Transaction)">
+
+    <div ng-if="Transaction.PDF_Bill == false">
+        <img src="/ressources/images/loader.gif">
+        <br />
+        <b>Génération du PDF en cours...</b>
+    </div>
+
+    <embed src="{{Transaction.PDF_Bill}}" type="application/pdf" width="100%" height="600px" />
+</div>

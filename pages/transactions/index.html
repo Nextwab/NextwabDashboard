@@ -1,0 +1,47 @@
+<div class="Frame flex" ng-controller="Transaction_Controller as Transaction" ng-init="Transaction.init(Dashboard);">
+
+    <div class="Frame_Header">
+        <h1>Transactions</h1>
+        La liste des paiements et factures disponibles
+    </div>
+
+    <div class="List_Contenair">
+
+        <div class="loader">
+            <img src="/ressources/images/loader.gif" >
+        </div>
+
+
+
+        <div class="table_icon text-align-center absolute-middle" ng-if="!Transaction.Transactions_Listing && Transaction.ListStatut == 'loaded'">
+            <i class="fas fa-money-bill-wave"></i>
+            <br />
+            <h1>Aucune transaction actuellement</h1>
+        </div>
+
+
+        <div ng-repeat="transaction_data in Transaction.Transactions_Listing" class="List_Item">
+
+            <table class="width-full">
+                <tr>
+                    <td class="td-icon v-align-top"><i class="fas fa-piggy-bank"></i></td>
+                    <td style="width:300px;">
+                        <b>#{{transaction_data.ID}} &bull; {{transaction_data.Item_Name}}</b>
+                        <br />
+                        <span class="legend">{{transaction_data.Date * 1000|  date: 'dd/MM/yyyy'}}</span>
+                    </td>
+
+                    <td>
+                        <h3>{{transaction_data.Amount}} €</h3>
+                    </td>
+
+                    <td class="text-align-right">
+                        <span class="button button_mini" ng-click="Transaction.OpenBill(transaction_data.ID)"><i class="fas fa-file-invoice-dollar"></i> Télécharger la facture</span>
+                    </td>
+
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>

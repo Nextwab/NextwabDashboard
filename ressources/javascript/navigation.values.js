@@ -51,6 +51,9 @@ Dashboard.value('config_routes', {
     "/support/"                             : {file : "/support/index.html"                     , handler : "contenair"     , login : true},
     "/support/popup/add-ticket.html"        : {file : "/support/popup/add-ticket.html"          , handler : "contenair"     , login : true},
     
+    "/transactions/"                        : {file : "/transactions/index.html"                , handler : "contenair"     , login : true},
+    "/transactions/popup/view.html"         : {file : "/transactions/popup/view.html"           , handler : "contenair"     , login : true},
+    
     "/gifts-cards/"                         : {file : "/gifts_cards/index.html"                 , handler : "contenair"     , login : true},
     
     
@@ -100,6 +103,10 @@ Dashboard.value('config_routes', {
         
         'Ticket'       : {
             'Add'               : "/support/popup/add-ticket.html",
+        },
+        
+        'Transaction'       : {
+            'ViewBill'          : "/transactions/popup/view.html",
         }
         
     }

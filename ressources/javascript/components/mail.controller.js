@@ -74,7 +74,6 @@ Dashboard.controller('Mail_Controller', function($scope, $timeout, ApiService, P
     
     Mail.ViewDomain = function(Domain) {
         Mail.DomainName = (Mail.DomainName == Domain.Domain ? false : Domain.Domain);
-        console.log(Mail);
     }
     
     
