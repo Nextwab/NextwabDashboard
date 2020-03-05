@@ -219,8 +219,8 @@ table{border-collapse:collapse}
 div.input{position:relative}
 div.input i{position:absolute;top:14px;left:7px;color:#6f6f6f}
 div.input input{padding-left:25px;display:inline-block}
-.color-red{color:#ae2222}
-.color-green{color:#6fae22}
+.color-red{color:#ae2222 !important}
+.color-green{color:#6fae22 !important}
 .color-orange{color:#ce7f19}
 .color-blue{color:#0087FF}
 .legend{font-size:12px}

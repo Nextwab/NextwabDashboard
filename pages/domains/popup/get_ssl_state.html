@@ -1,0 +1,35 @@
+<div ng-controller="Domain_Controller as Domain" ng-init="Domain.init(this.$parent.$parent.$parent.Dashboard); DomainController = this.$parent.$parent.$parent.Dashboard.Controllers.Domain; Domain.ID = Popup.Config.Domain_ID;">
+    <div class="Line_Item m-b-20">
+    
+        
+        <table class="table_icon" ng-if="DomainController.Listing[Domain.ID].SSL_Log.State == 1">
+            <tr>
+                <td><i class="fas fa-lock color-green"></i></td>
+                <td>
+                    <h1 class="color-green">HTTPS disponible sur votre site</h1>
+                    Un certificat SSL est actuellement actif sur votre domaine jusqu'au {{ ( (1 * DomainController.Listing[Domain.ID].SSL_Log.Date)  + (3600*24*90 )) * 1000|  date: 'dd/MM/yyyy'}}. <br /><br />
+                    <i class="legend" style="font-size:13px;color: #6c6c6c !important;">Quelques jours avant l'expiration, un automate effectuera une nouvelle certification. <br />
+                    Veillez à ce que le contenu du dossier http://{{DomainController.Listing[Domain.ID].Domain}}/.well-known/acme-challenge/ soit accessible en tout temps.</i>
+                </td>
+            </tr>
+        </table>
+        
+        <table class="table_icon" ng-if="DomainController.Listing[Domain.ID].SSL_Log.State == 2">
+            <tr>
+                <td><i class="fas fa-unlock color-red"></i></td>
+                <td>
+                    <h1 class="color-red">HTTPS non disponible</h1>
+                    Le {{ ( DomainController.Listing[Domain.ID].SSL_Log.Date) * 1000|  date: 'dd/MM/yyyy \à H:m'}}, la certification HTTPS a échoué pour le motif suivant : <br /><br />
+                    
+                    <p style="white-space: pre-wrap;font-size: 11px;background: #2f2f2f;width: 660px;color: #FFF;padding: 10px;border-radius: 5px;font-family: Consolas;">{{DomainController.Listing[Domain.ID].SSL_Log.Log}}</p>
+                    
+                    <br /> 
+                    <i class="legend color-red" style="font-size:13px;">Veillez à ce que le contenu du dossier http://{{DomainController.Listing[Domain.ID].Domain}}/.well-known/acme-challenge/ soit accessible en tout temps.
+                    Dans le cas contraire, la certification SSL ne pourra être faite.</i>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </div>
+</div>

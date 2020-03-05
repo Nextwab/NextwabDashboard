@@ -245,9 +245,10 @@ Dashboard.controller('Domain_Controller', function($scope, $timeout , ApiService
         PopupService.openNew(  {Endpoint : 'Domain', Action:'Menu', Title:'Gestion du domaine '+Domain.Domain, Domain:Domain.Domain, DomainID : Domain.ID}    );
     };
     
-    Domain.menu_setCMS      = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setCMS', Title:'Installer un CMS', Domain:Domain.Domain }    ); };
-    Domain.menu_setServer   = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setServer', Title:'Selectioner un serveur', Domain:Domain.Domain, Styles : {width:"960px"} }    ); };
-    Domain.menu_setConfig   = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setDNS_Config', Title:'Configurer un domaine', Domain:Domain.Domain }    ); };
+    Domain.menu_setCMS       = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setCMS', Title:'Installer un CMS', Domain:Domain.Domain }    ); };
+    Domain.menu_setServer    = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setServer', Title:'Selectioner un serveur', Domain:Domain.Domain, Styles : {width:"960px"} }    ); };
+    Domain.menu_setConfig    = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'setDNS_Config', Title:'Configurer un domaine', Domain:Domain.Domain }    ); };
+    Domain.menu_getSSL_State = function(Domain) { PopupService.openNew(  {Endpoint : 'Domain', Action:'getSSL_State', Title:'Gestion de la certification SSL', Domain_ID:Domain.ID }    ); };
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     
