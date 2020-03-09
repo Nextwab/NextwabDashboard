@@ -42,10 +42,9 @@ Dashboard.controller('Support_Controller', function($scope, $timeout, ApiService
     
     Support.AutoReload = function(Form) {
         Support.load();
-        $timeout(Support.AutoReload, 5000);
+        $timeout(function() {Support.AutoReload()}, 30000);
     }
     
     
     Support.AutoReload();
-    Support.load();
 });

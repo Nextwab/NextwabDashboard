@@ -112,7 +112,7 @@
 
                     <div ng-if="Domain.BuyProcessState == 'QueryPrice'">
                         <div ng-if="Domain.Extension_Price != 0">
-                            <h5>Tarif du domaine : <b>{{Domain.Extension_Price}}€</b>/An</span></h5>
+                            <h5 class="color-black">Tarif du domaine : <b>{{Domain.Extension_Price}}€</b>/An</span></h5>
                             Date d'expiration : {{ Domain.Renewal_Date * 1000 |  date: 'dd/MM/yyyy'}}
                             <br /><br />
 
