@@ -1,0 +1,23 @@
+<div class="Outsourcing" ng-controller="Outsourcing_Controller as Outsourcing" ng-init="Outsourcing.ID = Popup.Config.Contract_ID;">
+
+    <form ng-handler="Outsourcing" ng-handler-action="Delete" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                    <td>
+                        <h1>Attention</h1>
+                        <b>Êtes vous sûr de vouloir supprimer ce contrat ?</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,112 @@
+<div class="Frame flex" ng-controller="Outsourcing_Controller as Outsourcing" ng-init="Outsourcing.init(Dashboard);">
+    <div class="Frame_Header">
+        <h1>Infogérance & Monitoring</h1>
+        Gérez ici les interventions liées à vos serveurs et sites
+
+        <span class="button" ng-click="Outsourcing.Dashboard.ServicePopup.openNew({Endpoint: 'Outsourcing', Action: 'Add', Title: 'Ajouter un contrat de supervision'})"><i class="fas fa-plus-circle"></i> Ajouter un contrat de supervision</span>
+    </div>
+
+    <div class="List_Contenair">
+
+        <div class="loader">
+            <img src="/ressources/images/loader.gif" >
+        </div>
+
+
+
+        <div class="table_icon text-align-center absolute-middle" ng-if="!Outsourcing.Outsourcing_Listing && Outsourcing.ListStatut == 'loaded'">
+            <i class="far fa-chart-bar"></i>
+            <br />
+            <h1>Aucun contrat de supervision actuellement</h1>
+            <br /><br />
+            <span class="button" ng-click="Outsourcing.Dashboard.ServicePopup.openNew({Endpoint: 'Outsourcing', Action: 'Add', Title: 'Ajouter un contrat de supervision'})"><i class="fas fa-plus-circle"></i> Ajouter un contrat de supervision</span>
+        </div>
+
+
+        <div ng-repeat="Outsourcing_Data in Outsourcing.Outsourcing_Listing" class="List_Item">
+
+            <table class="width-full">
+                <tr>
+                    <td rowspan="2"  class="td-icon"><i class="far fa-chart-bar"></i></td>
+
+                    <td rowspan="2" style="width:190px"><h4>{{Outsourcing_Data.IP}}</h4>
+                        <b class="legend" ng-if="Outsourcing_Data.Metrics[0].CPU_Cores">CPU Load Average : {{Outsourcing_Data.Metrics[0].CPU_LoadAverage / Outsourcing_Data.Metrics[0].CPU_Cores * 100| number :2 }} %</b>
+                    </td>
+
+                    <td class="legend text-align-center" style="width:170px;">
+                        <span class="chart-donuts " data-peity='{ "fill": ["#3a6c88", "#ccc"],    "innerRadius": 5, "radius": 11 }'>{{Outsourcing_Data.Metrics[0].CPU_LoadAverage}}/{{Outsourcing_Data.Metrics[0].CPU_Cores}}</span>
+                        <br />
+                        Load : <b>{{Outsourcing_Data.Metrics[0].CPU_LoadAverage}}/{{Outsourcing_Data.Metrics[0].CPU_Cores}}</b>		
+                    </td>
+
+                    <td class="legend text-align-center" style="width:170px;">
+                        <span class="chart-donuts " data-peity='{ "fill": ["#3a6c88", "#ccc"],    "innerRadius": 5, "radius": 11 }'>{{Outsourcing_Data.Metrics[0].RAM_Usage}}/{{Outsourcing_Data.Metrics[0].RAM_Total}}</span>
+
+                        <br /> 
+                        RAM : <b>{{Outsourcing_Data.Metrics[0].RAM_Usage / 1024| number :2 }}/{{Outsourcing_Data.Metrics[0].RAM_Total / 1024| number :2 }} Gb</b>
+                    </td>
+
+                    <td class="legend text-align-center" style="width:170px;">
+                        <span class="chart-donuts " data-peity='{ "fill": ["#3a6c88", "#ccc"],    "innerRadius": 5, "radius": 11 }'>{{Outsourcing_Data.Metrics[0].Network_RX / 1024| number : 2}}/150</span>
+
+                        <br /> 
+                        Download : <b>{{Outsourcing_Data.Metrics[0].Network_RX / 1024| number : 2}} Mbps</b>
+                    </td>
+
+                    <td class="legend text-align-center" style="width:170px;">
+                        <span class="chart-donuts " data-peity='{ "fill": ["#3a6c88", "#ccc"],    "innerRadius": 5, "radius": 11 }'>{{Outsourcing_Data.Metrics[0].Network_TX / 1024| number : 2}}/150</span>
+
+                        <br /> 
+                        Upload : <b>{{Outsourcing_Data.Metrics[0].Network_TX / 1024| number : 2}} Mbps</b>
+                    </td>
+
+
+                    <td rowspan="2" class="legend">
+                        <span ng-repeat="(Name, Port_Data) in Outsourcing_Data.Metrics[0].Ports_Monitoring" class="monitoring-item {{Port_Data.State ? 'bg-green' :  'bg-red'}}" ng-click="Outsourcing.DeletePort(Outsourcing_Data, Port_Data)">{{Name}} <i class="fas fa-trash-alt"></i></span>
+                        <span ng-repeat="Port_Data in Outsourcing_Data.Ports" ng-if="Port_Data.Executed != 1 && Port_Data.To_Delete != 1" class="monitoring-item bg-blue" title="Installation en cours. Cette opération peut prendre jusqu'à 24h" ng-click="Outsourcing.DeletePort(Outsourcing_Data, Port_Data)"><i class="fas fa-cog fa-spin"></i> {{Port_Data.Port}} <i class="fas fa-trash-alt"></i></span>
+                        <span ng-repeat="Port_Data in Outsourcing_Data.Ports" ng-if="Port_Data.To_Delete == 1" class="monitoring-item bg-grey" title="Suppression en cours. Cette opération peut prendre jusqu'à 24h"><i class="fas fa-cog fa-spin"></i> {{Port_Data.Port}}</span>
+
+                        <span ng-if="!Outsourcing_Data.Ports.length && Outsourcing_Data.Metrics[0].Ports_Monitoring.length == 0" class="monitoring-item bg-red" ng-click="Outsourcing.Dashboard.ServicePopup.openNew({Endpoint: 'Outsourcing', Action: 'Add_Port', Title: 'Ajouter un port a superviser', Contract_ID: Outsourcing_Data.ID})"><i class="fas fa-network-wired"></i> Aucun port supervisé actuellement</span>
+                        <i class="fas fa-plus-square" style="font-size:15px" ng-click="Outsourcing.Dashboard.ServicePopup.openNew({Endpoint: 'Outsourcing', Action: 'Add_Port', Title: 'Ajouter un port a superviser', Contract_ID: Outsourcing_Data.ID})"></i>
+                    </td>
+
+                    <td></td>
+
+                    <td style="width:200px;" rowspan="2">
+                        <span ng-if="Outsourcing_Data.Enabled == 1" class="color-green"><i class="fas fa-check-circle"></i> Actif</span>
+                        <span ng-if="Outsourcing_Data.Enabled == 0" class="color-blue"><i class="fas fa-cogs"></i> En cours d'installation</span>               
+                    </td>
+
+                    <td rowspan="2" style="width: 50px;">
+                        <span class="button_action" ng-click="Outsourcing.Delete(Outsourcing_Data)"><i class="fas fa-trash"></i></span>
+                    </td>
+
+                </tr>          
+
+                <tr>
+                    <td class="text-align-center"> 
+                        <span class="chart-line"> 
+                            {{Outsourcing.datas['cpu'][Outsourcing_Data.ID]| joinBy:','  }}
+                        </span> 
+                    </td>
+                    <td class="text-align-center"> 
+                        <span class="chart-line"> 
+                            {{Outsourcing.datas['ram'][Outsourcing_Data.ID]| joinBy:','  }}
+                        </span> 
+                    </td>
+                    <td class="text-align-center"> 
+                        <span class="chart-line"> 
+                            {{Outsourcing.datas['rx'][Outsourcing_Data.ID]| joinBy:','  }}
+                        </span> 
+                    </td>
+                    <td class="text-align-center"> 
+                        <span class="chart-line"> 
+                            {{Outsourcing.datas['tx'][Outsourcing_Data.ID]| joinBy:','  }}
+                        </span> 
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>

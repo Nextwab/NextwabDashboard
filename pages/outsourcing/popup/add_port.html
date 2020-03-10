@@ -1,0 +1,32 @@
+<div class="User" ng-controller="Outsourcing_Controller as OutsourcingCtrl" ng-init="Outsourcing = this.$parent.$parent.$parent.Dashboard.Outsourcing_Controller; Outsourcing.Form.ID_Contract = Popup.Config.Contract_ID">
+
+    <form ng-handler="Outsourcing" ng-handler-action="Add_Port" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-plus-circle"></i></td>
+                    <td>
+
+                        <h1>Port à superviser :</h1>
+                        <input type="number" ng-model="Outsourcing.Form.Port" placeholder="80" ng-input />
+
+                        <br /><br />
+
+                        <h1>Commande à lancer en cas de non réponse:</h1>
+                        <input type="text" ng-model="Outsourcing.Form.CommandOnDown" placeholder="service apache2 restart" ng-input />
+
+                        <br /><br />
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
+            <div class="clear"></div>
+            <span class="button button_submit"></span>
+        </div>
+    </form>
+
+</div>

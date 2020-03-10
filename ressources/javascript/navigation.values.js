@@ -45,6 +45,11 @@ Dashboard.value('config_routes', {
     "/mails/popup/delete.html"              : {file : "/mails/popup/delete.html"                , handler : "contenair"     , login : true},
     "/mails/popup/delete_alias.html"        : {file : "/mails/popup/delete_alias.html"          , handler : "contenair"     , login : true},
     
+    "/outsourcing/"                         : {file : "/outsourcing/index.html"                 , handler : "contenair"     , login : true},
+    "/outsourcing/popup/add.html"           : {file : "/outsourcing/popup/add.html"             , handler : "contenair"     , login : true},
+    "/outsourcing/popup/add_port.html"      : {file : "/outsourcing/popup/add_port.html"        , handler : "contenair"     , login : true},
+    "/outsourcing/popup/delete.html"        : {file : "/outsourcing/popup/delete.html"          , handler : "contenair"     , login : true},
+    "/outsourcing/popup/delete_port.html"   : {file : "/outsourcing/popup/delete_port.html"     , handler : "contenair"     , login : true},
     
     "/on-facebook/"                         : {file : "/social/facebook.html"                   , handler : "contenair"     },
     
@@ -105,6 +110,13 @@ Dashboard.value('config_routes', {
         
         'Ticket'       : {
             'Add'               : "/support/popup/add-ticket.html",
+        },
+        
+        'Outsourcing'       : {
+            'Add'               : "/outsourcing/popup/add.html",
+            'Add_Port'          : "/outsourcing/popup/add_port.html",
+            'Delete'            : "/outsourcing/popup/delete.html",
+            'Delete_Port'       : "/outsourcing/popup/delete_port.html"
         },
         
         'Transaction'       : {

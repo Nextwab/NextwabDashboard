@@ -94,10 +94,22 @@ Dashboard.value('config_api',
                         }
                 ,
                 
-                // Section Gifts_Card
+                // Section Events
                 Event:
                         {
                             List: '/Event/GetList'
+                        }
+                ,
+                
+                // Section Outsourcing
+                Outsourcing:
+                        {
+                            List: '/Outsourcing/GetList',
+                            GetPricing: '/Outsourcing/GetPricing',
+                            Create: '/Outsourcing/Create',
+                            Delete: '/Outsourcing/Delete',
+                            Add_Port: '/Outsourcing/AddPort',
+                            Delete_Port: '/Outsourcing/DeletePort'
                         }
                 ,
 

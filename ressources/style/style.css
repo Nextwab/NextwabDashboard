@@ -219,15 +219,21 @@ table{border-collapse:collapse}
 div.input{position:relative}
 div.input i{position:absolute;top:14px;left:7px;color:#6f6f6f}
 div.input input{padding-left:25px;display:inline-block}
-.bg-red{background:#ae2222 !important}
-.bg-green{background:#6fae22 !important}
-.color-red{color:#ae2222 !important}
-.color-green{color:#6fae22 !important}
+.bg-red{background:#ae2222!important}
+.bg-green{background:#6fae22!important}
+.bg-blue{background:#3a6c88!important}
+.bg-grey{background:#333!important}
+.color-red{color:#ae2222!important}
+.color-green{color:#6fae22!important}
 .color-orange{color:#ce7f19}
-.color-black{color:#333 !important}
+.color-black{color:#333!important}
 .color-blue{color:#0087FF}
 .legend{font-size:12px}
 .width-full{width:100%}
+.monitoring-item{display:inline-block;background:#484848;padding:5px 8px;border-radius:3px;margin-right:10px;font-weight:700;color:#FFF;font-size:11px;margin-top:3px;margin-bottom:3px;cursor:pointer;transition:all .2s}
+.monitoring-item .fa-trash-alt{display:none}
+.monitoring-item:hover{opacity:.8}
+.monitoring-item:hover .fa-trash-alt{display:inline-block}
 .bull{height:10px;width:10px;display:inline-block;border-radius:19px;vertical-align:-1px;margin-right:6px}
 .bull.green{background:#499112}
 .bull.red{background:#ae2222}
@@ -274,6 +280,7 @@ popup .red,.color-red{color:#ca4545!important}
 .Popup_Header i{position:absolute;right:15px;top:14px;font-size:19px}
 .Popup_Content{padding:20px;max-height:73vh;overflow-y:auto;padding-bottom:30px}
 .Popup_Footer{padding:20px;background:#b3bcc4;transition:all .3s;margin:15px -20px -30px}
+.Popup_Footer h2{color:#404a53;font-family:Montserrat;font-size:18px}
 .Popup_Footer_White{background:#f3f5f7!important}
 .Popup_PreFooter{padding:6px 15px;background:#e6e6e6;transition:all .3s;margin:15px -20px -15px}
 .Popup_PreFooter span{font-family:Nunito Sans;font-size:13px;cursor:pointer;transition:all .2s}

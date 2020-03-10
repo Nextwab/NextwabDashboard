@@ -1,0 +1,25 @@
+<div class="Outsourcing" ng-controller="Outsourcing_Controller as Outsourcing" ng-init="Outsourcing.ID_Contract = Popup.Config.Contract_ID; Outsourcing.Port = Popup.Config.Port;">
+
+    <form ng-handler="Outsourcing" ng-handler-action="Delete_Port" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-trash-alt"></i></td>
+                    <td>
+                        <h1>Attention</h1>
+                        <b>Êtes vous sûr de vouloir supprimer ce port de cette supervision ?</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
+            <br />
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,52 @@
+<div class="User" ng-controller="Outsourcing_Controller as OutsourcingCtrl" ng-init="Outsourcing = this.$parent.$parent.$parent.Dashboard.Outsourcing_Controller;">
+
+    <form ng-handler="Outsourcing" ng-handler-action="Add" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-plus-circle"></i></td>
+                    <td>
+
+                        <h1>Niveau de supervision :</h1>
+                        <select ng-model="Outsourcing.Form.ID_Type" style="width:500px">
+                            <option ng-repeat="Price in Outsourcing.Price_Listing" ng-if="Price.Categorie == 'Supervision'" value="{{Price.ID}}">{{Price.Name}} &bull; {{Price.Pricing}}€ / Mois &bull; GTI : {{Price.Timing}}</option>
+                        </select>
+
+                        <br /><br />
+
+                        <h1>IP du serveur :</h1>
+                        <input type="text" ng-model="Outsourcing.Form.IP" placeholder="255.255.255.255" ng-input />
+
+                        <br /><br />
+
+                        <h1>Adresse mail de notification :</h1>
+                        <input type="text" ng-model="Outsourcing.Form.Contact_Mail" placeholder="contact@organisation.fr" ng-input />
+
+                        <br /><br />
+
+                        <h1>Commentaires :</h1>
+                        <textarea style="width: 430px; height: 130px;" ng-model="Outsourcing.Form.Comments" placeholder="Renseignez ici les informations utiles au déploiement de l'outil de supervision sur votre serveur : Identifiants SSH à utiliser, particularités à prendre en compte, etc..." ></textarea>
+
+                        <br /><br />
+
+                        <i style="font-size:13px">Ces informations seront utilisées pour mettre en place la supervision sur votre serveur. Après réalisation, un mail de confirmation vous sera envoyé et vous pourrez configurer les ports à superviser si besoin.</i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+
+            <div style="margin-bottom:10px;" ng-if="Outsourcing.Form.ID_Type">
+                <h2>Tarification mensuelle : {{Outsourcing.Price_Listing[Outsourcing.Form.ID_Type].Pricing}}€ TTC / Mois</h2>
+            </div>
+
+            <span class="AjaxReply" ng-bind-html="FormError" ng-if="FormError"></span>
+            <div class="clear"></div>
+            <span class="button button_submit"></span>
+        </div>
+
+    </form>
+
+
+</div>
