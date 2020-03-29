@@ -56,7 +56,7 @@ Dashboard.controller('DashboardController', function($rootScope , $scope, UserSe
         MLP_BusyText = 'Techniciens actuellement indisponibles pour un chat live. <a href="https://dashboard.nextwab.net/support/">Envoyer un ticket ?</a>';
         MLP_OnlineClass = 'blink';
         
-        $('body').append($("<script>", {src: "https://my-love.page/api-core/chat-engine/Vs7jZNcI8FRt?CSS_File=https%3A%2F%2Fwww.nextwab.com%2Fstyle%2Fmy-love-page.css"})); 
+        // $('body').append($("<script>", {src: "https://my-love.page/api-core/chat-engine/Vs7jZNcI8FRt?CSS_File=https%3A%2F%2Fwww.nextwab.com%2Fstyle%2Fmy-love-page.css"})); 
         };
         
         

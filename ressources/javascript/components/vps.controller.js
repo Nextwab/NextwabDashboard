@@ -1,4 +1,4 @@
-Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, PopupService, ListManager) {
+Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationService, ApiService, PopupService, ListManager) {
 	
     var VPS                 = this;
     var Dashboard           = null; 
@@ -42,6 +42,11 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     VPS.init = function(Dashboard) {
             VPS.Dashboard = Dashboard;
             VPS.Dashboard.VPS_Controller = VPS;
+            
+            if(NavigationService.get('create')) {
+                VPS.ValidateSubmit(NavigationService.get('create'));    
+            }
+            
         };
         
         
@@ -183,6 +188,15 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, ApiService, Po
     };
     
     
+    
+    // Submit from website
+    VPS.ValidateSubmit = function(ID_VPS) {
+        ApiService.post('VPS', 'Validate', {ID:ID_VPS} ).then(function(response) { 
+            if(response.valid) {
+                VPS.ReloadList();
+            }
+        });
+    };
     
     // Submit
     VPS.AddSubmit = function(Form) {
