@@ -241,8 +241,7 @@ div.input input{padding-left:25px;display:inline-block}
 .bull.orange{background:#dd881a}
 .contenair{background:#FFF url(/ressources/images/background-white.jpg);height:90vh;margin-top:5vh;width:80vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
 .contenair .menu{background:#6b6b6b;z-index:3;background:-moz-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:-webkit-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:linear-gradient(135deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);height:100%;width:55px;position:absolute;top:0;left:0;overflow:hidden;transition:all .3s;border-radius:5px 0 0 5px}
-.contenair .menu:hover{width:240px}
-.contenair .menu nav{margin-top:40px}
+.contenair .menu:hover{width:240px;box-shadow:0 0 30px #000;border-radius:5px}
 .contenair .menu a{z-index:2;display:block;height:45px;position:relative;transition:all .2s}
 .contenair .menu span{position:absolute;left:90px;top:13px;transition:all .3s;min-width:200px}
 .contenair .menu:hover span{left:45px}
@@ -253,6 +252,14 @@ div.input input{padding-left:25px;display:inline-block}
 .contenair .menu:hover:after{transform:rotate(-14deg);width:400px;height:240px;bottom:-40px}
 .contenair .menu .socialmedia_lastlink{margin-bottom:30px}
 .contenair .menu:hover .socialmedia_lastlink{margin-bottom:60px}
+.contenair .menu .logo-home{position:absolute;top:10px;left:3px;height:60px;opacity:0;transition:all .5s}
+.logos{height:60px}
+.logo-home-short{position:absolute;top:10px;left:3px;height:60px;transition:all .3s}
+.contenair .menu:hover .logos .logo-home{opacity:.4}
+.contenair .menu .logos:hover .logo-home{opacity:1}
+.contenair .menu .logos:hover .logo-home-short{opacity:0;left:-20px}
+.logos:hover a{height:80px!important;background:#3a6c88!important}
+.logos:hover a:after{transition:all .3s;position:absolute;content:"";background:#3a6c88;height:180px;width:300px;bottom:-48px;z-index:-1;transform:rotate(-14deg);left:-51px}
 .Frame{margin-left:55px;padding:20px;overflow:hidden;flex-flow:column;height:85vh}
 .Frame .Frame_Header{flex:0 1 auto;width:100%}
 .Frame .Frame_Header .button{position:absolute;right:18px;top:13px;font-family:Quicksand;font-weight:600}

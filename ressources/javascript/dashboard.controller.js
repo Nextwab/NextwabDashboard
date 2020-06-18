@@ -73,5 +73,11 @@ Dashboard.controller('DashboardController', function($rootScope , $scope, UserSe
         
         MLP_UserName = dashboard.ServiceUser.Login_Mail+' '+dashboard.ServiceUser.Login_HashKey;
         }
+        
+    // Logout URL
+    if(NavigationService.get('logout')) {
+        UserService.Logout();
+    }    
+        
 	});
 
