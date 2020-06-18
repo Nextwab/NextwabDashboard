@@ -32,6 +32,7 @@ Dashboard.service("ApiService", function ($rootScope, $q, $http, config_api, Exc
             method: 'POST',
             url: config_api.api_server + config_api.endpoints[Endpoint][Action],
             headers: {'Content-Type': undefined},
+            withCredentials: (Action == "Login"),
             data: form_data
         }
         ).then(function (response) {
