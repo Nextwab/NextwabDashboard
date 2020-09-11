@@ -1,0 +1,24 @@
+<div class="Chat" ng-controller="Chat_Controller as Chat" ng-init="Chat.ID_Public = Popup.Config.ID_Public;">
+
+    <form ng-handler="Chat" ng-handler-action="inviteUser" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="far fa-question-circle"></i></td>
+                    <td>
+                        <h1>Inviter un utilisateur</h1>
+                        <b>Êtes-vous sûr de vouloir ajouter cet utilisateur ?</b>  Cet utilisateur aura accès à cette discussion. <br />
+                        Assurez-vous de n'inviter que des personnes ayant obtenu votre accord au préalable ou celles qui vous ont sollicité.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+
+    </form>
+
+</div>

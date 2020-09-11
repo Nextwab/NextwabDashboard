@@ -1,6 +1,6 @@
 // Manage URL handling and provide navigation tools
 
-Dashboard.service("ApiService", function ($rootScope, $q, $http, config_api, ExchangeService) {
+Dashboard.service("ApiService", function ($rootScope, $q, $http, config_api, config_api_Chat, ExchangeService) {
 
     var vm_ApiService = this
     vm_ApiService.dashboard = null;
@@ -11,7 +11,7 @@ Dashboard.service("ApiService", function ($rootScope, $q, $http, config_api, Exc
 
 
     // Make POST Request 
-    vm_ApiService.post = function (Endpoint, Action, data) {
+    vm_ApiService.post = function (Endpoint, Action, data , applicationType = vm_ApiService.dashboard.applicationType) {
         var deferred = $q.defer();
 
         var form_data = new FormData();
@@ -27,12 +27,18 @@ Dashboard.service("ApiService", function ($rootScope, $q, $http, config_api, Exc
             form_data.append('LOGIN_Key_Hash', vm_User.Login_HashKey);
         }
 
+        
+        let config_used = config_api;
+        
+        if(applicationType == "Chat") {
+            config_used = config_api_Chat;
+        }
 
         $http({
             method: 'POST',
-            url: config_api.api_server + config_api.endpoints[Endpoint][Action],
+            url: config_used.api_server + config_used.endpoints[Endpoint][Action],
             headers: {'Content-Type': undefined},
-            withCredentials: (Action == "Login"),
+            withCredentials: (Action == "Login" || applicationType == "Chat" ? true : false ),
             data: form_data
         }
         ).then(function (response) {

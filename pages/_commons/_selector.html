@@ -20,7 +20,9 @@
              ng-click="SelectorController.select(selector)"
              class="option {{SelectorController.value == selector.value ? 'selected' : '' }}"
              >
-            <i class="{{selector.icon}}"/> {{selector.title}}
+            <i ng-if="selector.icon" class="{{selector.icon}}"/>
+            <img ng-if="selector.icon_image" src="{{selector.icon_image}}" />
+            {{selector.title}}
         </div>
     </div>
 

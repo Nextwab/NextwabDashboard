@@ -200,6 +200,57 @@ h1{font-weight:400;color:#4d4d4d;font-family:Metropolis Bold;font-size:24px;lett
 h1 b{font-weight:400}
 h5{font-size:40px;font-family:Dosis}
 table{border-collapse:collapse}
+.nav_chat span.chat{position:relative!important;color:#FFF;display:block;font-size:12px;padding:10px 0;margin-left:-20px;top:0!important}
+.nav_chat .state_bull{background:#aaa;width:10px;height:10px;display:inline-block;border-radius:40px;vertical-align:-1px}
+.nav_chat .state_bull.online{background:#38bb2d}
+.nav_chat .chat i{position:relative!important;top:0!important;left:0!important}
+.chat_header_button{padding:5px 7px;border-radius:4px;font-size:12px;background:#ffffff2b;cursor:pointer;display:inline-block;margin-right:10px;position:relative;margin-bottom:5px;margin-top:5px}
+.button_action.selected{background:#3A6C88aa}
+.chat_header_button_left{position:absolute}
+.chat_close{position:absolute;color:#B92B2B;top:-5px;right:-5px;font-size:12px;transition:all .2s;opacity:0;cursor:pointer}
+.button_action:hover .chat_close{opacity:1}
+.chat_close:hover{font-size:20px;top:-10px;right:-10px}
+.Chat_Contenair{height:100%;position:relative;padding:0;margin-right:-20px;margin-left:-20px;display:flex;flex-direction:column}
+.Chat_Contenair .chat_message_list{width:100%;overflow-y:scroll;left:0;margin-right:0;z-index:1;flex:3}
+.Chat_Contenair .chat_message_form{padding:20px;height:120px;bottom:-19px;left:0;width:calc(100% - 40px);max-height:120px;background:#cecece87}
+.chat_message{padding:10px;padding-left:20px;border-radius:5px;position:relative}
+.chat_message .date{font-size:11px}
+.chat_message .image_user{width:40px;height:40px;position:absolute;top:9px;left:13px;border-radius:100px}
+.chat_message_content{position:relative;background:#3A6C8817;margin-left:50px;padding:10px;border-radius:5px}
+.chat_message_content:after{right:100%;top:20px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:#FFFFFF00;border-right-color:#3A6C8817;border-width:10px;margin-top:-10px}
+.chat_message_spot{text-align:center;width:600px;height:400px;left:-999px;right:-999px;top:-999px;bottom:-999px;position:absolute;margin:auto}
+.chat_message_spot img{width:220px;height:220px;filter:grayscale(0.3)}
+.chb_create_conversation .fa-spinner{display:none}
+.chat_message_spot .title{display:block;font-size:30px}
+.chat_event{font-size:12px}
+.ce_new{color:#208648}
+.ce_leave{color:#AC0A0A}
+.user_in_conversation{display:inline-block;border-bottom:2px solid #ccc;margin-left:10px;position:relative;padding:3px;padding-left:25px;transition:all .2s;font-size:13px;font-weight:700}
+.user_in_conversation .img{position:absolute;left:5px}
+.user_in_conversation img{height:17px;width:17px;border-radius:25px;position:absolute;transition:all .2s}
+.user_in_conversation.writing .image_user{opacity:.2}
+.user_in_conversation.missing{opacity:.4}
+.chat_message_loading{display:none}
+.chat_message_loading img{position:absolute;top:-999px;bottom:-999px;left:-999px;right:-999px;margin:auto}
+.chat_connected_users{position:relative;border-left:2px solid #cccccc2e;margin-right:10px;margin-left:25px;margin-top:40px;width:205px;opacity:0;transition:all .2s}
+.chat_connected_users .title{color:#FFF;position:absolute;top:-20px;font-size:12px}
+.menu:hover .chat_connected_users{opacity:1}
+.button_invite{font-size:12px;font-weight:400;border:1px solid #ccc;padding:2px 7px;border-radius:4px;margin-left:-17px;opacity:0;transition:all .2s;cursor:pointer}
+.chat_connected_users .chat:hover .button_invite{opacity:1}
+.chat_connected_users .chat:hover .button_invite:hover{background:#FFFFFF17;border:1px solid #cccccc94}
+.menu:hover .chat_connected_users .chat{left:0!important}
+.menu:hover .chat_connected_users .chat:hover{left:45px!important}
+.chat_header_user_account{position:absolute;top:9px;right:20px;padding:3px 9px;cursor:pointer;border-radius:4px;transition:all .2s}
+.chat_header_user_account:hover{background:#FFFFFF2B}
+.chat_header_user_account i{font-size:30px;vertical-align:-5px}
+.user_state_bull{background:#ddd;border-radius:20px;width:10px;height:10px;display:inline-block}
+.state_online{background:#6cc44d}
+.state_busy{background:#d59927}
+.state_away{background:#d52727}
+.state_offline{background:#ddd}
+.readed_mark{position:absolute;bottom:0;right:30px;font-size:20px;border:4px solid #FFF;border-radius:16px;color:#3A6C8817;display:none}
+.readed .readed_mark{display:block}
+.unreaded_box_counter{background:#d21c1cba;padding:2px 6px;margin-left:5px;border-radius:4px;font-size:10px}
 .table_icon td{padding:10px}
 .table_icon h1,.BalanceManager h1{font-weight:800;font-size:22px;color:#b3bcc4;font-family:Quicksand}
 .table_icon i{font-size:65px;color:#b3bcc4}
@@ -228,6 +279,7 @@ div.input input{padding-left:25px;display:inline-block}
 .color-orange{color:#ce7f19}
 .color-black{color:#333!important}
 .color-blue{color:#0087FF}
+.color-or{color:#C49D2B}
 .legend{font-size:12px}
 .width-full{width:100%}
 .monitoring-item{display:inline-block;background:#484848;padding:5px 8px;border-radius:3px;margin-right:10px;font-weight:700;color:#FFF;font-size:11px;margin-top:3px;margin-bottom:3px;cursor:pointer;transition:all .2s}
@@ -303,12 +355,14 @@ popup .red,.color-red{color:#ca4545!important}
 .div_bulle{position:relative;background:#19293e;padding:10px;border-bottom:4px solid #111;margin-bottom:40px!important;border-radius:6px;color:#666}
 .div_bulle h5{font-size:18px;font-family:Montserrat;font-weight:400;color:#fff}
 .div_bulle h5 b{font-size:26px;font-weight:600}
+.vps-flag{width:13px;height:13px;vertical-align:-1px}
 .VPS_Popup{background:#262626}
 .VPS_Popup .Line_Item .td-icon{width:30px;text-align:center}
 .VPS_Popup .Line_Item .td-icon i{font-size:19px;color:#5e5e5e}
 .VPS_Popup .Line_Item{background:#333;box-shadow:none;border-bottom:0;color:#B3B3B3}
 .VPS_Popup .Line_Item_Unit{font-size:15px;color:#e6851f}
 .VPS_Popup .range_contenair .option{border:2px solid #393939;color:#d0d0d0}
+.VPS_Popup .range_contenair .option img{width:16px;vertical-align:-2px}
 .VPS_Popup .range_contenair .option:hover{border:2px solid #B5866A;color:#B5866A}
 .VPS_Popup .range_contenair .option.selected{color:#e6851f}
 .VPS_Popup .Popup_Header{background:#373737;color:#ccc;font-family:Montserrat}
@@ -438,7 +492,8 @@ to{color:#6f8395}
 .table-user td{padding:5px}
 .img-user{position:relative;height:70px;width:70px;overflow:hidden;border-radius:65px}
 .img-user img{position:absolute;height:100%;bottom:-999px;top:-999px;left:-999px;right:-999px;margin:auto}
-.Frame_Account_Header{margin-left:-20px;margin-top:-20px;padding:10px 20px;background:#FFF url(/ressources/images/background-535353.png);color:#E3E3E3}
+.Frame_Account_Header{z-index:2;margin-left:-20px;margin-top:-20px;padding:10px 20px;background:#FFF url(/ressources/images/background-535353.png);color:#E3E3E3}
+.Frame_Chat_Header{margin-left:-20px;margin-top:-20px;padding:10px 20px;background:#FFF url(/ressources/images/background-535353.png);color:#E3E3E3}
 .Header_Account_Creation{background:#FFF url(/ressources/images/background-black.png)}
 .Account_Balance img{position:absolute;left:0}
 .Account_Balance .button{right:auto!important;left:0!important;top:65px!important}

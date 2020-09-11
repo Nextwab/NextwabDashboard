@@ -1,0 +1,61 @@
+<div class="Frame flex" ng-controller="Chat_Controller as Chat" ng-init="Chat.init(Dashboard); Chat.load()">
+
+    <div class="Frame_Header Frame_Account_Header">
+        <div ng-include="'/pages/chat/_chat_header.html'"></div>
+    </div>
+    
+    
+    <div class="Frame_Contenair Chat_Contenair">
+    
+        <div class="chat_message_loading">
+            <img src="https://my-love.page/frontend/Ressources_Images/Icons/Flat-UI-Writing.gif" />
+        </div>
+        
+        <div class="chat_message_spot" ng-if="!Dashboard.ServiceChat.Conversation_Selected">
+            <img src="https://my-love.page/frontend/Ressources_Images/MLP-Logo-B_A.png">
+            <b class="title">Bienvenue sur notre Chat !</b>
+            <span class="">Bienvenue sur le chat Nextwab ! Il s'agit d'un chat communautaire et publique,<br /><b class="warning">ne communiquez jamais vos identifiants / mots de passe à qui que ce soit</b> via ce canal.
+            
+            <br /><br />
+            Pour toute autre demande non liées à des demandes d'assistance / commerciales (Demande de support technique par exemple), il sera nécessaire de créer un ticket depuis votre espace client.
+            </span>
+        </div>
+    
+        <div class="chat_message_list" ng-if="Dashboard.ServiceChat.Conversation_Selected">
+        
+            <div class="chat_message" ng-repeat="Message in Dashboard.ServiceChat.Conversation.Messages" data-id="{{Message.ID}}">
+                <img class="image_user" src="https://my-love.page/{{Dashboard.ServiceChat.Conversation.Users[Message.User_ID]['Picture']}}" />
+                
+                <div class="chat_message_content">
+                    <div class="user_message_header"><b>{{Message.Pseudo}}</b> <span class="date">&bull; {{Message.Date_String}}</span></div>
+                    <div class="" ng-bind-html="Message.Message"></div>
+                </div>
+                
+                <i class="readed_mark fas fa-check-circle"></i>
+            </div>
+            
+        </div>
+        
+        <div class="chat_message_form" ng-if="Dashboard.ServiceChat.Conversation_Selected">
+            
+            <div ng-repeat="User in Dashboard.ServiceChat.Conversation.Users" 
+            style="border-color:{{User.Color}}" 
+            class="button_action user_in_conversation {{User.Writing ? 'writing' : ''}} {{!User.Present ? 'missing' : ''}}"
+            ng-if="(User.Date_Last_Ping > Dashboard.ServiceChat.date_LimitShowUsers || User.Is_Admin) && (User.Exited == '0' || User.Exited == 0 ) "
+            >
+                <div class="img">
+                    <img class="image_user" src="https://my-love.page/{{Dashboard.ServiceChat.Conversation.Users[User.ID]['Picture']}}" />
+                    <img  class="Writing_Loading" src="https://my-love.page/frontend/Ressources_Images/Icons/Flat-UI-Writing.gif" ng-if="User.Writing" />
+                </div>
+                {{User.Pseudo}}
+                
+                <i class="fas fa-minus-circle chat_close" ng-if="!User.Is_Admin && !User.Is_Admin_Conversation" ng-click="Dashboard.ServiceChat.removeUser_Confirmation(User.ID_Public)"></i>
+            </div>
+            
+            
+            
+            
+            <textarea ng-model="Dashboard.ServiceChat.MessageToSend"  ng-keydown="Dashboard.ServiceChat.keyPressMessageForm($event)" placeholder="Rédigez votre message ici et appuyez sur Entrée"></textarea>
+        </div>
+    </div>
+</div>

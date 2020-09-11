@@ -121,7 +121,40 @@ Dashboard.value('config_routes', {
         
         'Transaction'       : {
             'ViewBill'          : "/transactions/popup/view.html",
+        },
+        'Chat'   : {
+            'Quit_Conversation'       : "/chat/popup/close_conversation.html",
+            'Invite_User'             : "/chat/popup/invite_user.html",
+            'Remove_User'             : "/chat/popup/remove_user.html",
+            'Account_Edition'         : "/chat/popup/edit_account.html"
         }
-        
     }
 });
+
+
+
+
+Dashboard.value('config_routes_Chat', {
+    "_not_found"                            : {file : "/_commons/not_found.html"                , handler : "empty"         , login : false},
+    "_not_logged"                           : {file : "/_commons/not_logged.html"               , handler : "empty"         , login : false},
+    "/"                                     : {file : "/chat/index.html"                        , handler : "contenair"     , login : false},
+    
+    "/account/popup/login.html"             : {file : "/account/popup/login.html"               , handler : "empty"         , login : false,    specific : 'LoginAction'},
+    
+    "/chat/popup/close_conversation.html"   : {file : "/chat/popup/close_conversation.html"     , handler : "empty"        , login : false},
+    "/chat/popup/invite_user.html"          : {file : "/chat/popup/invite_user.html"            , handler : "empty"        , login : false},
+    "/chat/popup/remove_user.html"          : {file : "/chat/popup/remove_user.html"            , handler : "empty"        , login : false},
+    "/chat/popup/edit_account.html"         : {file : "/chat/popup/edit_account.html"           , handler : "empty"        , login : false},
+    
+    
+    // Internal Endpoints
+    Endpoints       : {
+        'Chat'   : {
+            'Quit_Conversation'             : "/chat/popup/close_conversation.html",
+            'Invite_User'                   : "/chat/popup/invite_user.html",
+            'Remove_User'                   : "/chat/popup/remove_user.html",
+            'Account_Edition'               : "/chat/popup/edit_account.html"
+        }
+    }
+});
+

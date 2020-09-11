@@ -8,14 +8,35 @@ Dashboard.service("NavigationService", function($location , UserService){
 	// Init dashboard
 	vm_NavigationService.setDashboard = function(dashboard){
 		vm_NavigationService.dashboard = dashboard;
+        
+        vm_NavigationService.getApplicationType();
 	};
+    
+    
+    // Return get var
+	vm_NavigationService.getApplicationType = function(){
+       
+        vm_NavigationService.applicationType    = "Dashboard";
+        vm_NavigationService.applicationURL     = vm_NavigationService.dashboard.config.applicationURL;
+        vm_NavigationService.applicationRoutes  = vm_NavigationService.dashboard.config_routes;
+
+        // Chat
+        if(window.location.hostname == vm_NavigationService.dashboard.config.applicationHostname_Chat) {
+            vm_NavigationService.applicationType    = "Chat";
+            vm_NavigationService.applicationURL     = vm_NavigationService.dashboard.config.applicationURL_Chat;
+            vm_NavigationService.applicationRoutes  = vm_NavigationService.dashboard.config_routes_Chat;
+        }
+        
+        return vm_NavigationService.applicationType;
+    }
+    
     
     // Return get var
 	vm_NavigationService.get = function(name){
         
         var URL             = $location.$$absUrl;
-        var RelativeURL     = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "").split('?')[0];
-		var Arguments       = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "").split('?')[1];
+        var RelativeURL     = URL.replace(vm_NavigationService.applicationURL, "").split('?')[0];
+		var Arguments       = URL.replace(vm_NavigationService.applicationURL, "").split('?')[1];
         
         try {
         var Argument        = JSON.parse('{"' + decodeURI(Arguments).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
@@ -29,10 +50,12 @@ Dashboard.service("NavigationService", function($location , UserService){
     
 	// Return page to view
 	vm_NavigationService.getPageViewConfig = function(){
-	    
+        
+        vm_NavigationService.getApplicationType();
+        
 		// Get URL     
 		var URL = $location.$$absUrl;
-		var RelativeURL = URL.replace(vm_NavigationService.dashboard.config.applicationURL, "").split('?')[0];
+		var RelativeURL = URL.replace(vm_NavigationService.applicationURL, "").split('?')[0];
         
 		var PageViewConfig = vm_NavigationService.getViewConfig(RelativeURL);
 		
@@ -52,7 +75,7 @@ Dashboard.service("NavigationService", function($location , UserService){
     
 	vm_NavigationService.getViewConfig   = function(RelativeURL) {
 
-		var route_config = vm_NavigationService.dashboard.config_routes[RelativeURL];
+		var route_config = vm_NavigationService.applicationRoutes[RelativeURL];
 
 		if(typeof route_config === "undefined") {
 			return false;

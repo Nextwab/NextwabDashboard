@@ -14,6 +14,8 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationServ
     VPS.Rack                = [];
     
     VPS.ListStatut          = "loading";
+    VPS.Country_Mapping     = {FR : "France", CA: "Canada"};
+    
     
     // VPS Creation & Edition settings
     VPS.Settings    = {
@@ -32,6 +34,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationServ
             ]
         },
         OS              : {title: "OS"              , name : "OS"          , type:"option" , icon: "fas fa-server"             , options        : [] , value  : "Debian 9"  },
+        Country         : {title: "Pays"            , name : "Country"     , type:"option" , icon: "fas fa-globe-americas"     , options        : [] , value  : "FR"  },
     };
     
     
@@ -147,6 +150,21 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationServ
         angular.element( $('.Frame') ).scope().VPS.load();
     };
     
+    
+    // Set Country List
+    VPS.setCountry_List = function(countries) {
+      
+        VPS.Settings.Country.options = [];
+        
+        angular.forEach(countries, function(value, key) {
+            
+            let icon = '/ressources/images/Flag-Round/Flag-'+value;
+        
+            VPS.Settings.Country.options.push( {value : value , title : VPS.Country_Mapping[value], icon_image : icon} );
+        });
+    };
+    
+    
     // Set OS List of selected VPS Type
     VPS.setOS_List = function(Type) {
         
@@ -183,7 +201,8 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationServ
             VPS.FormError   = response.errorMessage;
             VPS.FormState   = response.valid;
             VPS.Price       = response.data.Price_Per_Month; 
-            VPS.update_CalculatedPrice(); 
+            VPS.update_CalculatedPrice();
+            VPS.setCountry_List(response.data.Data.Countries);
         });
     };
     

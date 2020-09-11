@@ -45,7 +45,7 @@ Dashboard.controller('User_Controller', function($scope, UserService, ApiService
     };
     
     User.load = function() {
-        ApiService.post('User', 'GetInfos' , {} ).then(function(response) {
+        ApiService.post('User', 'GetInfos' , {}, 'Dashboard' ).then(function(response) {
             
             if(response.data.State != 1) {
                 User.Dashboard.ServiceUser.Logout();

@@ -1,0 +1,38 @@
+<div class="Domain" ng-controller="Chat_Controller as Chat" ng-init="ServiceChat = this.$parent.$parent.$parent.Dashboard.ServiceChat; Chat.Profil_Data = ServiceChat.Profil;">
+
+    <form ng-handler="Chat" ng-handler-action="editAccount" class="{{FormState}}">  
+        <div class="Line_Item m-b-20">
+            <table class="table_icon">
+                <tr>
+                    <td><i class="fas fa-user-edit"></i></td>
+                    <td>
+                        <b>Pseudo :</b> <br />
+                        <input type="text" ng-model="Chat.Profil_Data.Pseudo">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <b>Statut :</b> <br />
+                        <span class="user_state_bull {{ServiceChat.States[Chat.Profil_Data.State]['class']}}"></span>
+                        
+                        <select ng-model="Chat.Profil_Data.State">
+                            <option value="1">En ligne</option>
+                            <option value="2">Occupé</option>
+                            <option value="3">Absent</option>
+                            <option value="4">Invisible</option>
+                        </select>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+
+        <div class="Popup_Footer" >
+            <span class="button button_submit"></span>
+            <span class="button button_cancel"></span>
+        </div>
+
+    </form>
+
+</div>

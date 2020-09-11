@@ -45,7 +45,7 @@ Dashboard.service("UserService", function ($rootScope, $location, $timeout, ApiS
         $('.button_login').val("Chargement...").addClass('bg-grey');
         $('.login_loading').fadeIn();
         
-        ApiService.post('User', 'Login', {LOGIN_Mail: User.Login_Mail, LOGIN_Password: User.Login_Password}).then(function (Exchange) {
+        ApiService.post('User', 'Login', {LOGIN_Mail: User.Login_Mail, LOGIN_Password: User.Login_Password}, 'Dashboard').then(function (Exchange) {
 
             $('.button_login').val("Se connecter").removeClass('bg-grey');
             $('.login_loading').fadeOut();

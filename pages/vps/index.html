@@ -26,16 +26,25 @@
         <div ng-repeat="VPS_Data in VPS.Listing" class="List_Item">
             <table class="width-full">
                 <tr>
-                    <td class="td-icon"><i class="fas fa-server"></i><span class="bull {{VPS_Data.PowerState == 'started' ? 'green' : 'red'}}"></span></td>
+                    <td class="td-icon">
+                        <i class="fas fa-server"></i>
+                        <span class="bull {{VPS_Data.PowerState == 'started' ? 'green' : 'red'}}"></span>
+                    </td>
+                    
                     <td style="width: 250px;">
-                        <b>{{VPS_Data.Hostname}}</b><br />
-                        <span class="legend">#VM.{{VPS_Data.ID}} &bull; {{VPS_Data.OS}}</span>
+                        <img src="/ressources/images/Flag-Round/Flag-{{VPS_Data.Country}}.png" class="vps-flag" /> <b>{{VPS_Data.Hostname}}</b><br />
+                        <span class="legend">#VM{{VPS_Data.Country}}.{{VPS_Data.ID}} &bull; {{VPS_Data.OS}}</span>
                     </td>
 
                     <td style="width: 140px;">
                         <div class="" ng-repeat="IP in VPS_Data.IPs">
                             <span class=""><i class="fas fa-network-wired"></i> {{IP.IP}}</span>
                         </div>
+                        
+                        <div class="" ng-if="VPS_Data.IPs.length == 0 || VPS_Data.IPs == null " style="font-size:11px">
+                            <span class=""><i class="fas fa-network-wired"></i> En cours d'attribution</span>
+                        </div>
+                        
                     </td>
 
 

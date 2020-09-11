@@ -26,6 +26,7 @@ var SelectorController = function( $scope, $element){
     
     
     vm_Selector.icon                    = Selector_Settings.icon                    || false ;
+    vm_Selector.icon_image              = Selector_Settings.icon_image              || false ;
     vm_Selector.show_value              = Selector_Settings.show_value              || true ;
     vm_Selector.type                    = Selector_Settings.type                    || "range" ;
     vm_Selector.unit                    = Selector_Settings.unit                    || "" ;

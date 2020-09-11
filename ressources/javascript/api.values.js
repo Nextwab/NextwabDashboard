@@ -8,13 +8,13 @@ Dashboard.value('config_api',
                 // Section VPS
                 VPS:
                         {
-                            Add: '/vps/create.php',
+                            Add: '/vps/Create',
                             Update: '/vps/update.php',
                             List: '/vps/GetList',
                             Validate: '/vps/Validate',
                             List_OS: '/vps/get_list_os.php',
                             Delete: '/vps/delete.php',
-                            Pricing: '/vps/get_pricing.php',
+                            Pricing: '/vps/GetPricing',
                             SetPower: '/vps/set_power.php'
                         }
                 ,
@@ -78,7 +78,7 @@ Dashboard.value('config_api',
                             UpdatePassword: '/mailbox/UpdatePassword'
                         }
                 ,
-                
+
                 // Section Gifts_Card
                 Transaction:
                         {
@@ -86,7 +86,7 @@ Dashboard.value('config_api',
                             GetBill: '/Transaction/GetBill'
                         }
                 ,
-                
+
                 // Section Gifts_Card
                 Gift_Card:
                         {
@@ -94,14 +94,14 @@ Dashboard.value('config_api',
                             UseCode: '/Gift_Card/UseCode'
                         }
                 ,
-                
+
                 // Section Events
                 Event:
                         {
                             List: '/Event/GetList'
                         }
                 ,
-                
+
                 // Section Outsourcing
                 Outsourcing:
                         {
@@ -130,3 +130,29 @@ Dashboard.value('config_api',
             }
         }
 );
+
+
+Dashboard.value('config_api_Chat',
+        {
+            "api_server": "https://my-love.page",
+            "endpoints": {
+
+                // Section VPS
+                Account:
+                        {
+                            Ping: '/api/ping.html'
+                        }
+                ,
+                Messages:
+                        {
+                            CreateConversation: '/api/Messages/create-conversation.html',
+                            QuitConversation: '/api/Messages/quit-conversation.html',
+                            InviteUser: '/api/Messages/invite-user.html',
+                            RemoveUser: '/api/Messages/remove-user.html',
+                            SendMessage: '/api/Messages/send.php',
+                            GetMessages: '/api/Messages/messages.json',
+                        }
+
+
+            }
+        });
