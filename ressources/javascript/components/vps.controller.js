@@ -71,6 +71,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationServ
                 ListManager.setValuesOf(VPS , VPS.Listing[ID_VPS] );
                 
                 VPS.Settings.Type.visibility    = "hidden";
+                VPS.Settings.Country.visibility    = "hidden";
                 VPS.Settings.OS.visibility      = "hidden";
                 
             }
