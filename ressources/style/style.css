@@ -383,7 +383,7 @@ popup .red,.color-red{color:#ca4545!important}
 .CaseGift input{width:360px!important}
 .Events{display:none}
 .Events .Event_Content,.Events .Event_Switcher{background:#EEE}
-.Events .Event_Content{border-radius:8px;display:none}
+.Events .Event_Content{border-radius:8px;display:none; margin-bottom:15px;}
 .Events .Event_Switcher{margin-bottom:25px;display:inline-block;margin-left:40px;padding:5px 20px;border-radius:0 0 5px 5px;font-weight:700;font-size:12px;border-top:1px dashed #aaa;cursor:pointer}
 .Events .title{display:block;font-size:15px}
 .Events a{color:#00a1fb}
