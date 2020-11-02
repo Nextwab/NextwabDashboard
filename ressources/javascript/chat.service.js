@@ -35,8 +35,8 @@ Dashboard.service("ChatService", function($compile , $location, $timeout, ApiSer
     
     // Load data tree
     vm_Chat.load     = function() {
-        
-        if(vm_Chat.dashboard != "Chat") {
+
+        if(vm_Chat.dashboard.applicationType != "Chat") {
             return false;
         }
         

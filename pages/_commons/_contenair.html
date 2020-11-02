@@ -37,11 +37,13 @@
         
         
         <nav class="nav_chat" ng-if="Dashboard.applicationType == 'Chat'" ng-controller="Chat_Controller as Chat" ng-init="Chat.init(Dashboard); Chat.load()">
-            <a href="/"><i class="fas fa-chevron-left"></i> <span>Tableau de bord</span></a>
+            <a href="https://dashboard.nextwab.net"><i class="fas fa-chevron-left"></i> <span>Tableau de bord</span></a>
 
             <div class="chat_connected_users">
+			
+			
                 <b class="title">Utilisateurs connectés</b>
-                <span class="chat" ng-repeat="User in Dashboard.ServiceChat.Users track by User.ID_Public">
+                <span class="chat" ng-repeat="User in Dashboard.ServiceChat.Users track by User.ID_Public" title="{{User.Is_Online ? 'En ligne' : 'Actuellement hors ligne'}}">
                     <b class="button_invite" ng-click="Dashboard.ServiceChat.inviteUser_Confirmation(User.ID_Public)">Inviter</b>
                     <b class="state_bull {{User.Is_Online ? 'online' : ''}}"></b> {{User.Pseudo}} <b class="color-or" ng-if="User.Admin"> <i class="fas fa-crown"></i> Admin</b>
                 </span>

@@ -1,4 +1,4 @@
-<div class="Frame flex" ng-controller="Chat_Controller as Chat" ng-init="Chat.init(Dashboard); Chat.load()">
+<div class="Frame flex" ng-controller="Chat_Controller as Chat" ng-init="Chat.init(Dashboard); Chat.load(); Chat.AutoReload()">
 
     <div class="Frame_Header Frame_Account_Header">
         <div ng-include="'/pages/chat/_chat_header.html'"></div>
@@ -12,7 +12,9 @@
         </div>
         
         <div class="chat_message_spot" ng-if="!Dashboard.ServiceChat.Conversation_Selected">
-            <img src="https://my-love.page/frontend/Ressources_Images/MLP-Logo-B_A.png">
+            <a href="https://my-love.page" target="_blank"><img src="https://my-love.page/frontend/Ressources_Images/MLP-Logo-B_A.png"></a>
+			<br />
+			
             <b class="title">Bienvenue sur notre Chat !</b>
             <span class="">Bienvenue sur le chat Nextwab ! Il s'agit d'un chat communautaire et publique,<br /><b class="warning">ne communiquez jamais vos identifiants / mots de passe à qui que ce soit</b> via ce canal.
             
