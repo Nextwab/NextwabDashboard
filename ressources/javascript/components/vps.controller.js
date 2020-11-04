@@ -21,7 +21,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationServ
     VPS.Settings    = {
         vCores          : {title: "vCores"          , name : "vCores"       , type:"range"  , icon: "fas fa-microchip"          , range_start   : 1 , range_end : 8   , value : 1     , unit: "CPU"   },
         Ram             : {title: "RAM"             , name : "Ram"          , type:"range"  , icon: "fas fa-memory"             , range_start   : 1 , range_end : 12  , value : 1     , unit: "GB"    , display_step:2},
-        Disk            : {title: "Stockage"        , name : "Disk"         , type:"range"  , icon: "fas fa-hdd"                , range_start   : 1 , range_end : 300 , value : 50    , unit: "GB"    ,range_step: 10 , display_step:50},
+        Disk            : {title: "Stockage"        , name : "Disk"         , type:"range"  , icon: "fas fa-hdd"                , range_start   : 1 , range_end : 400 , value : 50    , unit: "GB"    ,range_step: 10 , display_step:50},
         Bandwidth       : {title: "Bande Passante"  , name : "Bandwidth"    , type:"range"  , icon: "fas fa-tachometer-alt"     , range_start   : 1 , range_end : 150 , value : 100   , unit: "Mbps"  ,range_step: 10 , display_step:50},
         IPv4            : {title: "Nombre d'IPv4"   , name : "IPv4"         , type:"range"  , icon: "fas fa-server"             , range_start   : 1 , range_end : 8   , value : 1     , unit: "IPv4"  },
         IPv6            : {title: "Nombre d'IPv6"   , name : "IPv6"         , value: 0      , visibility : "hidden"            },
@@ -169,7 +169,7 @@ Dashboard.controller('VPS_Controller', function($scope, $timeout, NavigationServ
     // Set OS List of selected VPS Type
     VPS.setOS_List = function(Type) {
         
-        VPS.Settings.Disk.range_end = (VPS.Settings.Type.value == 2 || VPS.Settings.Type.value == 4 ? 80 : 300) ;
+        VPS.Settings.Disk.range_end = (VPS.Settings.Type.value == 2 || VPS.Settings.Type.value == 4 ? 80 : 400) ;
         
         VPS.Settings.OS.options = [];
         
