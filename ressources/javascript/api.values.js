@@ -24,7 +24,7 @@ Dashboard.value('config_api',
                         {
                             Check: '/domains/check.php',
                             Add: '/domains/add.php',
-                            Buy: '/domains/buy.php',
+                            Buy: '/domain/Buy',
                             List: '/domain/GetList',
                             Delete: '/domains/delete.php',
                             SetCloudServer: '/domains/set_cloud_device.php',
