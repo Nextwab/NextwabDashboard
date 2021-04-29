@@ -327,10 +327,10 @@ div.input input{padding-left:25px;display:inline-block}
 .AjaxReply{color:#666;margin-bottom:20px;background:#ffffffbf;border-radius:5px;padding:5px 10px;border-bottom:3px solid #939393;display:inline-block;position:relative}
 .AjaxReply:after{top:100%;left:25px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(136,183,213,0);border-top-color:#939393;border-width:15px;margin-left:-15px}
 .text-align-center .AjaxReply:after{left:50%}
-popup{z-index:9999;position:fixed;top:10vh;background:#fff;width:800px;left:0;right:0;border-bottom:4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
-popup:after{content:""}
-popup input[type=text],popup input[type=password]{width:215px}
-popup .red,.color-red{color:#ca4545!important}
+popup-custom{z-index:9999;position:fixed;top:10vh;background:#fff;width:800px;left:0;right:0;border-bottom:4px solid #7d7d7d;margin-left:auto;margin-right:auto;box-shadow:0 0 20px #2d2d2d;border-radius:4px;overflow:hidden}
+popup-custom:after{content:""}
+popup-custom input[type=text],popup-custom input[type=password]{width:215px}
+popup-custom .red,.color-red{color:#ca4545!important}
 .Popup_Login{text-align:center}
 .Popup_Login b{display:block;font-weight:600}
 .Popup_Login .block{margin-top:20px;margin-bottom:40px}
