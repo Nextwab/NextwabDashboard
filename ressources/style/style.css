@@ -291,7 +291,7 @@ div.input input{padding-left:25px;display:inline-block}
 .bull.red{background:#ae2222}
 .bull.blue{background:#0087FF}
 .bull.orange{background:#dd881a}
-.contenair{background:#FFF url(/ressources/images/background-white.jpg);height:90vh;margin-top:5vh;width:80vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
+.contenair{background:#FFF url(/ressources/images/background-white.jpg);height:90vh;margin-top:5vh;width:95vw;margin-left:auto;margin-right:auto;position:relative;border-radius:5px;box-shadow:0 0 10px #000}
 .contenair .menu{background:#6b6b6b;z-index:3;background:-moz-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:-webkit-linear-gradient(-45deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);background:linear-gradient(135deg,#6b6b6b 0%,#383838 50%,#212121 50%,#000 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b',endColorstr='#000000',GradientType=1);height:100%;width:55px;position:absolute;top:0;left:0;overflow:hidden;transition:all .3s;border-radius:5px 0 0 5px}
 .contenair .menu:hover{width:240px;box-shadow:0 0 30px #000;border-radius:5px}
 .contenair .menu a{z-index:2;display:block;height:45px;position:relative;transition:all .2s}
